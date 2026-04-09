@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
   <style>
+    /* Scientific names (binomials) */
+    .sci-name { font-style: italic; }
     /* ── Reset & base ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -592,6 +594,7 @@ const state = {
   },
   charts: {},
   map: null,
+  mapPopup: null,
   clusterLayer: null,
   markers: [],          // parallel to allRows for map
 };
@@ -910,7 +913,7 @@ function updateMap() {
     });
     m.on('click', (e) => {
       L.DomEvent.stopPropagation(e);
-      showMapInfoPanel(r);
+      showMapInfoPanel(r, e.latlng);
     });
     cluster.addLayer(m);
     shown++;
@@ -923,44 +926,75 @@ function updateMap() {
 }
 
 // ── Map info panel ─────────────────────────────────────────────────
-function showMapInfoPanel(r) {
-  const panel   = document.getElementById('map-info-panel');
-  const density = r.Density && r.Density !== 'NA' ? `${r.Density} ${r.Density_unit}` : 'N/A';
+function showMapInfoPanel(r, latlng) {
+  closeMapInfoPanel();
 
-  document.getElementById('mip-species').textContent = r.Species_rep || 'Unknown';
-  document.getElementById('mip-taxon').textContent   =
-    [r.Class, r.Order, r.Family].filter(Boolean).join(' · ');
+  const species = r.Species_rep || 'Unknown';
+  const taxon   = [r.Class, r.Order, r.Family].filter(Boolean).join(' · ');
+  const density = (r.Density && r.Density !== 'NA')
+    ? `${r.Density} ${r.Density_unit}`
+    : 'N/A';
 
+  // Native removed; Density moved to the end (after Method)
   const fields = [
-    ['Country',  r.Country  || '–'],
-    ['Site',     r.Site     || '–'],
-    ['Year',     r.Year     || '–'],
-    ['Density',  density,  true],
-    ['Method',   r.Method   || '–'],
-    ['Native',   r.Native   || '–'],
+    ['Country', r.Country || '–'],
+    ['Site',    r.Site    || '–'],
+    ['Year',    r.Year    || '–'],
+    ['Method',  r.Method  || '–'],
+    ['Density', density, true],
   ];
-  if (r.Notes && r.Notes !== 'NA') fields.push(['Notes', r.Notes]);
+  if (r.Notes && r.Notes !== 'NA') fields.splice(4, 0, ['Notes', r.Notes]); // keep Notes before Density
 
-  document.getElementById('mip-body').innerHTML = fields.map(([lbl, val, bold]) =>
-    `<div class="mip-row">
-      <span class="mip-label">${lbl}</span>
-      <span class="mip-value">${bold ? `<b>${val}</b>` : val}</span>
-    </div>`
-  ).join('');
+  const html = `
+    <div style="min-width:240px">
+      <div style="font-weight:700;font-size:.95rem;line-height:1.2">
+        <span class="sci-name">${escHtml(species)}</span>
+      </div>
+      <div style="color:var(--muted);font-size:.72rem;margin-top:2px">${escHtml(taxon)}</div>
 
-  // Wire the "View in table" link for this specific record
-  const link = document.getElementById('mip-table-link');
-  link.onclick = (e) => {
-    e.preventDefault();
-    closeMapInfoPanel();
-    openRowInTable(r);
-  };
+      <div style="margin-top:8px;display:flex;flex-direction:column">
+        ${fields.map(([lbl, val, bold]) => `
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px solid var(--bg3);font-size:.8rem">
+            <span style="color:var(--muted)">${escHtml(lbl)}</span>
+            <span style="color:var(--text);font-weight:500;text-align:right;max-width:170px;word-break:break-word">
+              ${bold ? `<b style="color:var(--accent)">${escHtml(val)}</b>` : escHtml(val)}
+            </span>
+          </div>
+        `).join('')}
+      </div>
 
-  panel.classList.add('open');
+      <div style="margin-top:10px">
+        <a href="#" id="popup-table-link"
+           style="display:block;text-align:center;padding:7px;background:var(--bg3);border:1px solid var(--accent);color:var(--accent);border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none">
+          View in table →
+        </a>
+      </div>
+    </div>
+  `;
+
+  state.mapPopup = L.popup({ closeButton: true, maxWidth: 320 })
+    .setLatLng(latlng)
+    .setContent(html)
+    .openOn(state.map);
+
+  // Wire link after popup DOM exists
+  setTimeout(() => {
+    const link = document.getElementById('popup-table-link');
+    if (link) {
+      link.onclick = (e) => {
+        e.preventDefault();
+        closeMapInfoPanel();
+        openRowInTable(r);
+      };
+    }
+  }, 0);
 }
 
 function closeMapInfoPanel() {
-  document.getElementById('map-info-panel').classList.remove('open');
+  if (state.mapPopup) {
+    state.map.closePopup(state.mapPopup);
+    state.mapPopup = null;
+  }
 }
 
 // Chart theme – read from CSS custom properties
@@ -1268,6 +1302,11 @@ function renderTable() {
           if (!v || v === 'NA') return `<td><span style="color:var(--border)">–</span></td>`;
           return `<td><span class="ref-cell" data-refn="${escHtml(v)}" title="View reference #${escHtml(v)}">#${escHtml(v)}</span></td>`;
         }
+        if (col.key === 'Species_rep') {
+          const v = r[col.key];
+          if (!v || v === 'NA') return `<td><span style="color:var(--border)">–</span></td>`;
+          return `<td title="${escHtml(v)}"><span class="sci-name">${escHtml(v)}</span></td>`;
+        }
         const v = r[col.key];
         const disp = (!v || v === 'NA') ? '<span style="color:var(--border)">–</span>' : escHtml(v);
         return `<td title="${escHtml(v||'')}">${disp}</td>`;
@@ -1402,9 +1441,6 @@ function switchToTab(tabName) {
 
 // ── Event bindings ─────────────────────────────────────────────────
 function bindEvents() {
-  // Map info panel – close button
-  document.getElementById('mip-close').addEventListener('click', closeMapInfoPanel);
-
   // Map info panel – close when clicking the map background.
   state.map.on('click', () => closeMapInfoPanel());
 
