@@ -235,6 +235,33 @@
 
     /* empty state */
     .empty-state { padding: 40px; text-align: center; color: var(--muted); font-size: .9rem; }
+
+    /* ── Chart toggles ────────────────────────────────────────────── */
+    .chart-toggle {
+      background: var(--bg3); border: 1px solid var(--border); color: var(--muted);
+      padding: 3px 9px; border-radius: var(--radius); cursor: pointer; font-size: .72rem;
+      transition: color .2s, border-color .2s; white-space: nowrap;
+    }
+    .chart-toggle:hover { color: var(--text); border-color: var(--muted); }
+    .chart-toggle.active { color: var(--accent); border-color: var(--accent); }
+    .chart-card-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+    .chart-card-header h4 { margin: 0; }
+
+    /* ── Highlighted reference ────────────────────────────────────── */
+    .ref-item { cursor: pointer; transition: background .2s, border-color .2s; }
+    .ref-item:hover { border-color: var(--muted); }
+    .ref-item.highlighted { border-color: var(--accent); background: #162d3d; }
+
+    /* ── Ref cell in table ────────────────────────────────────────── */
+    .ref-cell {
+      color: var(--accent); cursor: pointer; font-weight: 600;
+      text-decoration: underline; text-decoration-color: transparent;
+      transition: text-decoration-color .15s;
+    }
+    .ref-cell:hover { text-decoration-color: var(--accent); }
+
+    /* ── Clickable table rows ─────────────────────────────────────── */
+    tbody tr.has-coords { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -284,6 +311,12 @@
       <div class="filter-group">
         <label>Order</label>
         <select id="f-order"><option value="">All orders</option></select>
+      </div>
+
+      <!-- Family -->
+      <div class="filter-group">
+        <label>Family</label>
+        <select id="f-family"><option value="">All families</option></select>
       </div>
 
       <!-- Country -->
@@ -369,7 +402,13 @@
             <canvas id="chart-method"></canvas>
           </div>
           <div class="chart-card">
-            <h4>Density distribution (ind/ha, log scale)</h4>
+            <div class="chart-card-header">
+              <h4 id="density-chart-title">Density distribution</h4>
+              <div style="display:flex;gap:6px">
+                <button id="density-unit-toggle" class="chart-toggle active" title="Toggle display unit">ind/ha</button>
+                <button id="density-scale-toggle" class="chart-toggle active" title="Toggle scale">log₁₀</button>
+              </div>
+            </div>
             <canvas id="chart-density"></canvas>
           </div>
           <div class="chart-card">
@@ -433,11 +472,14 @@ const state = {
     search:  '',
     classes: new Set(['Amphibia', 'Aves', 'Mammalia', 'Reptilia']),
     order:   '',
+    family:  '',
     country: '',
     method:  '',
     yearMin: null,
     yearMax: null,
   },
+  densityUnit:  'ind/ha',   // 'ind/ha' or 'ind/km2'
+  densityScale: 'log',      // 'log' or 'linear'
   table: {
     page:     1,
     pageSize: 25,
@@ -471,6 +513,7 @@ const COLUMNS = [
   { key: 'Density',      label: 'Density' },
   { key: 'Density_unit', label: 'Unit' },
   { key: 'Method',       label: 'Method' },
+  { key: 'Ref_N',        label: 'Reference' },
   { key: 'Sampling_area',label: 'Area' },
   { key: 'X',            label: 'Lon' },
   { key: 'Y',            label: 'Lat' },
@@ -479,7 +522,7 @@ const COLUMNS = [
   { key: 'Notes',        label: 'Notes' },
 ];
 
-const DEFAULT_COLS = new Set(['Class','Order','Family','Species_rep','Year','Country','Site','Density','Density_unit','Method']);
+const DEFAULT_COLS = new Set(['Class','Order','Family','Species_rep','Year','Country','Site','Density','Density_unit','Method','Ref_N']);
 
 // ── Utility ─────────────────────────────────────────────────────────
 function fmt(n) {
@@ -555,22 +598,23 @@ function init() {
 
 // ── Build filter dropdowns ─────────────────────────────────────────
 function buildFilterOptions() {
-  const orders    = new Set();
   const countries = new Set();
   const methods   = new Set();
   const years     = [];
 
   for (const r of state.allRows) {
-    if (r.Order   && r.Order   !== 'NA') orders.add(r.Order);
     if (r.Country && r.Country !== 'NA') countries.add(r.Country);
     if (r.Method  && r.Method  !== 'NA') methods.add(r.Method);
     const y = parseInt(r.Year);
     if (!isNaN(y)) years.push(y);
   }
 
-  populate('f-order',   [...orders].sort());
   populate('f-country', [...countries].sort());
   populate('f-method',  [...methods].sort());
+
+  // Orders and families are built dynamically (hierarchically)
+  updateOrderOptions();
+  updateFamilyOptions();
 
   if (years.length) {
     const mn = Math.min(...years), mx = Math.max(...years);
@@ -583,6 +627,45 @@ function buildFilterOptions() {
     state.filters.yearMin = mn;
     state.filters.yearMax = mx;
   }
+}
+
+function updateOrderOptions() {
+  const activeClasses = state.filters.classes;
+  const orders = new Set();
+  for (const r of state.allRows) {
+    if (activeClasses.has(r.Class) && r.Order && r.Order !== 'NA') orders.add(r.Order);
+  }
+  const sel = document.getElementById('f-order');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All orders</option>';
+  [...orders].sort().forEach(v => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+  if (orders.has(current)) sel.value = current;
+  else { sel.value = ''; state.filters.order = ''; }
+}
+
+function updateFamilyOptions() {
+  const activeClasses = state.filters.classes;
+  const activeOrder   = state.filters.order;
+  const families = new Set();
+  for (const r of state.allRows) {
+    if (!activeClasses.has(r.Class)) continue;
+    if (activeOrder && r.Order !== activeOrder) continue;
+    if (r.Family && r.Family !== 'NA') families.add(r.Family);
+  }
+  const sel = document.getElementById('f-family');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All families</option>';
+  [...families].sort().forEach(v => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+  if (families.has(current)) sel.value = current;
+  else { sel.value = ''; state.filters.family = ''; }
 }
 
 function populate(id, values) {
@@ -605,6 +688,8 @@ function applyFilters() {
     if (!f.classes.has(r.Class)) return false;
     // Order
     if (f.order && r.Order !== f.order) return false;
+    // Family
+    if (f.family && r.Family !== f.family) return false;
     // Country
     if (f.country && r.Country !== f.country) return false;
     // Method
@@ -809,11 +894,17 @@ function updateCharts() {
     },
   });
 
-  // ── Density histogram (log bins, ind/ha only)
+  // ── Density histogram (with unit conversion and scale toggle)
+  const targetUnit = state.densityUnit;
+  const scale      = state.densityScale;
   const densVals = rows
-    .filter(r => r.Density_unit === 'ind/ha' || r.Density_unit === 'males/ha')
-    .map(r => safeParseFloat(r.Density)).filter(v => v !== null && v > 0);
-  const bins = logBins(densVals, 15);
+    .map(r => toDensityUnit(r.Density, r.Density_unit, targetUnit))
+    .filter(v => v !== null && v > 0);
+  const bins = scale === 'log' ? logBins(densVals, 15) : linearBins(densVals, 15);
+  const unitLabel = targetUnit === 'ind/ha' ? 'ind/ha' : 'ind/km²';
+  const scaleLabel = scale === 'log' ? 'log₁₀ scale' : 'linear scale';
+  document.getElementById('density-chart-title').textContent =
+    `Density distribution (${unitLabel}, ${scaleLabel})`;
   mkChart('chart-density', 'bar', {
     labels: bins.labels,
     datasets: [{ data: bins.counts, backgroundColor: 'rgba(46,188,179,0.75)', borderRadius: 4 }]
@@ -859,6 +950,45 @@ function logBins(vals, n) {
                   : Math.round(lo) + '–' + Math.round(hi);
   });
   return { labels, counts };
+}
+
+function linearBins(vals, n) {
+  if (!vals.length) return { labels: [], counts: [] };
+  const sorted = [...vals].sort((a,b) => a - b);
+  // Use 99th percentile as upper bound to avoid extreme outlier stretching
+  const p99 = sorted[Math.floor(sorted.length * 0.99)] || sorted[sorted.length - 1];
+  const mn = 0, mx = p99;
+  if (mx === 0) return { labels: [], counts: [] };
+  const step = mx / n;
+  const counts = new Array(n).fill(0);
+  for (const v of sorted) {
+    if (v > mx) continue;
+    const bi = Math.min(Math.floor(v / step), n - 1);
+    if (bi >= 0) counts[bi]++;
+  }
+  const labels = Array.from({length: n}, (_, i) => {
+    const lo = i * step, hi = lo + step;
+    const fmt = v => v < 1 ? v.toFixed(3) : v < 100 ? v.toFixed(1) : Math.round(v).toLocaleString();
+    return fmt(lo) + '–' + fmt(hi);
+  });
+  return { labels, counts };
+}
+
+// Convert a density value from its source unit to the target display unit.
+// Returns null if the source unit is unrecognised or the value is invalid.
+function toDensityUnit(density, sourceUnit, targetUnit) {
+  const v = parseFloat(density);
+  if (isNaN(v) || v <= 0) return null;
+  // Normalise to ind/km² first
+  let perKm2;
+  switch (sourceUnit) {
+    case 'ind/ha':    perKm2 = v * 100;   break;
+    case 'males/ha':  perKm2 = v * 100;   break;
+    case 'ind/km2':   perKm2 = v;         break;
+    case 'pairs/km2': perKm2 = v * 2;     break;
+    default: return null;
+  }
+  return targetUnit === 'ind/km2' ? perKm2 : perKm2 / 100;
 }
 
 // ── Table ──────────────────────────────────────────────────────────
@@ -950,15 +1080,22 @@ function renderTable() {
     tbody.innerHTML = `<tr><td colspan="${vcols.length}" class="empty-state">No records match the current filters.</td></tr>`;
   } else {
     const html = slice.map(r => {
+      const lat = parseFloat(r.Y), lon = parseFloat(r.X);
+      const hasCoords = !isNaN(lat) && !isNaN(lon);
       const cells = vcols.map(col => {
         if (col.key === 'Class') {
           return `<td><span class="badge-class badge-${r.Class}">${r.Class}</span></td>`;
+        }
+        if (col.key === 'Ref_N') {
+          const v = r[col.key];
+          if (!v || v === 'NA') return `<td><span style="color:#2a3e52">–</span></td>`;
+          return `<td><span class="ref-cell" data-refn="${escHtml(v)}" title="View reference #${escHtml(v)}">#${escHtml(v)}</span></td>`;
         }
         const v = r[col.key];
         const disp = (!v || v === 'NA') ? '<span style="color:#2a3e52">–</span>' : escHtml(v);
         return `<td title="${escHtml(v||'')}">${disp}</td>`;
       });
-      return `<tr>${cells.join('')}</tr>`;
+      return `<tr class="${hasCoords ? 'has-coords' : ''}" data-lat="${lat}" data-lon="${lon}">${cells.join('')}</tr>`;
     }).join('');
     tbody.innerHTML = html;
   }
@@ -1020,7 +1157,12 @@ function renderRefs() {
   for (const r of state.refRows) {
     const div = document.createElement('div');
     div.className = 'ref-item';
+    div.id = 'ref-item-' + r.Ref_N;
+    div.title = 'Click to search this reference on Google';
     div.innerHTML = `<div class="ref-num">#${r.Ref_N}</div><div class="ref-text">${escHtml(r.Reference || '')}</div>`;
+    div.addEventListener('click', () => {
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(r.Reference || ''), '_blank', 'noopener');
+    });
     panel.appendChild(div);
   }
   if (!state.refRows.length) {
@@ -1028,17 +1170,37 @@ function renderRefs() {
   }
 }
 
+// Open a specific reference: switch to refs tab, scroll to it and highlight it
+function openRef(refN) {
+  switchToTab('refs');
+  // Remove any previous highlight
+  document.querySelectorAll('.ref-item.highlighted').forEach(el => el.classList.remove('highlighted'));
+  setTimeout(() => {
+    const el = document.getElementById('ref-item-' + refN);
+    if (el) {
+      el.classList.add('highlighted');
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, 120);
+}
+
+// Switch to a named tab programmatically
+function switchToTab(tabName) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const tab = document.querySelector(`.tab[data-tab="${tabName}"]`);
+  if (tab) tab.classList.add('active');
+  const panel = document.getElementById('tab-' + tabName);
+  if (panel) panel.classList.add('active');
+  if (tabName === 'map') setTimeout(() => state.map.invalidateSize(), 100);
+}
+
 // ── Event bindings ─────────────────────────────────────────────────
 function bindEvents() {
   // Tab switching
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      tab.classList.add('active');
-      const panel = document.getElementById('tab-' + tab.dataset.tab);
-      panel.classList.add('active');
-      if (tab.dataset.tab === 'map') { setTimeout(() => state.map.invalidateSize(), 100); }
+      switchToTab(tab.dataset.tab);
     });
   });
 
@@ -1047,7 +1209,7 @@ function bindEvents() {
     document.getElementById('sidebar').classList.toggle('open');
   });
 
-  // Class pills
+  // Class pills – update hierarchical dropdowns before applying filters
   document.querySelectorAll('.pill[data-class]').forEach(pill => {
     pill.addEventListener('click', () => {
       const cls = pill.dataset.class;
@@ -1060,14 +1222,23 @@ function bindEvents() {
         state.filters.classes.add(cls);
         pill.classList.remove('inactive');
       }
+      updateOrderOptions();
+      updateFamilyOptions();
       applyFilters();
     });
   });
 
-  // Dropdowns
-  ['f-order','f-country','f-method'].forEach(id => {
+  // Order dropdown – update family options before applying filters
+  document.getElementById('f-order').addEventListener('change', e => {
+    state.filters.order = e.target.value;
+    updateFamilyOptions();
+    applyFilters();
+  });
+
+  // Family, Country, Method dropdowns
+  ['f-family', 'f-country', 'f-method'].forEach(id => {
     document.getElementById(id).addEventListener('change', e => {
-      state.filters[id.replace('f-','')] = e.target.value;
+      state.filters[id.replace('f-', '')] = e.target.value;
       applyFilters();
     });
   });
@@ -1101,18 +1272,57 @@ function bindEvents() {
     renderTable();
   });
 
+  // Density unit toggle
+  document.getElementById('density-unit-toggle').addEventListener('click', () => {
+    state.densityUnit = state.densityUnit === 'ind/ha' ? 'ind/km2' : 'ind/ha';
+    const btn = document.getElementById('density-unit-toggle');
+    btn.textContent = state.densityUnit === 'ind/ha' ? 'ind/ha' : 'ind/km²';
+    updateCharts();
+  });
+
+  // Density scale toggle
+  document.getElementById('density-scale-toggle').addEventListener('click', () => {
+    state.densityScale = state.densityScale === 'log' ? 'linear' : 'log';
+    const btn = document.getElementById('density-scale-toggle');
+    btn.textContent = state.densityScale === 'log' ? 'log₁₀' : 'linear';
+    updateCharts();
+  });
+
+  // Table body: row click (navigate to map) + ref cell click (open reference)
+  document.getElementById('table-body').addEventListener('click', e => {
+    // Ref cell click – open reference panel
+    const refCell = e.target.closest('.ref-cell');
+    if (refCell) {
+      e.stopPropagation();
+      openRef(refCell.dataset.refn);
+      return;
+    }
+    // Row click – fly to location on map
+    const tr = e.target.closest('tr.has-coords');
+    if (tr) {
+      const lat = parseFloat(tr.dataset.lat);
+      const lon = parseFloat(tr.dataset.lon);
+      if (!isNaN(lat) && !isNaN(lon)) {
+        switchToTab('map');
+        setTimeout(() => state.map.flyTo([lat, lon], 8, { duration: 1 }), 150);
+      }
+    }
+  });
+
   // Reset
   document.getElementById('reset-btn').addEventListener('click', () => {
     state.filters.search  = '';
     state.filters.classes = new Set(['Amphibia','Aves','Mammalia','Reptilia']);
     state.filters.order   = '';
+    state.filters.family  = '';
     state.filters.country = '';
     state.filters.method  = '';
     document.getElementById('f-search').value  = '';
-    document.getElementById('f-order').value   = '';
     document.getElementById('f-country').value = '';
     document.getElementById('f-method').value  = '';
     document.querySelectorAll('.pill').forEach(p => p.classList.remove('inactive'));
+    updateOrderOptions();
+    updateFamilyOptions();
     // Reset year to full range
     const yminEl = document.getElementById('f-year-min');
     const ymaxEl = document.getElementById('f-year-max');
