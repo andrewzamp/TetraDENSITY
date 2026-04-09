@@ -250,7 +250,7 @@
     /* ── Highlighted reference ────────────────────────────────────── */
     .ref-item { cursor: pointer; transition: background .2s, border-color .2s; }
     .ref-item:hover { border-color: var(--muted); }
-    .ref-item.highlighted { border-color: var(--accent); background: #162d3d; }
+    .ref-item.highlighted { border-color: var(--accent); background: var(--bg3); }
 
     /* ── Ref cell in table ────────────────────────────────────────── */
     .ref-cell {
@@ -956,6 +956,8 @@ function linearBins(vals, n) {
   if (!vals.length) return { labels: [], counts: [] };
   const sorted = [...vals].sort((a,b) => a - b);
   // Use 99th percentile as upper bound to avoid extreme outlier stretching
+  // (density data can span many orders of magnitude; without this cap the
+  //  bins would be so wide that the interesting range becomes invisible)
   const p99 = sorted[Math.floor(sorted.length * 0.99)] || sorted[sorted.length - 1];
   const mn = 0, mx = p99;
   if (mx === 0) return { labels: [], counts: [] };
@@ -976,6 +978,8 @@ function linearBins(vals, n) {
 
 // Convert a density value from its source unit to the target display unit.
 // Returns null if the source unit is unrecognised or the value is invalid.
+// NOTE: `targetUnit` uses the ASCII key 'ind/km2' (matching CSV data and state.densityUnit)
+// while the UI displays the Unicode form 'ind/km²'.  The `unitLabel` helper below maps them.
 function toDensityUnit(density, sourceUnit, targetUnit) {
   const v = parseFloat(density);
   if (isNaN(v) || v <= 0) return null;
@@ -1161,7 +1165,7 @@ function renderRefs() {
     div.title = 'Click to search this reference on Google';
     div.innerHTML = `<div class="ref-num">#${r.Ref_N}</div><div class="ref-text">${escHtml(r.Reference || '')}</div>`;
     div.addEventListener('click', () => {
-      window.open('https://www.google.com/search?q=' + encodeURIComponent(r.Reference || ''), '_blank', 'noopener');
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(r.Reference || ''), '_blank', 'noopener,noreferrer');
     });
     panel.appendChild(div);
   }
@@ -1175,6 +1179,7 @@ function openRef(refN) {
   switchToTab('refs');
   // Remove any previous highlight
   document.querySelectorAll('.ref-item.highlighted').forEach(el => el.classList.remove('highlighted'));
+  // Brief delay lets the tab panel become visible before we scroll to the element
   setTimeout(() => {
     const el = document.getElementById('ref-item-' + refN);
     if (el) {
