@@ -1401,14 +1401,16 @@ function bindEvents() {
 function csvEscape(v) {
   const s = v === null || v === undefined ? '' : String(v);
   return (s.includes(',') || s.includes('"') || s.includes('\n'))
-    ? '"' + s.replace(/"/g, '""') + '"'
+    ? `"${s.replace(/"/g, '""')}"`
     : s;
 }
 
 function rowsToCsv(rows) {
   if (!rows.length) return '';
   const headers = Object.keys(rows[0]);
-  return [headers.join(','), ...rows.map(r => headers.map(h => csvEscape(r[h])).join(','))].join('\n');
+  const headerLine = headers.join(',');
+  const dataLines = rows.map(r => headers.map(h => csvEscape(r[h])).join(','));
+  return [headerLine, ...dataLines].join('\n');
 }
 
 function downloadFile(filename, content, mimeType) {
