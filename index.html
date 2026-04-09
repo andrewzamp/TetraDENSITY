@@ -693,6 +693,11 @@ function init() {
       setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('app').style.display = 'flex';
+        // Leaflet was initialised while #app was hidden (display:none), so it
+        // recorded a 0×0 container size.  Force it to recalculate now that the
+        // container has its real dimensions so markers are rendered correctly
+        // and click events are registered at the right screen coordinates.
+        requestAnimationFrame(() => state.map.invalidateSize());
       }, 200);
     }, 0);
   }, 0);
