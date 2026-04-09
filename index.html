@@ -271,6 +271,8 @@
 
     /* ── Clickable table rows ─────────────────────────────────────── */
     tbody tr.has-coords { cursor: pointer; }
+    tbody tr.row-highlight { background: #e6f4f3; outline: 2px solid var(--accent); outline-offset: -2px; }
+    tbody tr.row-highlight:hover { background: #d8efee; }
   </style>
 </head>
 <body>
@@ -372,7 +374,7 @@
         <div class="stat-card"><div class="val" id="s-species">–</div><div class="lbl">Unique species</div></div>
         <div class="stat-card"><div class="val" id="s-countries">–</div><div class="lbl">Countries</div></div>
         <div class="stat-card"><div class="val" id="s-years">–</div><div class="lbl">Year range</div></div>
-        <div class="stat-card"><div class="val" id="s-density-med">–</div><div class="lbl">Median density (ind/ha)</div></div>
+        <div class="stat-card"><div class="val" id="s-density-med">–</div><div class="lbl" id="s-density-lbl">Median density (ind/km²)</div></div>
       </div>
 
       <!-- Tab bar -->
@@ -420,7 +422,7 @@
             <div class="chart-card-header">
               <h4 id="density-chart-title">Density distribution</h4>
               <div style="display:flex;gap:6px">
-                <button id="density-unit-toggle" class="chart-toggle active" title="Toggle display unit">ind/ha</button>
+                <button id="density-unit-toggle" class="chart-toggle active" title="Toggle display unit">ind/km²</button>
                 <button id="density-scale-toggle" class="chart-toggle active" title="Toggle scale">log₁₀</button>
               </div>
             </div>
@@ -493,7 +495,7 @@ const state = {
     yearMin: null,
     yearMax: null,
   },
-  densityUnit:  'ind/ha',   // 'ind/ha' or 'ind/km2'
+  densityUnit:  'ind/km2',  // 'ind/ha' or 'ind/km2'
   densityScale: 'log',      // 'log' or 'linear'
   table: {
     page:     1,
@@ -501,7 +503,8 @@ const state = {
     sortCol:  null,
     sortDir:  'asc',
     search:   '',
-    visibleCols: null,   // set after headers known
+    visibleCols:  null,   // set after headers known
+    highlightRow: null,   // row reference to scroll-to and highlight in table
   },
   charts: {},
   map: null,
@@ -742,6 +745,8 @@ function applyFilters() {
     return true;
   });
 
+  // Clear row highlight when filters change
+  state.table.highlightRow = null;
   // Table search is a secondary filter applied at render time
   updateStats();
   updateMap();
@@ -757,9 +762,12 @@ function updateStats() {
   const species   = new Set(rows.map(r => r.Species_rep)).size;
   const countries = new Set(rows.map(r => r.Country)).size;
   const years     = rows.map(r => parseInt(r.Year)).filter(y => !isNaN(y));
+
+  // Convert all densities to the current display unit (mirrors the density chart logic)
+  const targetUnit = state.densityUnit;
   const densities = rows
-    .filter(r => r.Density_unit === 'ind/ha' || r.Density_unit === 'males/ha')
-    .map(r => safeParseFloat(r.Density)).filter(v => v !== null && v > 0)
+    .map(r => toDensityUnit(r.Density, r.Density_unit, targetUnit))
+    .filter(v => v !== null && v > 0)
     .sort((a, b) => a - b);
   const med = densities.length
     ? densities[Math.floor(densities.length / 2)].toFixed(2)
@@ -767,12 +775,14 @@ function updateStats() {
   const yrange = years.length
     ? Math.min(...years) + '–' + Math.max(...years)
     : '–';
+  const unitLabel = targetUnit === 'ind/ha' ? 'ind/ha' : 'ind/km²';
 
   document.getElementById('s-records').textContent   = rows.length.toLocaleString();
   document.getElementById('s-species').textContent   = species.toLocaleString();
   document.getElementById('s-countries').textContent = countries.toLocaleString();
   document.getElementById('s-years').textContent     = yrange;
   document.getElementById('s-density-med').textContent = med;
+  document.getElementById('s-density-lbl').textContent = `Median density (${unitLabel})`;
 }
 
 // ── Map ────────────────────────────────────────────────────────────
@@ -808,7 +818,7 @@ function updateMap() {
     const m = L.circleMarker([y, x], {
       radius: 5, color, fillColor: color, fillOpacity: 0.8, weight: 1,
     });
-    m.bindPopup(makePopup(r), { maxWidth: 320 });
+    m.on('click', () => openRowInTable(r));
     cluster.addLayer(m);
     shown++;
   }
@@ -1131,6 +1141,7 @@ function renderTable() {
     const html = slice.map(r => {
       const lat = parseFloat(r.Y), lon = parseFloat(r.X);
       const hasCoords = !isNaN(lat) && !isNaN(lon);
+      const isHighlighted = r === state.table.highlightRow;
       const cells = vcols.map(col => {
         if (col.key === 'Class') {
           return `<td><span class="badge-class badge-${r.Class}">${r.Class}</span></td>`;
@@ -1144,7 +1155,8 @@ function renderTable() {
         const disp = (!v || v === 'NA') ? '<span style="color:var(--border)">–</span>' : escHtml(v);
         return `<td title="${escHtml(v||'')}">${disp}</td>`;
       });
-      return `<tr class="${hasCoords ? 'has-coords' : ''}" data-lat="${lat}" data-lon="${lon}">${cells.join('')}</tr>`;
+      const classes = [hasCoords ? 'has-coords' : '', isHighlighted ? 'row-highlight' : ''].filter(Boolean).join(' ');
+      return `<tr class="${classes}" data-lat="${lat}" data-lon="${lon}">${cells.join('')}</tr>`;
     }).join('');
     tbody.innerHTML = html;
   }
@@ -1232,6 +1244,32 @@ function openRef(refN) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, 120);
+}
+
+// Navigate to the Table tab and highlight the given row
+function openRowInTable(r) {
+  // Clear any table search/sort so the row is reachable
+  state.table.search = '';
+  state.table.sortCol = null;
+  state.table.sortDir = 'asc';
+  document.getElementById('table-search').value = '';
+
+  // Find the row's position in the (unsorted) filteredRows
+  const idx = state.filteredRows.indexOf(r);
+  if (idx === -1) return;
+
+  // Navigate to the page that contains this row
+  state.table.page = Math.ceil((idx + 1) / state.table.pageSize);
+  state.table.highlightRow = r;
+
+  switchToTab('table');
+  renderTable();
+
+  // Scroll the highlighted row into view after the DOM has updated
+  setTimeout(() => {
+    const el = document.querySelector('.row-highlight');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 100);
 }
 
 // Switch to a named tab programmatically
@@ -1336,6 +1374,7 @@ function bindEvents() {
     state.densityUnit = state.densityUnit === 'ind/ha' ? 'ind/km2' : 'ind/ha';
     const btn = document.getElementById('density-unit-toggle');
     btn.textContent = state.densityUnit === 'ind/ha' ? 'ind/ha' : 'ind/km²';
+    updateStats();
     updateCharts();
   });
 
