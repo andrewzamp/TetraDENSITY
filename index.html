@@ -15,14 +15,14 @@
     /* ── Reset & base ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:       #0f1923;
-      --bg2:      #162130;
-      --bg3:      #1e2e3e;
-      --border:   #2a3e52;
-      --text:     #dce9f5;
-      --muted:    #7a9bbf;
-      --accent:   #2ebcb3;
-      --accent2:  #f0883e;
+      --bg:       #f4f7fb;
+      --bg2:      #ffffff;
+      --bg3:      #eaeef5;
+      --border:   #c8d4e4;
+      --text:     #1e2d3e;
+      --muted:    #5a7290;
+      --accent:   #1a9e96;
+      --accent2:  #d9711f;
       --amphibia: #4ec96d;
       --aves:     #5baff5;
       --mammalia: #f07b3f;
@@ -87,10 +87,10 @@
       padding: 4px 10px; border-radius: 20px; border: 2px solid transparent;
       cursor: pointer; font-size: .75rem; font-weight: 600; transition: opacity .2s, border-color .2s;
     }
-    .pill.amphibia { background: #1a3d26; color: var(--amphibia); border-color: var(--amphibia); }
-    .pill.aves     { background: #1a2e40; color: var(--aves);     border-color: var(--aves); }
-    .pill.mammalia { background: #3d2515; color: var(--mammalia); border-color: var(--mammalia); }
-    .pill.reptilia { background: #2e1a3d; color: var(--reptilia); border-color: var(--reptilia); }
+    .pill.amphibia { background: #e8f5ee; color: #2a8042; border-color: #2a8042; }
+    .pill.aves     { background: #e6f0fb; color: #2260a0; border-color: #2260a0; }
+    .pill.mammalia { background: #fdf0e8; color: #b85520; border-color: #b85520; }
+    .pill.reptilia { background: #f4eafb; color: #7030a0; border-color: #7030a0; }
     .pill.inactive { opacity: .35; }
     .range-row { display: flex; gap: 8px; align-items: center; }
     .range-row input[type=number] { flex: 1; }
@@ -181,10 +181,10 @@
     .badge-class {
       display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: .7rem; font-weight: 600;
     }
-    .badge-Amphibia { background: #1a3d26; color: var(--amphibia); }
-    .badge-Aves     { background: #1a2e40; color: var(--aves); }
-    .badge-Mammalia { background: #3d2515; color: var(--mammalia); }
-    .badge-Reptilia { background: #2e1a3d; color: var(--reptilia); }
+    .badge-Amphibia { background: #e8f5ee; color: #2a8042; }
+    .badge-Aves     { background: #e6f0fb; color: #2260a0; }
+    .badge-Mammalia { background: #fdf0e8; color: #b85520; }
+    .badge-Reptilia { background: #f4eafb; color: #7030a0; }
     .pagination {
       display: flex; gap: 6px; align-items: center; flex-wrap: wrap; padding-top: 4px;
     }
@@ -259,6 +259,15 @@
       transition: text-decoration-color .15s;
     }
     .ref-cell:hover { text-decoration-color: var(--accent); }
+
+    /* ── Download buttons ─────────────────────────────────────────── */
+    .download-section { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; border-top: 1px solid var(--border); margin-top: 4px; }
+    .dl-btn {
+      padding: 9px; background: var(--bg3); border: 1px solid var(--accent);
+      color: var(--accent); border-radius: var(--radius); cursor: pointer; font-size: .82rem;
+      text-align: center; transition: background .2s, color .2s; font-weight: 600; width: 100%;
+    }
+    .dl-btn:hover { background: var(--accent); color: var(--bg2); }
 
     /* ── Clickable table rows ─────────────────────────────────────── */
     tbody tr.has-coords { cursor: pointer; }
@@ -346,6 +355,12 @@
       <div class="record-count">
         <strong id="count-display">–</strong>
         records matching
+      </div>
+
+      <div class="download-section">
+        <h3>Export filtered data</h3>
+        <button id="dl-csv-btn" class="dl-btn">⬇ Download data (CSV)</button>
+        <button id="dl-refs-btn" class="dl-btn">⬇ Download references (CSV)</button>
       </div>
     </aside>
 
@@ -598,23 +613,21 @@ function init() {
 
 // ── Build filter dropdowns ─────────────────────────────────────────
 function buildFilterOptions() {
-  const countries = new Set();
   const methods   = new Set();
   const years     = [];
 
   for (const r of state.allRows) {
-    if (r.Country && r.Country !== 'NA') countries.add(r.Country);
     if (r.Method  && r.Method  !== 'NA') methods.add(r.Method);
     const y = parseInt(r.Year);
     if (!isNaN(y)) years.push(y);
   }
 
-  populate('f-country', [...countries].sort());
   populate('f-method',  [...methods].sort());
 
-  // Orders and families are built dynamically (hierarchically)
+  // Orders, families and countries are built dynamically (hierarchically)
   updateOrderOptions();
   updateFamilyOptions();
+  updateCountryOptions();
 
   if (years.length) {
     const mn = Math.min(...years), mx = Math.max(...years);
@@ -666,6 +679,29 @@ function updateFamilyOptions() {
   });
   if (families.has(current)) sel.value = current;
   else { sel.value = ''; state.filters.family = ''; }
+}
+
+function updateCountryOptions() {
+  const activeClasses = state.filters.classes;
+  const activeOrder   = state.filters.order;
+  const activeFamily  = state.filters.family;
+  const countries = new Set();
+  for (const r of state.allRows) {
+    if (!activeClasses.has(r.Class)) continue;
+    if (activeOrder && r.Order !== activeOrder) continue;
+    if (activeFamily && r.Family !== activeFamily) continue;
+    if (r.Country && r.Country !== 'NA') countries.add(r.Country);
+  }
+  const sel = document.getElementById('f-country');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">All countries</option>';
+  [...countries].sort().forEach(v => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+  if (countries.has(current)) sel.value = current;
+  else { sel.value = ''; state.filters.country = ''; }
 }
 
 function populate(id, values) {
@@ -746,7 +782,7 @@ const MAP_MAX_MARKERS = 20000;
 
 function initMap() {
   const map = L.map('map', { preferCanvas: true }).setView([20, 0], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://carto.com/">CARTO</a> | &copy; <a href="https://osm.org/copyright">OpenStreetMap</a>',
     maxZoom: 18, subdomains: 'abcd',
   }).addTo(map);
@@ -801,17 +837,26 @@ function makePopup(r) {
     </div>`;
 }
 
+// Chart theme – light
+const CT = {
+  muted:   '#5a7290',
+  grid:    '#c8d4e4',
+  tipBg:   '#ffffff',
+  tipTitle:'#1e2d3e',
+  tipBody: '#5a7290',
+};
+
 // ── Charts ─────────────────────────────────────────────────────────
 const CHART_DEFAULTS = {
-  color: 'rgba(46,188,179,0.8)',
-  borderColor: 'rgba(46,188,179,1)',
+  color: 'rgba(26,158,150,0.8)',
+  borderColor: 'rgba(26,158,150,1)',
   plugins: {
     legend: { display: false },
-    tooltip: { backgroundColor: '#1e2e3e', titleColor: '#dce9f5', bodyColor: '#7a9bbf' },
+    tooltip: { backgroundColor: CT.tipBg, titleColor: CT.tipTitle, bodyColor: CT.tipBody, borderColor: CT.grid, borderWidth: 1 },
   },
   scales: {
-    x: { ticks: { color: '#7a9bbf', font: { size: 11 } }, grid: { color: '#2a3e52' } },
-    y: { ticks: { color: '#7a9bbf', font: { size: 11 } }, grid: { color: '#2a3e52' } },
+    x: { ticks: { color: CT.muted, font: { size: 11 } }, grid: { color: CT.grid } },
+    y: { ticks: { color: CT.muted, font: { size: 11 } }, grid: { color: CT.grid } },
   },
 };
 
@@ -837,7 +882,7 @@ function updateCharts() {
       borderColor: 'transparent', hoverOffset: 6 }]
   }, {
     plugins: {
-      legend: { display: true, position: 'right', labels: { color: '#7a9bbf', padding: 12, font: { size: 11 } } },
+      legend: { display: true, position: 'right', labels: { color: CT.muted, padding: 12, font: { size: 11 } } },
       tooltip: CHART_DEFAULTS.plugins.tooltip,
     },
     cutout: '55%',
@@ -856,7 +901,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: '#7a9bbf', font: { size: 10 } }, grid: { color: '#2a3e52' } },
+      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
     },
   });
 
@@ -873,7 +918,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: '#7a9bbf', font: { size: 10 } }, grid: { color: '#2a3e52' } },
+      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
     },
   });
 
@@ -890,7 +935,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: '#7a9bbf', font: { size: 10 } }, grid: { color: '#2a3e52' } },
+      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
     },
   });
 
@@ -1092,11 +1137,11 @@ function renderTable() {
         }
         if (col.key === 'Ref_N') {
           const v = r[col.key];
-          if (!v || v === 'NA') return `<td><span style="color:#2a3e52">–</span></td>`;
+          if (!v || v === 'NA') return `<td><span style="color:var(--border)">–</span></td>`;
           return `<td><span class="ref-cell" data-refn="${escHtml(v)}" title="View reference #${escHtml(v)}">#${escHtml(v)}</span></td>`;
         }
         const v = r[col.key];
-        const disp = (!v || v === 'NA') ? '<span style="color:#2a3e52">–</span>' : escHtml(v);
+        const disp = (!v || v === 'NA') ? '<span style="color:var(--border)">–</span>' : escHtml(v);
         return `<td title="${escHtml(v||'')}">${disp}</td>`;
       });
       return `<tr class="${hasCoords ? 'has-coords' : ''}" data-lat="${lat}" data-lon="${lon}">${cells.join('')}</tr>`;
@@ -1229,19 +1274,28 @@ function bindEvents() {
       }
       updateOrderOptions();
       updateFamilyOptions();
+      updateCountryOptions();
       applyFilters();
     });
   });
 
-  // Order dropdown – update family options before applying filters
+  // Order dropdown – update family/country options before applying filters
   document.getElementById('f-order').addEventListener('change', e => {
     state.filters.order = e.target.value;
     updateFamilyOptions();
+    updateCountryOptions();
     applyFilters();
   });
 
-  // Family, Country, Method dropdowns
-  ['f-family', 'f-country', 'f-method'].forEach(id => {
+  // Family dropdown – update country options before applying filters
+  document.getElementById('f-family').addEventListener('change', e => {
+    state.filters.family = e.target.value;
+    updateCountryOptions();
+    applyFilters();
+  });
+
+  // Country, Method dropdowns
+  ['f-country', 'f-method'].forEach(id => {
     document.getElementById(id).addEventListener('change', e => {
       state.filters[id.replace('f-', '')] = e.target.value;
       applyFilters();
@@ -1314,6 +1368,10 @@ function bindEvents() {
     }
   });
 
+  // Download buttons
+  document.getElementById('dl-csv-btn').addEventListener('click', downloadCSV);
+  document.getElementById('dl-refs-btn').addEventListener('click', downloadRefs);
+
   // Reset
   document.getElementById('reset-btn').addEventListener('click', () => {
     state.filters.search  = '';
@@ -1323,11 +1381,11 @@ function bindEvents() {
     state.filters.country = '';
     state.filters.method  = '';
     document.getElementById('f-search').value  = '';
-    document.getElementById('f-country').value = '';
     document.getElementById('f-method').value  = '';
     document.querySelectorAll('.pill').forEach(p => p.classList.remove('inactive'));
     updateOrderOptions();
     updateFamilyOptions();
+    updateCountryOptions();
     // Reset year to full range
     const yminEl = document.getElementById('f-year-min');
     const ymaxEl = document.getElementById('f-year-max');
@@ -1337,6 +1395,46 @@ function bindEvents() {
     ymaxEl.value = ymaxEl.max;
     applyFilters();
   });
+}
+
+// ── Download helpers ───────────────────────────────────────────────
+function csvEscape(v) {
+  const s = v === null || v === undefined ? '' : String(v);
+  return (s.includes(',') || s.includes('"') || s.includes('\n'))
+    ? '"' + s.replace(/"/g, '""') + '"'
+    : s;
+}
+
+function rowsToCsv(rows) {
+  if (!rows.length) return '';
+  const headers = Object.keys(rows[0]);
+  return [headers.join(','), ...rows.map(r => headers.map(h => csvEscape(r[h])).join(','))].join('\n');
+}
+
+function downloadFile(filename, content, mimeType) {
+  const blob = new Blob([content], { type: mimeType });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function downloadCSV() {
+  const rows = state.filteredRows;
+  if (!rows.length) { alert('No records match the current filters.'); return; }
+  downloadFile('TetraDENSITY_filtered.csv', rowsToCsv(rows), 'text/csv;charset=utf-8;');
+}
+
+function downloadRefs() {
+  const rows = state.filteredRows;
+  if (!rows.length) { alert('No records match the current filters.'); return; }
+  const refNums = new Set(rows.map(r => r.Ref_N).filter(v => v && v !== 'NA'));
+  const filtered = state.refRows.filter(r => refNums.has(r.Ref_N));
+  if (!filtered.length) { alert('No references found for the current selection.'); return; }
+  downloadFile('TetraDENSITY_references.csv', rowsToCsv(filtered), 'text/csv;charset=utf-8;');
 }
 
 // ── Start ──────────────────────────────────────────────────────────
