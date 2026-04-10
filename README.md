@@ -77,7 +77,7 @@ The database is available directly in this repository:
 | `Sampling_area`, `Sampling_area_unit` | Area sampled |
 | `Density`, `Density_unit` | Population density estimate and units |
 | `SE`, `SD`, `CI90`, `CI95`, `CV` | Uncertainty metrics |
-| `Method`, `Method2` | Sampling methodology |
+| `Method`, `Method2` | Details on sampling and estimation methodology |
 | `Native` | Whether the population is native to the site |
 | `Ref_N` | Reference key (links to References file) |
 
