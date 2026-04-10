@@ -4,7 +4,7 @@
 
 ### A Global Database of Tetrapod Population Density Estimates
 
-[![Explore the Database](https://img.shields.io/badge/🌍%20Explore%20the%20Database-Live%20App-2dd4c8?style=for-the-badge)](https://andrewzamp.github.io/TetraDENSITY/)
+[![Explore the Database](https://img.shields.io/badge/🌍%20Explore%20the%20Database-Live%20App-2dd4c8?style=for-the-badge)](https://andrewzamp.github.io/TetraDENSITY-2.0/)
 [![Paper](https://img.shields.io/badge/📄%20Read%20the%20Paper-GEB%202024-f0913a?style=for-the-badge)](https://doi.org/10.1111/geb.13929)
 
 </div>
@@ -13,7 +13,7 @@
 
 ## 🌍 Explore the interactive database
 
-> **👉 [TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY/)**
+> **👉 [TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY-2.0/)**
 
 Filter, map, and download population density records for over **3,900 tetrapod species** across the globe. No installation required, straight in your browser.
 
@@ -87,7 +87,7 @@ The database is available directly in this repository:
 ## How to Use
 
 ### In the browser
-Open the **[TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY/)**, filter by taxonomy, period, or estimation method, explore the interactive map and charts, then download your filtered subset as a CSV.
+Open the **[TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY-2.0/)**, filter by taxonomy, period, or estimation method, explore the interactive map and charts, then download your filtered subset as a CSV.
 
 ## The paper
 
