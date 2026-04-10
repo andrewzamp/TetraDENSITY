@@ -17,15 +17,17 @@
 
 Filter, map, and download population density records for over **3,900 tetrapod species** across the globe. No installation required, straight in your browser.
 
+![TetraDENSITY web application](assets/TetraDENSITY_web_app.png)
+*Figure 1. The TetraDENSITY interactive web application, allowing users to filter, map, and download tetrapod population density records directly in the browser.*
+
 ---
 
 ## What is TetraDENSITY?
 
 **TetraDENSITY** is an open, continuously updated database of empirical population density estimates for the four tetrapod classes: amphibians, reptiles, birds, and mammals. It compiles density measurements from the primary scientific literature into a single, harmonised resource, enabling researchers to ask large-scale questions about how animal populations vary across species, habitats, and the planet.
 
-<!-- IMAGE PLACEHOLDER — replace with a representative figure from the paper (e.g. global map of sampling locations) -->
-<!-- ![Global sampling map](images/fig1_global_map.png) -->
-> 📌 *Figure placeholder: global map of TetraDENSITY 2.0 sampling locations — add image here.*
+![Records by family, year, and sampling method](assets/records_by_family_year_method.jpg)
+*Figure 2. Distribution of TetraDENSITY 2.0 records by family, year of publication, and sampling method, illustrating the breadth and growth of the database over time.*
 
 ---
 
@@ -50,9 +52,8 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 | 🦎 Reptilia (reptiles) | 1,832 |
 | 🐸 Amphibia (amphibians) | 761 |
 
-<!-- IMAGE PLACEHOLDER — replace with a bar/pie chart from the paper showing taxonomic coverage -->
-<!-- ![Taxonomic coverage](images/fig2_taxonomic_coverage.png) -->
-> 📊 *Figure placeholder: chart of taxonomic coverage by class — add image here.*
+![Points distribution by class](assets/points_distribution_by_class.jpg)
+*Figure 3. Distribution of TetraDENSITY 2.0 records across the four tetrapod classes (Aves, Mammalia, Reptilia, Amphibia), reflecting the taxonomic coverage of the database.*
 
 ---
 
