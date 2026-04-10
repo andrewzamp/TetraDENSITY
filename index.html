@@ -839,7 +839,7 @@ function loadData() {
         const est = Math.min(10 + (state.allRows.length / ESTIMATED_TOTAL_ROWS) * 80, 89);
         setProgress(est, `Parsed ${state.allRows.length.toLocaleString()} records…`);
       }
-      state.allRows.push(result.data);
+      state.allRows.push(result);
     },
     complete() {
       setProgress(90, 'Building filters…');
