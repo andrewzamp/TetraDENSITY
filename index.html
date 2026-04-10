@@ -217,7 +217,7 @@
       #charts-panel { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
-      #sidebar { position: fixed; top: var(--header-h); left: 0; bottom: 0; z-index: 100; transform: translateX(-100%); transition: transform .25s ease; }
+      #sidebar { position: fixed; top: var(--header-h); left: 0; bottom: 0; z-index: 1000; transform: translateX(-100%); transition: transform .25s ease; }
       #sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,.5); }
       #sidebar-toggle { display: block; }
       header .tagline { display: none; }
@@ -888,10 +888,16 @@ const ESTIMATED_TOTAL_ROWS = 55000;  // approximate row count used for progress 
 const MAP_MAX_MARKERS = 20000;
 
 function initMap() {
-  const map = L.map('map', { preferCanvas: true }).setView([20, 0], 2);
+  const worldBounds = L.latLngBounds(L.latLng(-85, -180), L.latLng(85, 180));
+  const map = L.map('map', {
+    preferCanvas: true,
+    maxBounds: worldBounds,
+    maxBoundsViscosity: 1.0,
+    minZoom: 2,
+  }).setView([20, 0], 2);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://carto.com/">CARTO</a> | &copy; <a href="https://osm.org/copyright">OpenStreetMap</a>',
-    maxZoom: 18, subdomains: 'abcd',
+    maxZoom: 18, subdomains: 'abcd', noWrap: true,
   }).addTo(map);
   state.map = map;
   state.clusterLayer = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 40 });
@@ -1066,7 +1072,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
+      y: { ticks: { color: CT.muted, font: { size: 10 }, autoSkip: false }, grid: { color: CT.grid } },
     },
   });
 
@@ -1083,7 +1089,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
+      y: { ticks: { color: CT.muted, font: { size: 10 }, autoSkip: false }, grid: { color: CT.grid } },
     },
   });
 
@@ -1100,7 +1106,7 @@ function updateCharts() {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
       x: { ...CHART_DEFAULTS.scales.x },
-      y: { ticks: { color: CT.muted, font: { size: 10 } }, grid: { color: CT.grid } },
+      y: { ticks: { color: CT.muted, font: { size: 10 }, autoSkip: false }, grid: { color: CT.grid } },
     },
   });
 
@@ -1120,7 +1126,10 @@ function updateCharts() {
     datasets: [{ data: bins.counts, backgroundColor: 'rgba(46,188,179,0.75)', borderRadius: 4 }]
   }, {
     plugins: CHART_DEFAULTS.plugins,
-    scales: { x: CHART_DEFAULTS.scales.x, y: CHART_DEFAULTS.scales.y },
+    scales: {
+      x: { ticks: { color: CT.muted, font: { size: 11 }, autoSkip: false, maxRotation: 45 }, grid: { color: CT.grid } },
+      y: CHART_DEFAULTS.scales.y,
+    },
   });
 
   // ── Year / decade chart
@@ -1138,7 +1147,10 @@ function updateCharts() {
     datasets: [{ data: decades.map(([,v])=>v), backgroundColor: 'rgba(78,201,109,0.75)', borderRadius: 4 }]
   }, {
     plugins: CHART_DEFAULTS.plugins,
-    scales: { x: CHART_DEFAULTS.scales.x, y: CHART_DEFAULTS.scales.y },
+    scales: {
+      x: { ticks: { color: CT.muted, font: { size: 11 }, autoSkip: false }, grid: { color: CT.grid } },
+      y: CHART_DEFAULTS.scales.y,
+    },
   });
 }
 
