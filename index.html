@@ -849,6 +849,7 @@ function applyFilters() {
   updateCharts();
   state.table.page = 1;
   renderTable();
+  renderRefs();
   document.getElementById('count-display').textContent = state.filteredRows.length.toLocaleString();
 }
 
@@ -1380,7 +1381,17 @@ function renderPagination(totalRows, totalPages) {
 function renderRefs() {
   const panel = document.getElementById('refs-panel');
   panel.innerHTML = '';
-  for (const r of state.refRows) {
+
+  // When the main data has been loaded, restrict to refs cited by the
+  // currently filtered rows.  Before the main data is ready we fall back to
+  // showing all references (loading phase, app is still hidden).
+  let refsToShow = state.refRows;
+  if (state.allRows.length > 0) {
+    const refNums = new Set(state.filteredRows.map(r => r.Ref_N).filter(v => v && v !== 'NA'));
+    refsToShow = state.refRows.filter(r => refNums.has(r.Ref_N));
+  }
+
+  for (const r of refsToShow) {
     const div = document.createElement('div');
     div.className = 'ref-item';
     div.id = 'ref-item-' + r.Ref_N;
@@ -1391,8 +1402,11 @@ function renderRefs() {
     });
     panel.appendChild(div);
   }
-  if (!state.refRows.length) {
-    panel.innerHTML = '<div class="empty-state">References not yet loaded.</div>';
+
+  if (!refsToShow.length) {
+    panel.innerHTML = state.refRows.length
+      ? '<div class="empty-state">No references for the current filter selection.</div>'
+      : '<div class="empty-state">References not yet loaded.</div>';
   }
 }
 
