@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TetraDENSITY 2.0 – Global Tetrapod Density Database</title>
+  <title>TetraDENSITY 2.0 – Global Database of Tetrapod Population Density Estimates</title>
   <meta name="description" content="An interactive explorer for the TetraDENSITY 2.0 database of tetrapod population densities worldwide." />
 
   <!-- Leaflet -->
@@ -498,8 +498,8 @@
     <div class="hdr-btn-wrap">
       <button class="gh-link" id="btn-report-error">Report an issue or contribute</button>
       <div class="hdr-dropdown" id="drop-report-error">
-        Did you find an error in the data? Want to contribute new records?
-        Have a question or suggestion about the database or this web app?
+       Did you spot an error in the data? Do you want to contribute with new records? 
+       Do you have a question or suggestion about the database or this web app?
         <a href="https://github.com/andrewzamp/TetraDENSITY-2.0/issues/new" target="_blank" rel="noopener">→ Click here</a>
         to fill out an issue and help us improve the platform!
       </div>
@@ -513,7 +513,7 @@
       <div class="whos-modal-header">
         <div>
           <h2>Who's using TetraDENSITY?</h2>
-          <div style="margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4;">List of published papers that used TetraDENSITY for their research:</div>
+          <div style="margin-top:4px;color:var(--muted);font-size:.9rem;line-height:1.4;">A (non exhaustive) list of published papers that used TetraDENSITY for their research:</div>
         </div>
         <button id="whos-modal-close" title="Close" aria-label="Close">✕</button>
       </div>
@@ -779,7 +779,7 @@ const COLUMNS = [
   { key: 'Class',        label: 'Class' },
   { key: 'Order',        label: 'Order' },
   { key: 'Family',       label: 'Family' },
-  { key: 'Species_rep',  label: 'Species' },
+  { key: 'Species_COL',  label: 'Species' },
   { key: 'Year',         label: 'Year' },
   { key: 'Country',      label: 'Country' },
   { key: 'Site',         label: 'Site' },
@@ -795,7 +795,7 @@ const COLUMNS = [
   { key: 'Notes',        label: 'Notes' },
 ];
 
-const DEFAULT_COLS = new Set(['Class','Order','Family','Species_rep','Year','Country','Site','Density','Density_unit','Method','Ref_N']);
+const DEFAULT_COLS = new Set(['Class','Order','Family','Species_COL','Year','Country','Site','Density','Density_unit','Method','Ref_N']);
 
 // ── Utility ─────────────────────────────────────────────────────────
 function fmt(n) {
@@ -1016,7 +1016,7 @@ function applyFilters() {
     if (f.yearMax && !isNaN(y) && y > f.yearMax) return false;
     // Sidebar search (species / site / country)
     if (search) {
-      const hay = ((r.Species_rep||'') + (r.Site||'') + (r.Country||'')).toLowerCase();
+      const hay = ((r.Species_COL||'') + (r.Site||'') + (r.Country||'')).toLowerCase();
       if (!hay.includes(search)) return false;
     }
     // Table/keyword search – searches row fields AND reference text (author name etc.)
@@ -1052,7 +1052,7 @@ function updateKeywordWarning() {
 // ── Stats ──────────────────────────────────────────────────────────
 function updateStats() {
   const rows = state.filteredRows;
-  const species   = new Set(rows.map(r => r.Species_rep)).size;
+  const species   = new Set(rows.map(r => r.Species_COL)).size;
   const countries = new Set(rows.map(r => r.Country)).size;
   const years     = rows.map(r => parseInt(r.Year)).filter(y => !isNaN(y));
 
@@ -1169,7 +1169,7 @@ function updateMap() {
 function showMapInfoPanel(r, latlng) {
   closeMapInfoPanel();
 
-  const species = r.Species_rep || 'Unknown';
+  const species = r.Species_COL || 'Unknown';
   const taxon   = [r.Class, r.Order, r.Family].filter(Boolean).join(' · ');
   const density = (r.Density && r.Density !== 'NA')
     ? `${r.Density} ${r.Density_unit.replace('km2', 'km²')}`
@@ -1548,7 +1548,7 @@ function renderTable() {
           if (!v || v === 'NA') return `<td><span style="color:var(--border)">–</span></td>`;
           return `<td><span class="ref-cell" data-refn="${escHtml(v)}" title="View reference #${escHtml(v)}">#${escHtml(v)}</span></td>`;
         }
-        if (col.key === 'Species_rep') {
+        if (col.key === 'Species_COL') {
           const v = r[col.key];
           if (!v || v === 'NA') return `<td><span style="color:var(--border)">–</span></td>`;
           return `<td title="${escHtml(v)}"><span class="sci-name">${escHtml(v)}</span></td>`;
