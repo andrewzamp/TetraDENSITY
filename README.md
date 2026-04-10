@@ -93,7 +93,7 @@ Open the **[TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY-
 
 TetraDENSITY 2.0 is described in full in:
 
-> **Santini, L., Benítez-López, A., Lumbierres, M., Maurenza, D., Pereira, H. M., & others (2024).** TetraDENSITY 2.0: a global database of population density estimates for tetrapods. *Global Ecology and Biogeography*, 33, e13929. [https://doi.org/10.1111/geb.13929](https://doi.org/10.1111/geb.13929)
+> **Santini, L., Mendez Angarita, V. Y., Karoulis, C., Fundarò, D., Pranzini, N., Vivaldi, C., Zhang, T., Zampetti,. A., Gargano, S. J., Mirante, D., & Paltrinieri, L. (2024).** TetraDENSITY 2.0: A Database of Population Density Estimates in Tetrapods. *Global Ecology and Biogeography*, 33, e13929. [https://doi.org/10.1111/geb.13929](https://doi.org/10.1111/geb.13929)
 
 The paper describes the data collection protocol, the geographic and phylogenetic coverage, and a series of macroecological analyses that illustrate the kinds of research questions the database enables.
 
