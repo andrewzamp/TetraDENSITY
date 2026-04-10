@@ -13,7 +13,7 @@
 
 ## 🌍 Explore the interactive database
 
-> **👉 [andrewzamp.github.io/TetraDENSITY](https://andrewzamp.github.io/TetraDENSITY/)**
+> **👉 [TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY/)**
 
 Filter, map, and download population density records for over **3,900 tetrapod species** across the globe. No installation required, straight in your browser.
 
@@ -24,7 +24,7 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 
 ## What is TetraDENSITY?
 
-**TetraDENSITY** is an open, continuously updated database of empirical population density estimates for the four tetrapod classes: amphibians, reptiles, birds, and mammals. It compiles density measurements from the primary scientific literature into a single, harmonised resource, enabling researchers to ask large-scale questions about how animal populations vary across species, habitats, and the planet. Its [original publication](https://andrewzamp.github.io/TetraDENSITY/) was recently expanded by the [2.0 version]( https://doi.org/10.1111/geb.12756), which more than doubles the number of records and almost doubles the number of species included.
+**TetraDENSITY** is an open database of empirical population density estimates for the four tetrapod classes: amphibians, reptiles, birds, and mammals. It compiles density measurements from the primary scientific literature into a single, harmonised resource, enabling researchers to ask large-scale questions about how animal populations vary across species, habitats, and the planet. Its [original publication](https://andrewzamp.github.io/TetraDENSITY/) was recently expanded by the [2.0 version]( https://doi.org/10.1111/geb.12756), which more than doubles the number of records and almost doubles the number of species included.
 
 ![Records by family, year, and sampling method](assets/records_by_family_year_method.jpg)
 *Figure 2. (a) Relative proportion of estimates by taxonomic orders of the four tetrapod classes. (b) Temporal distribution of the population estimates in the database per taxonomic class. (c) Relative abundance of different methods per taxonomic class.*
@@ -87,7 +87,7 @@ The database is available directly in this repository:
 ## How to Use
 
 ### In the browser
-Open **[andrewzamp.github.io/TetraDENSITY](https://andrewzamp.github.io/TetraDENSITY/)**, filter by class, order, country or species name, explore the interactive map and charts, then download your filtered subset as a CSV.
+Open the **[TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY/)**, filter by taxonomy, period, or estimation method, explore the interactive map and charts, then download your filtered subset as a CSV.
 
 ## The paper
 
