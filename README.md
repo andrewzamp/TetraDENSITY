@@ -11,7 +11,7 @@
 
 ---
 
-## 🌍 Explore the Interactive database
+## 🌍 Explore the interactive database
 
 > **👉 [andrewzamp.github.io/TetraDENSITY](https://andrewzamp.github.io/TetraDENSITY/)**
 
