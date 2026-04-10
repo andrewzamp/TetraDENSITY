@@ -24,10 +24,10 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 
 ## What is TetraDENSITY?
 
-**TetraDENSITY** is an open, continuously updated database of empirical population density estimates for the four tetrapod classes: amphibians, reptiles, birds, and mammals. It compiles density measurements from the primary scientific literature into a single, harmonised resource, enabling researchers to ask large-scale questions about how animal populations vary across species, habitats, and the planet.
+**TetraDENSITY** is an open, continuously updated database of empirical population density estimates for the four tetrapod classes: amphibians, reptiles, birds, and mammals. It compiles density measurements from the primary scientific literature into a single, harmonised resource, enabling researchers to ask large-scale questions about how animal populations vary across species, habitats, and the planet. Its [original publication](https://andrewzamp.github.io/TetraDENSITY/) was recently expanded by the [2.0 version]( https://doi.org/10.1111/geb.12756), which more than doubles the number of records and almost doubles the number of species included.
 
 ![Records by family, year, and sampling method](assets/records_by_family_year_method.jpg)
-*Figure 2. Distribution of TetraDENSITY 2.0 records by family, year of publication, and sampling method, illustrating the breadth and growth of the database over time.*
+*Figure 2. (a) Relative proportion of estimates by taxonomic orders of the four tetrapod classes. (b) Temporal distribution of the population estimates in the database per taxonomic class. (c) Relative abundance of different methods per taxonomic class.*
 
 ---
 
@@ -53,7 +53,7 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 | 🐸 Amphibia (amphibians) | 761 |
 
 ![Points distribution by class](assets/points_distribution_by_class.jpg)
-*Figure 3. Distribution of TetraDENSITY 2.0 records across the four tetrapod classes (Aves, Mammalia, Reptilia, Amphibia), reflecting the taxonomic coverage of the database.*
+*Figure 3. Comparison of the first and second version of the database in terms of (a) number of population density estimates and (b) number of species. Percentage values in panel b indicate completeness compared to the total number of species per Class according to Catalogue of Life.*
 
 ---
 
@@ -96,10 +96,6 @@ TetraDENSITY 2.0 is described in full in:
 > **Santini, L., Benítez-López, A., Lumbierres, M., Maurenza, D., Pereira, H. M., & others (2024).** TetraDENSITY 2.0: a global database of population density estimates for tetrapods. *Global Ecology and Biogeography*, 33, e13929. [https://doi.org/10.1111/geb.13929](https://doi.org/10.1111/geb.13929)
 
 The paper describes the data collection protocol, the geographic and phylogenetic coverage, and a series of macroecological analyses that illustrate the kinds of research questions the database enables.
-
-<!-- IMAGE PLACEHOLDER — replace with a key results figure from the paper (e.g. density vs. body mass relationship) -->
-<!-- ![Density vs body mass](images/fig3_density_bodymass.png) -->
-> 📈 *Figure placeholder: key result figure from the paper (e.g. density–body mass scaling) — add image here.*
 
 ---
 
