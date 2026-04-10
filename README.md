@@ -70,7 +70,7 @@ The database is available directly in this repository:
 | Column | Description |
 |---|---|
 | `Class`, `Order`, `Family` | Taxonomy |
-| `Species_rep` | Accepted species name |
+| `Species_rep`, `Species_COL` | Species name: both reported, and standardized to Catalogue of Life  |
 | `Year` | Year of the study |
 | `X`, `Y` | Longitude / latitude of the sampling site |
 | `Country`, `Site` | Location descriptors |
