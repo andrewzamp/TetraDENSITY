@@ -1972,8 +1972,7 @@ function bindEvents() {
     if (!raw) return { shouldApply: true, value: null };
     // While typing, ignore incomplete years (e.g. "202") to avoid premature refiltering.
     if (!/^\d{4}$/.test(raw)) return { shouldApply: false, value: null };
-    const year = parseInt(raw, 10);
-    return { shouldApply: true, value: isNaN(year) ? null : year };
+    return { shouldApply: true, value: parseInt(raw, 10) };
   }
   function updateYearFilterIfChanged(key, parsed) {
     if (!parsed.shouldApply) return false;
@@ -1988,7 +1987,8 @@ function bindEvents() {
     const nextMax = parseYearFilterInput(ymaxEl);
     const changedMin = updateYearFilterIfChanged('yearMin', nextMin);
     const changedMax = updateYearFilterIfChanged('yearMax', nextMax);
-    if (changedMin || changedMax) runFilterUpdate();
+    const hasChanges = changedMin || changedMax;
+    if (hasChanges) runFilterUpdate();
   }, 700);
   document.getElementById('f-year-min').addEventListener('input', applyYear);
   document.getElementById('f-year-max').addEventListener('input', applyYear);
