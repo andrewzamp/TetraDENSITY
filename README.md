@@ -53,7 +53,7 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 | 🐸 Amphibia (amphibians) | 761 |
 
 ![Points distribution by class](assets/points_distribution_by_class.jpg)
-*Figure 3. Comparison of the first and second version of the database in terms of (a) number of population density estimates and (b) number of species. Percentage values in panel b indicate completeness compared to the total number of species per Class according to Catalogue of Life.*
+*Figure 3. Geographic distribution of population density estimates in the database divided per (a) amphibians, (b) reptiles, (c) birds and (d) mammals. Hexagons’ colour represent total number of estimates in the region.*
 
 ---
 
