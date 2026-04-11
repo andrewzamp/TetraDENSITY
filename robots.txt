@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrewzamp.github.io/TetraDENSITY-2.0/sitemap.xml
