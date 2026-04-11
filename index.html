@@ -1321,9 +1321,12 @@ function rowMatchesActiveFilters(r, includeNewEntries = false, search = '', tsea
     if (sidebarSearchSpeciesOnly) {
       if (!speciesHay.includes(search)) return false;
     } else {
-      const rowHay = (speciesHay + ' ' + (r.Site||'') + ' ' + (r.Country||'') + ' ' + (r.Collector||'')).toLowerCase();
-      const refHay = state.refTextMap.get(r.Ref_N) || '';
-      if (!rowHay.includes(search) && !refHay.includes(search)) return false;
+      const countryHay = (r.Country || '').toLowerCase();
+      const rowHay = (speciesHay + ' ' + (r.Site || '') + ' ' + (r.Country || '') + ' ' + (r.Collector || '')).toLowerCase();
+      // If the query already matches at least one country value, skip reference-text matching.
+      const shouldSearchReference = !state.sidebarSearchHasCountryMatches;
+      const refHay = shouldSearchReference ? (state.refTextMap.get(r.Ref_N) || '') : '';
+      if (!rowHay.includes(search) && !countryHay.includes(search) && !refHay.includes(search)) return false;
     }
   }
   // Table/keyword search – searches row fields AND reference text (author name etc.)
@@ -1341,6 +1344,9 @@ function applyFilters() {
   const tsearch = state.table.search.toLowerCase();
   state.sidebarSearchSpeciesOnly = search
     ? state.allRows.some(r => rowMatchesStructuredFilters(r, false) && (r.Species_COL || '').toLowerCase().includes(search))
+    : false;
+  state.sidebarSearchHasCountryMatches = search
+    ? state.allRows.some(r => rowMatchesStructuredFilters(r, false) && (r.Country || '').toLowerCase().includes(search))
     : false;
   state.filteredRows = state.allRows.filter(r => rowMatchesActiveFilters(r, false, search, tsearch, state.sidebarSearchSpeciesOnly));
 
