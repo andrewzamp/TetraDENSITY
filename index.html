@@ -1581,50 +1581,17 @@ const CHART_DEFAULTS = {
   },
 };
 
-function niceChartLabel(v) {
-  return String(v || '').replace(/_/g, ' ').trim();
-}
-
-function sortEntriesByCountThenName(obj) {
-  return Object.entries(obj).sort((a, b) => {
-    if (b[1] !== a[1]) return b[1] - a[1];
-    return String(a[0]).localeCompare(String(b[0]));
-  });
-}
-
-function topWithOther(entries, limit) {
-  if (entries.length <= limit) return entries;
-  const top = entries.slice(0, limit);
-  const otherCount = entries.slice(limit).reduce((sum, [, v]) => sum + v, 0);
-  if (otherCount > 0) top.push(['Other', otherCount]);
-  return top;
-}
-
-function safeBarData(entries) {
-  if (!entries.length) {
-    return {
-      labels: ['No data'],
-      values: [0],
-    };
-  }
-  return {
-    labels: entries.map(([k]) => niceChartLabel(k)),
-    values: entries.map(([, v]) => v),
-  };
-}
-
 function mkChart(id, type, data, options) {
   const existing = state.charts[id];
-  const mergedOptions = options || {};
-  mergedOptions.animation = false;
   if (existing) {
     existing.data = data;
-    existing.options = mergedOptions;
     existing.update('none');
     return;
   }
   const ctx = document.getElementById(id).getContext('2d');
-  state.charts[id] = new Chart(ctx, { type, data, options: mergedOptions });
+  if (!options) options = {};
+  options.animation = false;
+  state.charts[id] = new Chart(ctx, { type, data, options });
 }
 
 function initCharts() { updateCharts(); }
@@ -1633,19 +1600,13 @@ function updateCharts() {
   const rows = state.filteredRows;
 
   // ── Class chart
-  const classOrder = ['Amphibia', 'Aves', 'Mammalia', 'Reptilia'];
-  const classCounts = { Amphibia: 0, Aves: 0, Mammalia: 0, Reptilia: 0 };
-  for (const r of rows) {
-    if (classCounts[r.Class] !== undefined) classCounts[r.Class] += 1;
-  }
-  const classKeys = classOrder.filter(k => classCounts[k] > 0);
-  const classData = classKeys.length
-    ? classKeys.map(k => classCounts[k])
-    : [0];
+  const classCounts = {};
+  for (const r of rows) { classCounts[r.Class] = (classCounts[r.Class] || 0) + 1; }
+  const classKeys = Object.keys(classCounts);
   mkChart('chart-class', 'doughnut', {
-    labels: classKeys.length ? classKeys : ['No data'],
-    datasets: [{ data: classData,
-      backgroundColor: classKeys.length ? classKeys.map(k => CLASS_COLORS[k] || '#aaa') : ['rgba(122,155,191,0.35)'],
+    labels: classKeys,
+    datasets: [{ data: classKeys.map(k => classCounts[k]),
+      backgroundColor: classKeys.map(k => CLASS_COLORS[k] || '#aaa'),
       borderColor: 'transparent', hoverOffset: 6 }]
   }, {
     plugins: {
@@ -1658,11 +1619,10 @@ function updateCharts() {
   // ── Order chart (top 15)
   const orderCounts = {};
   for (const r of rows) { if (r.Order && r.Order !== 'NA') orderCounts[r.Order] = (orderCounts[r.Order]||0)+1; }
-  const topOrders = topWithOther(sortEntriesByCountThenName(orderCounts), 15);
-  const orderData = safeBarData(topOrders);
+  const topOrders = Object.entries(orderCounts).sort((a,b)=>b[1]-a[1]).slice(0,15);
   mkChart('chart-order', 'bar', {
-    labels: orderData.labels,
-    datasets: [{ data: orderData.values,
+    labels: topOrders.map(([k])=>k),
+    datasets: [{ data: topOrders.map(([,v])=>v),
       backgroundColor: 'rgba(91,175,245,0.75)', borderRadius: 4 }]
   }, {
     indexAxis: 'y',
@@ -1676,11 +1636,10 @@ function updateCharts() {
   // ── Country chart (top 20)
   const ctryCounts = {};
   for (const r of rows) { if (r.Country && r.Country !== 'NA') ctryCounts[r.Country] = (ctryCounts[r.Country]||0)+1; }
-  const topCtry = topWithOther(sortEntriesByCountThenName(ctryCounts), 20);
-  const countryData = safeBarData(topCtry);
+  const topCtry = Object.entries(ctryCounts).sort((a,b)=>b[1]-a[1]).slice(0,20);
   mkChart('chart-country', 'bar', {
-    labels: countryData.labels,
-    datasets: [{ data: countryData.values,
+    labels: topCtry.map(([k])=>k),
+    datasets: [{ data: topCtry.map(([,v])=>v),
       backgroundColor: 'rgba(240,136,62,0.75)', borderRadius: 4 }]
   }, {
     indexAxis: 'y',
@@ -1694,11 +1653,10 @@ function updateCharts() {
   // ── Method chart
   const methodCounts = {};
   for (const r of rows) { if (r.Method && r.Method !== 'NA') methodCounts[r.Method] = (methodCounts[r.Method]||0)+1; }
-  const methods = topWithOther(sortEntriesByCountThenName(methodCounts), 18);
-  const methodData = safeBarData(methods);
+  const methods = Object.entries(methodCounts).sort((a,b)=>b[1]-a[1]);
   mkChart('chart-method', 'bar', {
-    labels: methodData.labels,
-    datasets: [{ data: methodData.values,
+    labels: methods.map(([k])=>k.replace(/_/g,' ')),
+    datasets: [{ data: methods.map(([,v])=>v),
       backgroundColor: 'rgba(201,124,240,0.75)', borderRadius: 4 }]
   }, {
     indexAxis: 'y',
@@ -1715,8 +1673,7 @@ function updateCharts() {
   const densVals = rows
     .map(r => toDensityUnit(r.Density, r.Density_unit, targetUnit))
     .filter(v => v !== null && v > 0);
-  const binCount = Math.min(30, Math.max(8, Math.round(Math.sqrt(densVals.length || 1))));
-  const bins = scale === 'log' ? logBins(densVals, binCount) : linearBins(densVals, binCount);
+  const bins = scale === 'log' ? logBins(densVals, 15) : linearBins(densVals, 15);
   const unitLabel = targetUnit === 'ind/ha' ? 'ind/ha' : 'ind/km²';
   const scaleLabel = scale === 'log' ? 'log₁₀ scale' : 'linear scale';
   document.getElementById('density-chart-title').textContent =
@@ -1742,10 +1699,9 @@ function updateCharts() {
     }
   }
   const decades = Object.entries(decadeCounts).sort((a,b)=>+a[0]-+b[0]);
-  const decadeData = safeBarData(decades);
   mkChart('chart-year', 'bar', {
-    labels: decades.length ? decades.map(([k]) => k + 's') : decadeData.labels,
-    datasets: [{ data: decadeData.values, backgroundColor: 'rgba(78,201,109,0.75)', borderRadius: 4 }]
+    labels: decades.map(([k])=>k+'s'),
+    datasets: [{ data: decades.map(([,v])=>v), backgroundColor: 'rgba(78,201,109,0.75)', borderRadius: 4 }]
   }, {
     plugins: CHART_DEFAULTS.plugins,
     scales: {
@@ -1757,25 +1713,14 @@ function updateCharts() {
 
 function logBins(vals, n) {
   if (!vals.length) return { labels: [], counts: [] };
-  const minVal = Math.max(Math.min(...vals), Number.MIN_VALUE);
-  const maxVal = Math.max(...vals);
-  if (minVal === maxVal) {
-    const label = minVal < 1 ? minVal.toFixed(3) : minVal.toLocaleString(undefined, { maximumFractionDigits: 2 });
-    return { labels: [label], counts: [vals.length] };
-  }
-  const mn = Math.log10(minVal);
-  const mx = Math.log10(maxVal);
+  const mn = Math.log10(Math.min(...vals) || 0.001);
+  const mx = Math.log10(Math.max(...vals));
   const step = (mx - mn) / n;
-  if (!isFinite(step) || step <= 0) {
-    return { labels: [], counts: [] };
-  }
   const edges = Array.from({length: n+1}, (_, i) => mn + i * step);
   const counts = new Array(n).fill(0);
   for (const v of vals) {
     const lv = Math.log10(v);
-    let bi = Math.floor((lv - mn) / step);
-    if (!isFinite(bi)) continue;
-    bi = Math.max(0, Math.min(bi, n - 1));
+    const bi = Math.min(Math.floor((lv - mn) / step), n - 1);
     if (bi >= 0) counts[bi]++;
   }
   const labels = edges.slice(0,-1).map((e,i) => {
@@ -1788,25 +1733,22 @@ function logBins(vals, n) {
 
 function linearBins(vals, n) {
   if (!vals.length) return { labels: [], counts: [] };
-  const mn = Math.min(...vals);
-  const mx = Math.max(...vals);
-  if (mn === mx) {
-    const label = mn < 1 ? mn.toFixed(3) : mn.toLocaleString(undefined, { maximumFractionDigits: 2 });
-    return { labels: [label], counts: [vals.length] };
-  }
-  const step = (mx - mn) / n;
-  if (!isFinite(step) || step <= 0) {
-    return { labels: [], counts: [] };
-  }
+  const sorted = [...vals].sort((a,b) => a - b);
+  // Use 99th percentile as upper bound to avoid extreme outlier stretching
+  // (density data can span many orders of magnitude; without this cap the
+  //  bins would be so wide that the interesting range becomes invisible)
+  const p99 = sorted[Math.floor(sorted.length * 0.99)] || sorted[sorted.length - 1];
+  const mn = 0, mx = p99;
+  if (mx === 0) return { labels: [], counts: [] };
+  const step = mx / n;
   const counts = new Array(n).fill(0);
-  for (const v of vals) {
-    let bi = Math.floor((v - mn) / step);
-    if (!isFinite(bi)) continue;
-    bi = Math.max(0, Math.min(bi, n - 1));
+  for (const v of sorted) {
+    if (v > mx) continue;
+    const bi = Math.min(Math.floor(v / step), n - 1);
     if (bi >= 0) counts[bi]++;
   }
   const labels = Array.from({length: n}, (_, i) => {
-    const lo = mn + i * step, hi = lo + step;
+    const lo = i * step, hi = lo + step;
     const fmt = v => v < 1 ? v.toFixed(3) : v < 100 ? v.toFixed(1) : Math.round(v).toLocaleString();
     return fmt(lo) + '–' + fmt(hi);
   });
