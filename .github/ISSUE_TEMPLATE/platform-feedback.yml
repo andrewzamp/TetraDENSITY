@@ -1,0 +1,93 @@
+name: Web app bug / feature request
+description: Report a platform issue or propose an improvement to the TetraDENSITY 2.0 web app.
+title: "[Platform]: "
+labels:
+  - platform
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for the interactive app (filters, map, charts, table, references, downloads).
+        For data corrections/new records, use the dedicated data templates.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - Bug report
+        - Feature request
+        - Usability/UX suggestion
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: What happened (bug) or what should be improved (feature)?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce (for bugs)
+      placeholder: |
+        1. Open app
+        2. Apply these filters...
+        3. Go to tab...
+        4. Observe issue...
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: false
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: affected_area
+    attributes:
+      label: Affected area
+      options:
+        - label: Filters
+        - label: Map
+        - label: Charts
+        - label: Table
+        - label: References
+        - label: CSV download
+        - label: Other
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: e.g., Chrome 124, Firefox 126, Safari 17
+    validations:
+      required: false
+
+  - type: input
+    id: device
+    attributes:
+      label: Device/OS
+      placeholder: e.g., Windows 11 desktop, macOS 14, Android 14
+    validations:
+      required: false
+
+  - type: textarea
+    id: extras
+    attributes:
+      label: Additional context
+      placeholder: Screenshots, screen recordings, console errors, suggested solution, etc.
+    validations:
+      required: false

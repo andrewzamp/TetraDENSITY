@@ -1,0 +1,83 @@
+name: New entry / missing study
+description: Suggest a new study or records to be added to TetraDENSITY 2.0.
+title: "[New entry]: "
+labels:
+  - data
+  - addition
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to suggest **new records/studies not currently in the database**.
+        For corrections to existing records, use the **Data correction** template.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and did not find this same study/request.
+          required: true
+        - label: I confirmed this is not already present in the current database files/web app.
+          required: true
+
+  - type: dropdown
+    id: contribution_type
+    attributes:
+      label: Contribution type
+      options:
+        - Single missing record
+        - Multiple records from one study
+        - Multiple studies / bulk contribution
+    validations:
+      required: true
+
+  - type: input
+    id: species
+    attributes:
+      label: Species (or taxa) covered
+      placeholder: e.g., Panthera leo; or multiple species
+    validations:
+      required: true
+
+  - type: input
+    id: citation
+    attributes:
+      label: Study citation
+      placeholder: Full citation or DOI
+    validations:
+      required: true
+
+  - type: input
+    id: publication_link
+    attributes:
+      label: Link to source
+      placeholder: DOI URL, journal page, repository link, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested_records
+    attributes:
+      label: Summary of records to add
+      description: Briefly describe what should be added and key fields available.
+      placeholder: Include class/order/family, year(s), country/site, method, density, unit.
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_availability
+    attributes:
+      label: Data availability
+      description: Share whether the data are public and how maintainers can access/verify them.
+      placeholder: Public table in paper, supplementary file, repository dataset, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: quality_notes
+    attributes:
+      label: Notes on methods/quality (optional)
+      placeholder: Anything important about sampling design, uncertainty, conversions, exclusions.
+    validations:
+      required: false

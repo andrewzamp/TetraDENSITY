@@ -1,0 +1,88 @@
+name: Data correction
+description: Report an error in an existing TetraDENSITY 2.0 record and suggest a correction.
+title: "[Data correction]: "
+labels:
+  - data
+  - correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to report a **specific error in existing data**.
+        If you want to contribute a missing study/new records, use the **New entry / missing study** template instead.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I confirmed this concerns an existing TetraDENSITY 2.0 entry.
+          required: true
+        - label: I searched existing issues to avoid duplicates.
+          required: true
+
+  - type: input
+    id: species
+    attributes:
+      label: Species (as shown in the database)
+      placeholder: e.g., Canis lupus
+    validations:
+      required: true
+
+  - type: input
+    id: reference_id
+    attributes:
+      label: Reference ID / Ref_N (if known)
+      placeholder: e.g., 1254
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: Location details (country/site; if relevant)
+      placeholder: e.g., Canada, Banff National Park
+    validations:
+      required: false
+
+  - type: textarea
+    id: record_context
+    attributes:
+      label: Record context
+      description: Share enough context to locate the exact row(s) in app/CSV.
+      placeholder: Mention class/order/family/year/method or any unique combination.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_value
+    attributes:
+      label: Current value in database
+      placeholder: Which field/value is currently wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: Suggested correction
+      placeholder: What should the correct value be?
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence/source
+      description: Provide citation, DOI, page/table details, or supporting files.
+      placeholder: DOI/link + exact supporting excerpt or dataset reference.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra_notes
+    attributes:
+      label: Additional notes
+      placeholder: Any caveats, unit conversions, or related records.
+    validations:
+      required: false
