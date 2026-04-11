@@ -84,7 +84,7 @@ The database is available directly in this repository:
 
 ---
 
-## How to Use
+## How to use
 
 ### In the browser
 Open the **[TetraDENSITY 2.0 web app](https://andrewzamp.github.io/TetraDENSITY-2.0/)**, filter by taxonomy, period, or estimation method, explore the interactive map and charts, then download your filtered subset as a CSV.
