@@ -35,22 +35,22 @@ Filter, map, and download population density records for over **3,900 tetrapod s
 
 | | |
 |---|---|
-| **Total density records** | 54,323 |
-| **Species covered** | 3,992 |
+| **Total density records** | 54,322 |
+| **Species covered** | 3,712 |
 | **Taxonomic classes** | 4 |
-| **Families** | 343 |
+| **Families** | 344 |
 | **Orders** | 65 |
 | **Countries / territories** | 260 |
-| **Literature sources** | 2,734 |
+| **Literature sources** | 2,733 |
 
 ### Records by class
 
-| Class | Records |
-|---|---:|
-| 🐦 Aves (birds) | 23,663 |
-| 🦣 Mammalia (mammals) | 28,067 |
-| 🦎 Reptilia (reptiles) | 1,832 |
-| 🐸 Amphibia (amphibians) | 761 |
+| Class | Records | Species |
+|---|---|---:|
+| 🐦 Aves (birds) | 23,663 | 2,210
+| 🦣 Mammalia (mammals) | 28,066 | 1,048
+| 🦎 Reptilia (reptiles) | 1,832 | 345
+| 🐸 Amphibia (amphibians) | 761 | 11
 
 ![Points distribution by class](assets/points_distribution_by_class.jpg)
 *Figure 3. Geographic distribution of population density estimates in the database divided per (a) amphibians, (b) reptiles, (c) birds and (d) mammals. Hexagons’ colour represent total number of estimates in the region.*
