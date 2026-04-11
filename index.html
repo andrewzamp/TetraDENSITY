@@ -2364,7 +2364,7 @@ function initHeaderButtons() {
     whosModal.style.display = 'flex';
     if (!whosLoaded) {
       whosLoaded = true;
-      fetch('assets/TetraDENSITY_research.md')
+      fetch(`assets/TetraDENSITY_research.md?ts=${Date.now()}`, { cache: 'no-store' })
         .then(r => r.text())
         .then(text => {
           const refs = text.split(/\r?\n\r?\n+/).map(l => l.trim()).filter(Boolean);
