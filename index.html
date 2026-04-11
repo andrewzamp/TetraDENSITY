@@ -1967,11 +1967,29 @@ function bindEvents() {
   });
 
   // Year range
+  function parseYearFilterInput(el) {
+    const raw = String(el.value || '').trim();
+    if (!raw) return { shouldApply: true, value: null };
+    // While typing, ignore incomplete years (e.g. "202") to avoid premature refiltering.
+    if (!/^\d{4}$/.test(raw)) return { shouldApply: false, value: null };
+    return { shouldApply: true, value: parseInt(raw, 10) };
+  }
+  function updateYearFilterIfChanged(key, parsed) {
+    if (!parsed.shouldApply) return false;
+    if (state.filters[key] === parsed.value) return false;
+    state.filters[key] = parsed.value;
+    return true;
+  }
   const applyYear = debounce(() => {
-    state.filters.yearMin = parseInt(document.getElementById('f-year-min').value) || null;
-    state.filters.yearMax = parseInt(document.getElementById('f-year-max').value) || null;
-    runFilterUpdate();
-  }, 400);
+    const yminEl = document.getElementById('f-year-min');
+    const ymaxEl = document.getElementById('f-year-max');
+    const nextMin = parseYearFilterInput(yminEl);
+    const nextMax = parseYearFilterInput(ymaxEl);
+    const changedMin = updateYearFilterIfChanged('yearMin', nextMin);
+    const changedMax = updateYearFilterIfChanged('yearMax', nextMax);
+    const hasChanges = changedMin || changedMax;
+    if (hasChanges) runFilterUpdate();
+  }, 700);
   document.getElementById('f-year-min').addEventListener('input', applyYear);
   document.getElementById('f-year-max').addEventListener('input', applyYear);
 
