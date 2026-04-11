@@ -1,4 +1,4 @@
-"Ref_N","Reference"
+Ref_N,Reference
 1,"Čeirāns, A., Pupina, A., & Pupins, M. (2020). A new method for the estimation of minimum adult frog density from a large-scale audial survey. Scientific Reports, 10(1), 1-12."
 2,"Rocha, C. F. D., Sluys, M. V., Alves, M. A. S., Bergallo, H. G., & Vrcibradic, D. (2001). Estimates of forest floor litter frog communities: a comparison of two methods. Austral Ecology, 26(1), 14-21."
 3,"Siqueira, C. C., Vrcibradic, D., Almeida-Gomes, M., Borges-Junior, V. N., Almeida-Santos, P., Almeida-Santos, M., Ariani, C.V., Guedes, D., Goyannes-Araújo, P., Dorigo, T.A., & Van Sluys, M. (2009). Density and richness of leaf litter frogs (Amphibia: Anura) of an Atlantic Rainforest area in the Serra dos Órgãos, Rio de Janeiro State, Brazil. Zoologia (Curitiba), 26(1), 97-102."
@@ -28,7 +28,7 @@
 27,"Beard, K. H., Al-Chokhachy, R., Tuttle, N. C., & O'Neill, E. M. (2008). Population density estimates and growth rates of Eleutherodactylus coqui in Hawaii. Journal of Herpetology, 42(4): 626-636"
 28,"Fogarty, J. H., & Vilella, F. J. (2002). Population dynamics of Eleutherodactylus coqui in Cordillera forest reserves of Puerto Rico. Journal of Herpetology, 36(2), 193-201."
 29,"Woolbright, L.L., Hara, A.H., Jacobsen, C.M., Mautz, W.J., Benevides, F.L., (2006). Population Densities of the Coquí, Eleutherodactylus coqui (Anura: Leptodactylidae) in Newly Invaded Hawaii and in Native Puerto Rico. Journal of Herpetology 40, 122-126."
-30,"Stewart & Pough. (1983). Population Density of Tropical Forest Frogs: Relation to Retreat Sites. Science 22: 570-572"
+30,Stewart & Pough. (1983). Population Density of Tropical Forest Frogs: Relation to Retreat Sites. Science 22: 570-572
 31,"Stewart, M.M., Rand, A.S., (1991). Vocalizations and the Defense of Retreat Sites by Male and Female Frogs, Eleutherodactylus coqui. Copeia 1991, 1013-1024."
 32,"Park, S. H., Cho, H., Jin, S. N., & Cho, K. H. (2017). Effects of habitat environment and land use on the abundance of Japanese tree frog (Hyla japonica) in Incheon, Korea. Ecology and Resilient Infrastructure, 4(4), 200-206."
 33,"Rice, K.G., Waddle, J.H., Miller, M.W., Crockett, M.E., Mazzotti, F.J., Percival, H.F., (2011). Recovery of native treefrogs after removal of nonindigenous cuban treefrogs, Osteopilus septentrionalis. Herpetologica 67, 105-117."
@@ -91,7 +91,7 @@
 90,"Nascetti, Andreone, Capula & Bullini, 1988. Number and movement of individuals, and influence of climate on activity in a population of the upper Po Valley. Herpetozoa 12, 3-10."
 91,"Catenazzi, A. (1998). Ecologie d'une population de Salamandre tachetée au Sud des Alpes. Diploma thesis. Institut de Zoologie, Université de Neuchatel."
 92,"Rebelo, R., Leclair, M.H., (2003). Site tenacity in the terrestrial salamandrid Salamandra salamandra. Journal of Herpetology 37, 440-445."
-93,"Project Tiger"
+93,Project Tiger
 94,"Pattaramanas, B., & Duengkae, P. (2021). Estimating on Population and Density of Cuvier’s Spiny Lizard (Acanthosaura lepidogaster) using Spatial Capture–recapture in Mae Sa–Kog Ma Biosphere Reserve, Chiang Mai Province (Doctoral dissertation, Kasetsart University)."
 95,"Western, D. (1974). The distribution, density and biomass density of lizards in a semi–arid environment of northern Kenya*. African Journal of Ecology, 12(1), 49-62."
 96,"Agarwal, I., Goyal, S. P., & Qureshi, Q. (2015). Lizards of the Thar Desert–Resource partitioning and community composition. Journal of Arid Environments, 118, 58-64."
@@ -121,7 +121,7 @@
 120,"Karsten, K.B., Andriamandimbiarisoa, L.N., Fox, S.F. & Raxworthy, C.J. (2009). Population densities and conservation assessments for three species of chameleons in the Toliara region of south-western Madagascar. Amphibia-Reptilia, 30, 341–350."
 121,"Vonesh, J.R. (2001). Patterns of richness and abundance in a tropical african Leaf-litter Herpetofauna. Biotropica, 33, 502–510."
 122,"Daltry, J. C., Bloxam, Q., Cooper, G., Day, M. L., Hartley, J., Henry, M., Lindsay, K., Smith, B. E. (2001). Five years of conserving the ‘world's rarest snake’, the Antiguan racer Alsophis antiguae. Oryx, 35(2), 119-127."
-123,"Rodda & Campbell. (2002). Distance sampling of forest snakes and lizards. Herpetological Review 33(4): 271-274"
+123,Rodda & Campbell. (2002). Distance sampling of forest snakes and lizards. Herpetological Review 33(4): 271-274
 124,"Hileman, E. T., Powell, R., Perry, G., Mougey, K., Thomas, R., & Henderson, R. W. (2017). Demography of the Puerto Rican Racer, Borikenophis portoricensis (Squamata: Dipsadidae), on Guana Island, British Virgin Islands. Journal of herpetology, 51(4), 454-460."
 125,"Rodda, G.H., Perry, G., Rondeau, R.J. & Lazell, J.D. (2001). The densest terrestrial vertebrate. Journal of Tropical Ecology 17, 331–338."
 126,"Rodda (2012). Population Size and Demographics. in McDiarmid, R. W., Foster, M. S., Guyer, C., Gibbons, J. W., & Chernoff, N. (Eds.). (2012). Reptile biodiversity: standard methods for inventory and monitoring. Univ of California Press."
@@ -130,7 +130,7 @@
 129,"Luiselli, L., Rugiero, L., Capula, M., (2011). Are communal nesting counts as useful as mark-recapture data for estimating population size in snakes? Herpetological Journal 21, 73-81."
 130,"Storniolo, F., Menichelli, S., & Zuffi, M. A. (2019). A long-term study of a snake community in north-western Tuscany (central Italy): population structure and density patterns. Herpetozoa, 32, 101."
 131,"Hileman, E. T., Kapfer, J. M., Muehlfeld, T. C., & Giovanni, J. H. (2015). Recouping lost information when mark-recapture data are pooled: A case study of milksnakes (Lampropeltis triangulum) in the upper midwestern United States. Journal of Herpetology, 49(3), 428-436."
-132,"Gerlach. (2008). Population and conservation status of the reptiles of the Seychelles islands. Phelsuma 16: 30-48"
+132,Gerlach. (2008). Population and conservation status of the reptiles of the Seychelles islands. Phelsuma 16: 30-48
 133,"Hirth, H.F. (1963). The Ecology of Two Lizards on a Tropical Beach. Ecol. Monogr., 33, 83–112."
 134,"Harris, B.R., Yorks, D.T., Bohnert, C. a., Parmerlee, J.S. & Powell, R. (2004). Population densities and structural habitats in lowland populations of Anolis lizards on Grenada. Caribb. J. Sci., 40, 31–40."
 135,"Schoener T.W. & Schoener A. (1980). Densities, sex ratios, and population structure in four species of Bahamian Anolis lizards. The Journal of Animal Ecology 49: 19-53"
@@ -177,7 +177,7 @@
 176,"Rubio, J.L. & Carrascal, L.M. (1994). Habitat selection and conservation of an endemic Spanish lizard Algyroides marchi (Reptilia, Lacertidae). Biol. Conserv., 70, 245–250."
 177,"Valakos, E. & Vlachopanos, A. (1989). Note on the ecology of Cyrtodactylus kotschyi (Reptilia - Gekkonidae) in an insular ecosystem of the Aegean. Biol. Gall. 15, 179-184."
 178,"Bombi & Vignoli. (2004) Distribution, ecology and conservation of Archaeolacerta bedriagae in Sardinia (Reptilia, Lacertidae), Italian Journal of Zoology, 71:S2, 135-144"
-179,"Busack. (1987). Notes on the biology of Lacerta andreanszkyi (Reptilia: Lacertidae). Amphibia-Reptilia 8: 231-236"
+179,Busack. (1987). Notes on the biology of Lacerta andreanszkyi (Reptilia: Lacertidae). Amphibia-Reptilia 8: 231-236
 180,"Lizana-Ciudad, D., Colino-Rabanal, V. J., Arribas, O. J., & Lizana, M. (2021). Connectivity predicts presence but not population density in the habitat-specific Mountain Lizard Iberolacerta martinezricai. Sustainability, 13(5), 2647."
 181,"Martín, J., & Salvador, A. (1997). Microhabitat selection by the Iberian rock lizard Lacerta monticola: effects on density and spatial distribution of individuals. Biological Conservation, 79(2), 303-307."
 182,"Strijbosch, H. & Creemers, R.C.M. (1988). Comparative population demography of sympatric populations of Lacerta vivipara and Lacerta agilis. Oecologia, 76, 20–26."
@@ -211,7 +211,7 @@
 210,"Gerson, M.M. (2011). Population status and habitat affinities of the Blainville’s Horned Lizard (Phrynosoma blainvillii) at a site in the Northern San Joaquin Valley, California, USA. Herpetol. Conserv. Biol., 6, 228–236."
 211,"Vesy, M. N., Watters, J. L., Moody, R. W., Schauber, E. M., Mook, J. M., & Siler, C. D. (2021). Survivorship and spatial patterns of an urban population of Texas horned lizards. The Journal of Wildlife Management, 85(6), 1267-1279."
 212,"Tanner, W.W. & Krogh, J.E. (1973). Ecology of Phrynosoma platyrhinos at the Nevada Test Site, Nye County, Nevada. Herpe, 29, 327–342."
-213,"Smolensky & Fitzgerald. (2010). Distance Sampling Underestimates Population Densities of Dune-Dwelling Lizards. Journal of Herpetology 44(3): 372–381"
+213,Smolensky & Fitzgerald. (2010). Distance Sampling Underestimates Population Densities of Dune-Dwelling Lizards. Journal of Herpetology 44(3): 372–381
 214,"Ballinger, R. E., & Congdon, J. D. (1981). Population ecology and life history strategy of a montane lizard (Sceloporus scalaris) in southeastern Arizona. Journal of Natural History, 15(2), 213-222."
 215,"Rodríguez-Romero F. et al. (2011). Demography of a Semelparous, high-elevation population of Sceloporus bicanthalis (Lacertilia: Phrynosomatidae) from the Nevado de Toluca Volcano, Mexico. Southwest. Nat., 56, 71–77."
 216,"Tinkle, D.W. & Dunham, A.E. (1986). Comparative Life Histories of Two Syntopic Sceloporine Lizards. Copeia, 1986, 1–18."
@@ -248,7 +248,7 @@
 247,"Schell, P.T., Powell, R., Parmerlee  Jr., J.S., Lathrop, A. & Smith, D.D. (1993). Notes on the natural history of Ameiva chrysolaema (Sauria: Teiidae) from Barahona, Dominican Republic. Copeia, 1993, 859–862."
 248,"Kerr, A. M., Powell, R., & Parmerlee Jr, J. S. (2005). Ameiva erythrocephala (Teiidae) on Sint Eustatius, Netherlands Antilles: Baseline data on a small population in a severely altered habitat. Carib. J. Sci, 41, 162-169."
 249,"Hill, K., McMillan, G., & Fariña, R. (2003). Hunting‐related changes in game encounter rates from 1994 to 2001 in the Mbaracayu Reserve, Paraguay. Conservation biology, 17(5), 1312-1323."
-250,"Chiarello et al. (2010). Abundance of tegu lizards (Tupinambis merianae) in a remnant of the Brazilian Atlantic forest. Amphibia-Reptilia 31: 563-570"
+250,Chiarello et al. (2010). Abundance of tegu lizards (Tupinambis merianae) in a remnant of the Brazilian Atlantic forest. Amphibia-Reptilia 31: 563-570
 251,"de Andrade, A. C. (2019). Metropolitan lizards? Urbanization gradient and the density of lagartixas (Tropidurus hispidus) in a tropical city. Ecology and Evolution,10(4): 1740-1750"
 252,"Van Sluys, M., Martelotte, S. B., Kiefer, M. C. and Rocha, C. F. D. (2010). Reproduction in neotropical Tropidurus lizards (Tropiduridae): evaluating the effect of environmental factors on T. torquatus. Amphibia-Reptilia, 31, 117-126."
 253,"Wiederhecker, H.C., Pinto, A.C.S., Paiva, M.S. & Colli, G.R. (2003). The demography of the lizard Tropidurus torquatus (Squamata , Tropiduridae) in a highly seasonal Neotropical savanna. Phyllomedusa, 2, 9–19."
@@ -271,8 +271,8 @@
 270,"Stokes, H. J., Mortimer, J. A., Laloë, J. O., Hays, G. C., & Esteban, N. (2023). Synergistic use of UAV surveys, satellite tracking data, and mark‐recapture to estimate abundance of elusive species. Ecosphere, 14(3), e4444."
 271,"Roe, J. H., Graeter, G. J., LaVere, A. A., & Somers, A. B. (2021). State‐wide population characteristics and long‐term trends for eastern box turtles in North Carolina. Ecosphere, 12(2), e03378."
 272,"Stickel, L. F. (1950). Populations and home range relationships of the box turtle, Terrapene c. carolina (Linnaeus). Ecological Monographs, 20(4), 351-378."
-273,"Bourn et al. (1999). The rise and fall of the Aldabran giant tortoise population. Proc. R. Soc. Lond. B 266: 1091-1100"
-274,"Swingland & Coe. (1979). The Natural Regulation of Giant Tortoise Populations on Aldabra Atoll: Recruitment. Phil. Trans. R. Soc. Lond. B 286: 177-188"
+273,Bourn et al. (1999). The rise and fall of the Aldabran giant tortoise population. Proc. R. Soc. Lond. B 266: 1091-1100
+274,Swingland & Coe. (1979). The Natural Regulation of Giant Tortoise Populations on Aldabra Atoll: Recruitment. Phil. Trans. R. Soc. Lond. B 286: 177-188
 275,"Nambinina, A., Sefczek, T. M., Frasier, C. L., Brown, A., Ratrimomanarivo, F. H., & Razafiherison, R. (2022). Assessing population density of radiated tortoise (Astgrochelys radiata) in southwest Madagascar. Herpetological Conservation and Biology, 17(2), 370-377."
 276,"Smith, L. L., Reid, D., Robert, B., Joby, M., & Clément, S. (1999). Status and distribution of the angonoka tortoise (Geochelone yniphora) of western Madagascar. Biological Conservation, 91(1), 23-33."
 277,"Polisar, J., Scognamillo, D., Maxit, I. E., & Sunquist, M. (2008). Patterns of vertebrate abundance in a tropical mosaic landscape. Studies on Neotropical Fauna and Environment, 43(2), 85-98."
@@ -288,7 +288,7 @@
 287,"Smith et al. (2009). An evaluation of distance sampling for large-scale gopher tortoise surveys in Georgia, USA. Applied Herpetology 6: 355–368"
 288,"Walker, R. C., Woods‐Ballard, A. J., & Rix, C. E. (2008). Population density and seasonal activity of the threatened Madagascar spider tortoise (Pyxis arachnoides arachnoides) of the southern dry forests; South West Madagascar. African Journal of Ecology 46(1): 67-73."
 289,"Asefa, A., Hailu, H., & Kebede, A. (2020). Density, threats, and conservation of leopard tortoises (Stigmochelys pardalis) in Ethiopia. Herpetological Conservation and Biology, 15(3), 512-525."
-290,"Hailey & Willemsen. (2000). Population density and adult sex ratio of the tortoise Testudo hermanni in Greece: Evidence for intrinsic population regulation. Journal of Zoology 251: 325-338"
+290,Hailey & Willemsen. (2000). Population density and adult sex ratio of the tortoise Testudo hermanni in Greece: Evidence for intrinsic population regulation. Journal of Zoology 251: 325-338
 291,"Corti, C., & Zuffi, M. A. (2003). Aspects of population ecology of Testudo hermanni hermanni from Asinara Island, NW Sardinia (Italy, Western Mediterranean Sea): preliminary data. Amphibia-Reptilia, 24(4), 441-447."
 292,"Chergui, B., Rodríguez-Caro, R. C., Graciá, E., Fahd, S., & Santos, X. (2019). Population density of the spur-thighed tortoise Testudo graeca declines after fire in north-western Africa. PloS one, 14(8), e0220969."
 293,"Buică, G., Iosif, R., & Cogălniceanu, D. (2013). Demography and conservation of an isolated Spur-thighed tortoise Testudo graeca population in Dobrogea (Romania). Ecologia Balkanica, 5(1)."
@@ -297,12 +297,12 @@
 296,"Kopij, G. (2023). Status, distribution and numbers of birds in the Ogongo Game Park, north-central Namibia. Namibian Journal of Environment, 7, B-20."
 297,"Kopij, G. (2023). The Effect of Rainfall on the Population Densities and Community Structure of Birds in an Urbanized Zambezi Riparian Forest. Diversity, 15(11), 1126."
 298,"García Quinde, Y. L. (2019). Densidad poblacional de las aves cites presentes en el distrito Carmen de la Frontera-provincia de Huancabamba. Thesis Universidad Nacional De Piura"
-299,"Estades. (1996). Bird-habitat relationships in a vegetational gradient in the andes of central chile. The Condor 99: 719-727"
+299,Estades. (1996). Bird-habitat relationships in a vegetational gradient in the andes of central chile. The Condor 99: 719-727
 300,"Thiollay, J. M. (1989). Censusing of diurnal raptors in a primary rain forest: comparative methods and species detectability. J. Raptor Res, 23(3), 72-84."
 301,"Thiollay J. M. (1994). Structure, Density and Rarity in an Amazonian Rainforest Bird Community. Journal of Tropical Ecology 10(4): 449-481"
 302,"Terborgh, J., Robinson, S. K., Parker III, T. A., Munn, C. A., & Pierpont, N. (1990). Structure and organization of an Amazonian forest bird community. Ecological Monographs, 60(2), 213-238."
 303,"Baltosser. W.H. (1986) Seasonal analysis of a southwestern New Mexico riparian bird community. Western Birds. 17, pp.115-131. "
-304,"Fujimaki. Y. (1980). Birds of Tokachi district. Hokkaido. 1. Birds of Shitoku-Yama and its surrounding area. Journal of the Yamashina Institute of Ornithology 12: 40-52"
+304,Fujimaki. Y. (1980). Birds of Tokachi district. Hokkaido. 1. Birds of Shitoku-Yama and its surrounding area. Journal of the Yamashina Institute of Ornithology 12: 40-52
 305,"Rosanowski, K. H. (1980). Sommer vogelbestand aufnahmen (1977, 1978) in Oerreler Moor. Beiträge zur Naturkunde Niedersachens 33, 17-22."
 306,"Fujimaki, Y. (1984). Birds of Tokachi district, Hokkaido. 4. Birds of agricultural land. Journal of the Yamashina Institute of Ornithology, 16: 159-167"
 307,"Gryz, J., Krauze-Gryz, D. (2018). Density dynamics, diet composition and productivity of sparrowhawk Accipiter nisus L. population in central Poland. Forest Research Papers 79 (3): 245–251"
@@ -342,7 +342,7 @@
 341,"Aldrich. R. and Coffm. R.W. (1980) Breeding bird populations from forest to suburbia after thirty-seven years. American Birds. 34, pp.3- 7. "
 342,"Romanov, A. A., Koblik, E. A., Red’kin, Y. A., Kojemyakina, R. V., Yakovlev, V. O., & Murashev, I. A. (2021). Landscape and Ecological Differentiation of the Fauna and Bird Population of Urup Island (Big Kuril Ridge). Contemporary Problems of Ecology, 14(2), 99-111."
 343,"Potapov, E. R. (1997). What determines the population density and reproductive success of rough-legged buzzards, Buteo lagopus, in the Siberian tundra?. Oikos, 362-376."
-344,"Tundra Northwest (1999) Swedish Polar Expedition (http://www.zoology.ubc.ca/~krebs/tnw99.html)"
+344,Tundra Northwest (1999) Swedish Polar Expedition (http://www.zoology.ubc.ca/~krebs/tnw99.html)
 345,"Ralph, C.J. (1985). Habitat association patterns of forest and steppe birds of northern Patagonia, Argentina. The Condor 87, 471-483"
 346,"Gorresen, P. M., Camp, R. J., Klavitter, J. L., Pratt, T. K., & Hart, P. J. (2008). Abundance, distribution and population trend of the Hawaiian Hawk: 1998-2007. Hawaii Cooperative Studies Unit Technical Report HCSU-009."
 347,"Cempulik. P. (1985) Wodno-blome Non-Passeriformes na stawach rybnycb wielikat (G6rriy Siask). Acta Ornithologica (Warsaw), 21, pp.115-134. "
@@ -402,9 +402,9 @@
 401,"Mallari, N. A. D., Collar, N. J., Lee, D. C., McGowan, P. J. K., Wilkinson, R., & Marsden, S. J. (2011). Population densities of understorey birds across a habitat gradient in Palawan, Philippines: implications for conservation. Oryx, 45(2), 234-242."
 402,"Raman & Mudappa. (2003). Correlates of hornbill distribution and abundance in rainforest fragments in the southern Western Ghats, India. Bird Conservation International 13:199–212"
 403,"Española, C. P., Collar, N. J., & Marsden, S. J. (2013). Are populations of large‐bodied avian frugivores on Luzon, P hilippines, facing imminent collapse?. Animal Conservation, 16(4), 467-479."
-404,"Cody. (1983). Bird diversity and density in south african forests. Oecologia 59: 201-215"
+404,Cody. (1983). Bird diversity and density in south african forests. Oecologia 59: 201-215
 405,"Owiunji & Plumptre. (1998). Bird communities in logged and unlogged compartments in Budongo Forest, Uganda. Forest Ecology and Management 108:115–126"
-406,"Whitney & Smith. (1998). Habitat use and resource tracking by African Ceratogymna hornbills: implications for seed dispersal and forest conservation. Animal Conservation 1: 107–117"
+406,Whitney & Smith. (1998). Habitat use and resource tracking by African Ceratogymna hornbills: implications for seed dispersal and forest conservation. Animal Conservation 1: 107–117
 407,"Lee, D. C., & Marsden, S. J. (2008). Adjusting count period strategies to improve the accuracy of forest bird abundance estimates from point transect distance sampling surveys. Ibis, 150(2), 315-325."
 408,"Mynott, H. I., Lee, D. C., Santillan, R. A., Schwarz, C. J., Tacud, B., Fernandez, A. D., & Kerhoas, D. (2021). Population assessment and habitat associations of the Visayan Hornbill (Penelopides panini) in Northwest Panay, Philippines. Avian research, 12: 67"
 409,"Reintar, A. R. T., Paguntalan, L. J., Jakosalem, P. G. C., Quidet, A. C. D., Warguez, D. A., & Peñaranda, E. (2022). Habitat preference and population density of threatened Visayan hornbills Penelopides panini and Rhabdotorrhinus waldeni in the Philippines. Journal of Threatened Taxa, 14(3), 20713-20720"
@@ -428,8 +428,8 @@
 427,"Ruiz-Ayma, G., Cavazos-Alvarez, A., Guzmán-Velasco, A., Olalla-Kerstupp, A., Rubio-Cisneros, N. T., Ham-Dueñas, J. G., & González-Rojas, J. I. (2023). Densidad poblacional y características del hábitat del chorlo llanero (Charadrius montanus) en sus sitios invernales en el noreste de México. Huitzil, 24(2): e657"
 428,"Sammler, J. E., Andersen, D. E., & Skagen, S. K. (2008). Population trends of tundra-nesting birds at Cape Churchill, Manitoba, in relation to increasing goose populations. The Condor, 110(2), 325-334."
 429,"Smith, A. C., Virgl, J. A., Panayi, D., & Armstrong, A. R. (2005). Effects of a diamond mine on tundra-breeding birds. Arctic, 295-304."
-430,"Tharme et al. (2001). The effect of management for red grouse shooting on the population density of breeding birds on heather-dominated moorland. Journal of Applied Ecology 38: 439-457"
-431,"Bart & Earnst. (2002). Double sampling to estimate density and population. The auk 119(1): 36–45"
+430,Tharme et al. (2001). The effect of management for red grouse shooting on the population density of breeding birds on heather-dominated moorland. Journal of Applied Ecology 38: 439-457
+431,Bart & Earnst. (2002). Double sampling to estimate density and population. The auk 119(1): 36–45
 432,"Kopij, G. (2019). Distribution and population densities of selected uncommon bird species in Zambezi riparian forest, NE Namibia. Acta Biologica Sibirica, 5(4), 5-11."
 433,"Asadi, M. A., Rais, M., Munir, S., Saeed, M., Jilani, M. J., Akram, A., Mahmood, T., & Anwar, M. (2018). Spatio-temporal variations in Red-wattled Lapwing (Vanellus indicus) abundance with notes on major habitat types in North Punjab, Pakistan. Journal of Applied Agriculture and Biotechnology, 2(2), 54-62."
 434,"Carrascal, L.M. (2013). Tendencias poblacionales recientes y distribución de cuatro especies de aves estepáricas en las Islas Canarias orientales. Museo Nacional de Ciencias Naturales (CSIC) y Red Eléctrica de España, S.A.U"
@@ -439,28 +439,28 @@
 438,"Darvill, R., Westphal, A. M., Flemming, S. A., & Drever, M. C. (2023). Abundance Estimates for Marsh Bird Species in the Columbia Wetlands, British Columbia, Canada. Waterbirds, 45(3), 266-276."
 439,"Korňan, M. (2013). Breeding bird assemblage dynamics of a primaeval temperate mixed forest in the Western Carpathians (Slovakia): support for pluralistic community concept. Ornis Fennica, 90(3), 151-177."
 440,"Eeva, T., Belskii, E., Gilyazov, A. S., & Kozlov, M. V. (2012). Pollution impacts on bird population density and species diversity at four non-ferrous smelter sites. Biological Conservation, 150(1), 33-41."
-441,"Woinarski & Tidemann. (1991). The bird fauna of a deciduous woodland in the wet-dry tropics of Northern Australia. Wildlife research 18: 479-500"
+441,Woinarski & Tidemann. (1991). The bird fauna of a deciduous woodland in the wet-dry tropics of Northern Australia. Wildlife research 18: 479-500
 442,"Lee, A. T., Reeves, B., & Wright, D. R. (2019). Hottentot Buttonquail Turnix hottentottus: Endangered or just overlooked?. Bird Conservation International, 29(1), 136-143."
 443,"Sundar, K. G. (2006). Flock size, density and habitat selection of four large waterbirds species in an agricultural landscape in Uttar Pradesh, India: Implications for management. Waterbirds, 29(3), 365-374."
 444,"Howard, G. W., & Aspinwall, D. R. (1984). Aerial censuses of shoebills, saddlebilled storks and wattled cranes at the Bangweulu Swamps and Kafue Flats, Zambia. Ostrich, 55(4), 207-212."
 445,"Roy, M., Qureshi, Q., Naha, D., Sankar, K., Gopal, R., & Jhala, Y. V. (2016). Demystifying the Sundarban tiger: novel application of conventional population estimation methods in a unique ecosystem. Population ecology, 58(1), 81-89."
 446,"Howell, P. E., Wilhite, N. G., Gardner, R., Mohlman, J. L., Chandler, R. B., Parnell, I. B., & Martin, J. A. (2021). The Effects of Landscape Characteristics on Northern Bobwhite Density. The Journal of Wildlife Management, 85(5), 1001-1008"
-447,"Reif et al. (2006). Unusual abundance–range size relationship in an Afromontane bird community: the effect of geographical isolation. Journal of Biogeography 33: 1959–1968"
+447,Reif et al. (2006). Unusual abundance–range size relationship in an Afromontane bird community: the effect of geographical isolation. Journal of Biogeography 33: 1959–1968
 448,"Riley, J. (2002). Population sizes and the status of endemic and restricted-range bird species on Sangihe Island, Indonesia. Bird Conservation International, 12(01), 53-78."
 449,"Wijesundara, C., & de Silva, M. (2005). Species diversity, abundance and some aspects of the ecology of birds in selected habitats in the hill region of Sri Lanka. Ceylon Journal of Science (Biological Sciences), 33, 15-31."
 450,"Przybylska, K., et al. (2012). Local and landscape-level factors affecting the density and distribution of the Feral Pigeon Columba livia var. domestica in an urban environment. Acta Ornithologica, 47(1), 37-45."
 451,"Tan, D. J. (2016). A quantitative survey of avian population densities in a heterogeneous tropical urban landscape. Raffles Bulletin of Zoology 32, 95–104"
-452,"Ford. (1987). Bird communities on habitat islands in England. Bird Study 34(3): 205-218"
+452,Ford. (1987). Bird communities on habitat islands in England. Bird Study 34(3): 205-218
 453,"Williamson. K. (1975). The breeding bird community of chalk grassland scrub in the ChiItern Hills. Bird Study, 22, pp.59-70. "
-454,"Gottschalk & Huettmann. (2010). Comparison of distance sampling and territory mapping methods for birds in four different habitats. Journal of Ornithology 152(2): 421- 429"
-455,"Zollinger. J.-L. (1976) Etude qualitative et quantitative des oiseaux de la foret mixte du Sepey. Cossonay (Vaud). Nos Oiseaux. 33. pp.290-321. "
+454,Gottschalk & Huettmann. (2010). Comparison of distance sampling and territory mapping methods for birds in four different habitats. Journal of Ornithology 152(2): 421- 429
+455,Zollinger. J.-L. (1976) Etude qualitative et quantitative des oiseaux de la foret mixte du Sepey. Cossonay (Vaud). Nos Oiseaux. 33. pp.290-321. 
 456,"Luniak, M. Jablonski. P. and Man:zak. P. (1986). Ptaki parku Łazienki Królewskie (Warszawa) w latach 1954-84. Acta Ornitholigica (Warsaw). 22, pp.23-50. "
 457,"Riley, J. (2003). Population sizes and the conservation status of endemic and restricted-range bird species on Karakelang, Talaud Islands, Indonesia. Bird Conservation International, 13(01), 59-74."
 458,"Judge, S., Camp, R. J., Vaivai, V., & Hart, P. J. (2021). Population density, distribution, and trends of landbirds in the National Park of American Samoa, Ta ‘ū and Tutuila Units (2011–2018). National Park Service."
 459,"Marsden, S. J., Jones, M. J., Linsley, M. D., Mead, C., & Hounsome, M. V. (1997). The conservation status of the restricted-range lowland birds of Buru, Indonesia. Bird Conservation International, 7(03), 213-233."
-460,"Woinarski. (1990). Effects of fire on the bird communities of tropical woodlands and open forests in northern Australia. Australian Journal of Ecology 15(1): 1-22 "
+460,Woinarski. (1990). Effects of fire on the bird communities of tropical woodlands and open forests in northern Australia. Australian Journal of Ecology 15(1): 1-22 
 461,"Keiluhu, H. J., Pangau-Adam, M. Z., Maury, H. K., & Waltert, M. (2019). Effects of anthropogenic disturbance on a Victoria crowned pigeon Goura victoria population in northern Papua, Indonesia. Journal of Asia-Pacific Biodiversity, 12(4), 493-497."
-462,"Nichols & Watkins. (1984). Bird Utilisation of Rehabilitated Bauxite Minesites in Western Australia. Biological Conservation 30: 109-131"
+462,Nichols & Watkins. (1984). Bird Utilisation of Rehabilitated Bauxite Minesites in Western Australia. Biological Conservation 30: 109-131
 463,"Jackson, D. B., & Jit, R. (2007). Population densities and detectability of 3 species of Fijian forest birds. Notornis, 54(2), 99."
 464,"Lee, A. T., Barnard, P., & Hockey, P. A. (2015). Population metrics for fynbos birds, South Africa: densities, and detection and capture rates from a Mediterranean-type ecosystem. Ostrich, 86(1-2), 179-187."
 465,"Mroczkiewicz, D. (1975) Ptaki legowe w Różnych biotopach miasta Poznania. Roczniki Vcademii Rolniczej w Poznaniu, 87, pp 115-126. "
@@ -468,10 +468,10 @@
 467,"Gruychev, G., & Mihaylov, H. (2019). Breeding density of European turtle dove (Streptopelia turtur) on Sakar mountain (SE Bulgaria). Turkish Journal of Zoology, 43(4), 403-406."
 468,"Bernoni, M., Ianniello, L., & Plini, P. (1983). Censimento con il metodo del mappaggio dell’avifauna nidificante nella tenuta di Castelporziano. Atti II Conv. Ital. Orn., Parma"
 469,"Marthy, W., Clough, Y., & Tscharntke, T. (2017). Assessing the potential for avifauna recovery in degraded forests in Indonesia. Raffles Bulletin of Zoology, 65."
-470,"Baker & Guthery. (1990). Effect of continuous grazing on habitat and density of ground-foraging birds in south Texas. Journal of range management 43(1): 2-5"
+470,Baker & Guthery. (1990). Effect of continuous grazing on habitat and density of ground-foraging birds in south Texas. Journal of range management 43(1): 2-5
 471,"Fancy, S. G., Craig, R. J., & Kessler, C. W. (1999). Forest bird and fruit bat populations on Sarigan, Mariana Islands. MICRONESICA-AGANA-, 31, 247-254."
 472,"Lopez, D., Fonda, F., Monti, F., & Dal Zotto, M. (2023). Density Estimates and Habitat Preferences of Two Sympatric Bird Species as Potential Bioindicators of Tropical Forest Alterations. Diversity, 15(2), 208."
-473,"Somershoe et al. (2006). Combining breeding bird survey and distance sampling to estimate density of migrant and breeding birds. The Condor 108:691–699"
+473,Somershoe et al. (2006). Combining breeding bird survey and distance sampling to estimate density of migrant and breeding birds. The Condor 108:691–699
 474,"Ie Louarn, H. (1968). Premiers resultats d'une etude sur les micrornamrniferes et les oiseaux. Dans Ie melezein du Brianconnais. La Terre et la Vie. 22, pp.327-342. "
 475,"Lin, C. W., Hsu, F. H., & Ding, T. S. (2011). Applying a territory mapping method to census the breeding bird community composition in a montane forest of Taiwan. Journal of Forest Science, 26(3), 267-285."
 476,"Theuerkauf, J., Rouys, S., Mériot, J. M., & Gula, R. (2009). Group territoriality as a form of cooperative breeding in the flightless Kagu (Rhynochetos jubatus) of New Caledonia. The Auk, 126(2), 371-375."
@@ -526,7 +526,7 @@
 525,"Wanghongsa, S., & Hayashi, Y. (2010). Activity and density of red jungle fowl Gallus gallus in a dry evergreen forest in Thailand. Journal of Yamashina Institute for Ornithology, 41, 141-152."
 526,"Palei, H. S., Sahu, H. K., & Nayak, A. K. (2016). Estimating the density of Red Junglefowl Gallus gallus (Galliformes: Phasianidae) in the tropical forest of Similipal Tiger Reserve, eastern India. Journal of Threatened Taxa, 8(2), 8495-8498."
 527,"Ramesh, T., et al. (2012). Status of large carnivores and their prey in tropical rainforests of South-western Ghats, India. Tropical Ecology, 53(2), 137-148."
-528,"Honsefugl Portalen (https://honsefugl.nina.no/Innsyn/Home/Takseringene)"
+528,Honsefugl Portalen (https://honsefugl.nina.no/Innsyn/Home/Takseringene)
 529,"Evans et al. (2006). Alternative methods for estimating density in an upland game bird: the red grouse Lagopus lagopus scoticus. Wildlife Biology, 13(2):130-139."
 530,"Warren, P., & Baines, D. (2011). Evaluation of the distance sampling technique to survey red grouse Lagopus lagopus scoticus on moors in northern England. Wildlife biology, 17(2), 135-143."
 531,"Fuglei, E., et al. (2019). Circumpolar status of Arctic ptarmigan: Population dynamics and trends. Ambio, 1-13."
@@ -561,7 +561,7 @@
 560,"Paracuellos, M. (1996). Dinámica anual de la comunidad de Paseriformes en carrizales costeros del sudeste ibérico. Doñana, Acta Vertebrata, 23, 33-44."
 561,"Cherenkov, S. E. (2020). Ecological Population Status of the Most Common Bird Species in Northern Altai Low-Mountain Forests and the Principal Difference in Avifauna Status in Altai and Baikal Regions. Contemporary Problems of Ecology, 13(6), 590-599."
 562,"Bak, T., R. Camp, C. Farmer, R. Rounds, S. Plentovich, J. Vetter, and P. Banko. 2024. Nihoa and Laysan Island passerines population abundances, trends, and habitat utilization. Hawai‘i Cooperative Studies Unit Technical Report HCSU-107. University of Hawai‘i at Hilo. 35 pages. https://hdl.handle.net/10790/5393"
-563,"Maclean et al. (2003). Effects of habitat degradation on avian guilds in East African papyrus Cyperus papyrus swamps. Bird Conservation International 13:283–297."
+563,Maclean et al. (2003). Effects of habitat degradation on avian guilds in East African papyrus Cyperus papyrus swamps. Bird Conservation International 13:283–297.
 564,"Brandl. R. and Walberer. E. (1982) Zur ornithologischen bedeutung von BrachfU1chen.. . Anzeiger der Ornithologischen GeseUschaft in Bayern, 21, pp.21-41. "
 565,"Britton, P. L. (1978). Seasonality, density and diversity of birds of a papyrus swamp in western Kenya. Ibis, 120(4), 450-466."
 566,"Jiménez, J., Hernández, J. M., Feliú, J., Carrasco, M., & Moreno-Opo, R. (2018). Breeding in a Dry Wetland. Demographic Response to Drought in the Common Reed-Warbler Acrocephalus scirpaceus. Ardeola, 65(2), 247-259."
@@ -574,7 +574,7 @@
 573,"阮韵.(2023).广西内陆风电场建设区鸟类种群密度和有效样线宽度及其影响因素的研究(硕士学位论文,广西师范大学). https://kns.cnki.net/kcms2/article/abstract?v=axnrJTP8flzO7nVrAoPsrnYv8sNfFaBb2_SpulSxJc9dOJaHqW8Sgy4j-mh1kaeH5P1I5NgB-Pzzry8F5R-bhBev2Q_W481J-uDJYmrgbpnrlOpNo60-04uZ2mMCH2c421kRypM_eAM=&uniplatform=NZKPT&language=CHS"
 574,"Shankar Raman. (2003). Assessment of census techniques for interspecific comparisons of tropical rainforest bird densities: a field evaluation in the Western Ghats, India. Ibis 145: 9–21"
 575,"Brawn. J. D.. Boeclden, W. J. and Bahia. R. P. (1987) Investigations of density interactions  birds in ponderosa pine forests: correlative and experimental evidence. Oecogia, 72, pp.348-357. "
-576,"Gaines. (2007). Short-Term Response of Land Birds to Ponderosa Pine Restoration. Restoration Ecology 15(4): 670–678"
+576,Gaines. (2007). Short-Term Response of Land Birds to Ponderosa Pine Restoration. Restoration Ecology 15(4): 670–678
 577,"Brinck, K. W. 2020. Forest bird population trends within Haleakalā National Park. Hawai‘i Cooperative Studies Unit Technical Report HCSU-097. University of Hawai‘i at Hilo. 31 pages."
 578,"Lee, A. T., & Barnard, P. (2016). Endemic birds of the Fynbos biome: a conservation assessment and impacts of climate change. Bird Conservation International, 26(1), 52-68."
 579,"Shaw & Shewri. (2001). Population density and habitat associations of restricted-range bird species at Ruhija, Bwindi Impenetrable Forest, Uganda. Bird Conservation International 11:161–174"
@@ -586,7 +586,7 @@
 585,"Prado, L. C., Dias, T. D. C., Lobo-Araújo, L. W., Silveira, L. F., & Francisco, M. R. (2022). Population density estimates for three endangered bird taxa from the Pernambuco Endemism Center, northeastern Brazil. Biota Neotropica, 22."
 586,"Ferrato, J. R., Simpson, T. R., Small, M. F., Veech, J. A., & Conway, M. H. (2017). Population density and habitat associations of the Seaside Sparrow (Ammodramus maritimus) on Laguna Atascosa National Wildlife Refuge, Cameron County, Texas. The Wilson Journal of Ornithology, 129(1), 131-138."
 587,"Meichtry-Stier, K. S., Jenny, M., Zellweger-Fischer, J., & Birrer, S. (2014). Impact of landscape improvement by agri-environment scheme options on densities of characteristic farmland bird species and brown hare (Lepus europaeus). Agriculture, ecosystems & environment, 189, 101-109."
-588,"Smith et al. (2005). Density and diversity of overwintering birds in managed field borders in mississippi. Wilson bulletin 117(3): 258–269"
+588,Smith et al. (2005). Density and diversity of overwintering birds in managed field borders in mississippi. Wilson bulletin 117(3): 258–269
 589,"Chase, M. K., Nur, N., & Geupel, G. R. (2005). Effects of weather and population density on reproductive success and population dynamics in a Song Sparrow (Melospiza melodia) population: A long-term study. The Auk, 122(2), 571-592."
 590,"Mizrahi, D., Tsipoura, N., Witkowski, K., & Bisignano, M. (2007). Avian Abundance and Distribution in the New Jersey Meadowlands District: The Importance of Habitat, Landscape, and Disturbance. Final report to the New Jersey Meadowlands Commission. 108pp."
 591,"Wood, D. R., Anderson, R. G., & Eason, D. M. (2019). Tree swallow (Tachycineta bicolor) abundance, density, and nest outcomes at Red Slough Wildlife Management Area, McCurtain County, Oklahoma. Bulletin of the Oklahoma Ornithological Society, 48(1)."
@@ -602,7 +602,7 @@
 601,"Ribeiro, J. R., Las-Casas, F. M. G., Silva, W. A. D. G., & Naka, L. N. (2021). Managed logging negatively affects the density and abundance of some dry forest specialist bird species of northeastern Brazil. Ornithological Applications."
 602,"Assandri, G., Bogliani, G., Pedrini, P., & Brambilla, M. (2019). Species-specific responses to habitat and livestock management call for carefully targeted conservation strategies for declining meadow birds. Journal for Nature Conservation, 125757."
 603,"Sagar, P. M., & Scofield, R. P. (2006). Survival, density and population composition of bellbirds (Anthornis melanura) on the Poor Knights Islands, New Zealand. New Zealand Journal of Zoology, 33(4), 249-257."
-604,"Gale et al. (2009). A Field test of distance sampling methods for a tropical forest bird community. The Auk 126(2): 439448"
+604,Gale et al. (2009). A Field test of distance sampling methods for a tropical forest bird community. The Auk 126(2): 439448
 605,"Kitegile, A., Muganda, M., Modest, R.B. (2013). Assessment of the population status of the elusive bird species Sokoke pipit (Anthus sokokensis) in Zaraninge Coastal forest, TANZANIAN. Proceedings of the Eight Tawiri Scientific Conference 6th-8th December 2011, Corridor Springs Hotel, Arusha, Tanzania. pp: 295-303"
 606,"郑炜, 葛晨, 李忠秋, & 黄成. (2012). 鸟类种群密度调查和估算方法初探. 四川动物, 31(1), 84-88."
 607,"Paguntalan, L. J., Reintar, A. R., Jakosalem, G. C., Peña, G., & Villarojo, A. (2022). Population density and distribution of the Endangered Black Shama Kittacincla cebuensis. Bird Conservation International, 1-8."
@@ -640,7 +640,7 @@
 639,"Lambert, F. R. (1993). Trade, status and management of three parrots in the North Moluccas, Indonesia: White Cockatoo Cacatua alba, Chattering Lory Lorius garrulus and Violet–eared Lory Eos squamata. Bird Conservation International, 3(02), 145-168."
 640,"Jepson, P., Brickle, N., & Chayadin, Y. (2001). The conservation status of Tanimbar corella and blue‐streaked lory on the Tanimbar Islands, Indonesia: results of a rapid contextual survey. Oryx, 35(3), 224-233."
 641,"Kinnaird, M. F., O'Brien, T. G., Lambert, F. R., & Purmiasa, D. (2003). Density and distribution of the endemic Seram cockatoo Cacatua moluccensis in relation to land use patterns. Biological conservation, 109(2), 227-235."
-642,"Cahill et al. (2006). Recovery within a population of the Critically Endangered citron-crested cockatoo Cacatua sulphurea citrinocristata in Indonesia after 10 years of international trade control. Oryx 40(2): 1-7"
+642,Cahill et al. (2006). Recovery within a population of the Critically Endangered citron-crested cockatoo Cacatua sulphurea citrinocristata in Indonesia after 10 years of international trade control. Oryx 40(2): 1-7
 643,"Reuleaux, A., Siregar, B. A., Collar, N. J., Panggur, M. R., Mardiastuti, A., Jones, M. J., & Marsden, S. J. (2020). Protected by dragons: Density surface modeling confirms large population of the critically endangered Yellow-crested Cockatoo on Komodo Island. The Condor, 122(4): duaa042"
 644,"Marsden, S. J., Whiffin, M., Sadgrove, L., & Guimarães, P. (2000). Parrot populations and habitat use in and around two lowland Atlantic forest reserves, Brazil. Biological Conservation, 96(2), 209-217."
 645,"Hosein, A., Narang, D. S., Rostant, L., & Hailey, A. (2017). The abundance of Red-bellied Macaws (Orthopsittaca manilata) and Orange-winged Parrots (Amazona amazonica) in relation to fruiting Moriche Palms (Mauritia flexuosa) at the Aripo Savannas, Trinidad. Revista Brasileira de Ornitologia, 25(1), 40-46."
@@ -649,7 +649,7 @@
 648,"Rivera-Milán F.F., et al. (2005). Estimation of density and population size and recommendations for monitoring trends of Bahama parrots on Great Abaco and Great Inagua. Wildlife Society Bulletin, 33(3), 823-834."
 649,"Haakonsson, J. E., Harvey, J., & Rivera-Milán, F. F. (2017). Conservation status of Grand Cayman (Amazona leucocephala caymanensis) and Cayman Brac (Amazona leucocephala hesterna) Parrots. Journal of Caribbean Ornithology, 30(1), 33-38."
 650,"Rodriguez-Estrella, R., Mata, E., & Rivera, L. (1992). Ecological notes on the green parakeet of Isla Socorro, Mexico. The Condor, 94(2), 523-525."
-651,"Legault et al. (2013). Standardising distance sampling surveys of parrots in New Caledonia. J Ornithol 154:19–33"
+651,Legault et al. (2013). Standardising distance sampling surveys of parrots in New Caledonia. J Ornithol 154:19–33
 652,"Barré, N., Theuerkauf, J., Verfaille, L., Primot, P., & Saoumoé, M. (2010). Exponential population increase in the endangered Ouvéa Parakeet (Eunymphicus uvaeensis) after community-based protection from nest poaching. Journal of Ornithology, 151(3), 695-701."
 653,"Casagrande, D. G., & Beissinger, S. R. (1997). Evaluation of four methods for estimating parrot population size. The Condor, 99(2), 445-457."
 654,"Evans, B. E., Ashley, J., & Marsden, S. J. (2005). Abundance, habitat use, and movements of Blue-winged Macaws (Primolius maracana) and other parrots in and around an Atlantic forest reserve. The Wilson Bulletin, 117(2), 154-164."
@@ -669,7 +669,7 @@
 668,"Pérez-García, J. M., Sánchez-Zapata, J. A., & Botella, F. (2012). Distribution and breeding performance of a high-density Eagle Owl Bubo bubo population in southeast Spain. Bird Study, 59(1), 22-28."
 669,"Marchesi, L., Sergio, F., & Pedrini, P. (2002). Costs and benefits of breeding in human‐altered landscapes for the Eagle Owl Bubo bubo. Ibis, 144(4), E164-E177."
 670,"Sergio, F., Marchesi, L., Pedrini, P., Ferrer, M., & Penteriani, V. (2004). Electrocution alters the distribution and density of a top predator, the eagle owl Bubo bubo. Journal of Applied Ecology, 41(5), 836-845."
-671,"Monitoring database at Kluane Lake (Yukon) (http://www.zoology.ubc.ca/~krebs/kluane.html)"
+671,Monitoring database at Kluane Lake (Yukon) (http://www.zoology.ubc.ca/~krebs/kluane.html)
 672,"Martin, L. (2022).ﾠUsing Acoustic Spatial Capture-Recapture to Estimate Owl Population Density and the Effects of Anthropogenic Factors in the Chattahoochee River National Recreation Areaﾠ(Doctoral dissertation, University of Georgia)."
 673,"Reynolds, M., Shook, J., Breed, G., & Kielland, K. (2021). Detection and density of the great horned owl (Bubo virginianus) in Arctic Alaska. Journal of Raptor Research, 55(1), 56-64."
 674,"Borges, S. H., Henriques, L. M., & Carvalhaes, A. (2004). Density and habitat use by owls in two Amazonian forest types. Journal of Field Ornithology, 75(2), 176-182."
@@ -743,7 +743,7 @@
 742,"Waser, P. M. (1980). Small nocturnal carnivores: ecological studies in the Serengeti. African Journal of Ecology, 18(2‐3), 167-185."
 743,"Sillero-Zubiri, C. S., & Gottelli, D. (1995). Spatial organization in the Ethiopian wolf Canis simensis: large packs and small stable home ranges. Journal of Zoology, 237(1), 65-81."
 744,"Deneke, Y. K. (2011). Population status and feeding ecology of the Ethiopian wolf (Canis simensis) in and around Borena. Doctoral dissertation, Addis Ababa University"
-745,"Desbiez et al. (2010). Mammalian Densities in a Neotropical Wetland Subject to Extreme Climatic Events. BIOTROPICA 42(3): 372–378"
+745,Desbiez et al. (2010). Mammalian Densities in a Neotropical Wetland Subject to Extreme Climatic Events. BIOTROPICA 42(3): 372–378
 746,"Pontes, A. M. (2004). Ecology of a community of mammals in a seasonailly dry forest in Roraima, Brazilian Amazon. Mammalian Biology, 69(5), 319-336."
 747,"Pontes, A.R.M., Layme, V.M.G., Magnusson, W.E., Marigo, L.C. (2010). Mamíferos de médio e grande porte de Roraima, extremo norte da Amazônia Brasileira. Roraima: homem, meio ambiente e ecologia. FEMACT, 603-629."
 748,"Martínez, O., Rechberger, J., Vedia-Kennedy, J., & Mesili, T. (2008). Mamíferos medianos y grandes de la Serranía del Aguaragüe, Tarija (Bolivia). Mastozoología neotropical, 15(2), 335-348."
@@ -1486,7 +1486,7 @@
 1485,"刘付宾,黄师梅,谢建冲,梁军,苏云,王晓勤,王兆锭,徐建国,张继武,时光,滕丽微,刘振生.(2023).内蒙古贺兰山冬春季岩羊种群现状及保护. 生态学报(14),5829-5839. "
 1486,"Stenkewitz. (2010). Distance sampling for estimating springhare, Cape hare and steenbok densities in South Africa. South African Journal of Wildlife Research 40(1): 87–92"
 1487,"Derebe, Y., Girma, Z., Alemkere, A. (2023). Population size and diurnal activity patterns of Bohor reedbuck (Redunca redunca Pallas, 1767) in the compound of Alage Agricultural College, Central Rift Valley of Ethiopia. Israel Journal of Ecology and Evolution, 69(03-04), 118-126."
-1488,"Herrero et al. (2011). Using block counts and distance sampling to estimate populations of chamois. Pirineos Revista de Ecología de Montaña 166: 123-133"
+1488,Herrero et al. (2011). Using block counts and distance sampling to estimate populations of chamois. Pirineos Revista de Ecología de Montaña 166: 123-133
 1489,"Kavčić, K., Palencia, P., Apollonio, M., Vicente, J., & Šprem, N. (2021). Random encounter model to estimate density of mountain-dwelling ungulate. European Journal of Wildlife Research, 67(5), 1-8."
 1490,"Edelhoff, H., Milleret, C., Ebert, C., Dupont, P., Kudernatsch, T., Zollner, A., Bischof, R., Peters, W. (2023). Sexual segregation results in pronounced sex-specific density gradients in the mountain ungulate, Rupicapra rupicapra.ﾠCommunications Biology,ﾠ6(1), 979."
 1491,"Young, J. K., Murray, K. M., Strindberg, S., Buuveibaatar, B., & Berger, J. (2010). Population estimates of Endangered Mongolian saiga Saiga tatarica mongolica: implications for effective monitoring and population recovery. Oryx, 44(2), 285-292."
@@ -1539,12 +1539,12 @@
 1538,"Ferretti, F., & Fattorini, N. (2021). Competitor densities, habitat, and weather: effects on interspecific interactions between wild deer species. Integrative Zoology, 16(5), 670-684."
 1539,"ENETWILD-consortium, Guerrasio T, Acevedo P, Aleksovski V, Apollonio M, Arnon A, Barroqueiro C, Belova O, Berdión O, Blanco-Aguiar JA, Bijl H, Bleier N, Bučko J, Bužan E, Carniato D, Carro F, Casaer J, Carvalho J, Csányi S, del Rio L, Del Val Aliaga H, Ertürk A, Escribano F, Duniš L, Fernández-Lopez J, Ferroglio E, Fonseca C, Gačić D, Gavashelishvili A, Giannakopoulos A, Gómez-Molina A, Gómez-Peris C, Gruychev G, Gutiérrez I, Häberlein V, Hasan SM, Hillström L, Hoxha B, Iranzo M, Janječić M, Jansen P, Illanas S, Kashyap B, Keuling O, Laguna E, Lefranc H, Licoppe A, Liefting Y, Martínez-Carrasco C, Mrđenović D, Nezaj M, Pardavila X, Palencia P, Pereira G, Pereira P, Pinto N, Plhal R, Plis K, Podgórski T, Pokorny B, Preite L, Radonjic M, Rowcliffe M, Ruiz-Rodríguez C, Santos J, Rodríguez O, Scandura M, Sebastian M, Sereno J, Šestovic B, Shyti I, Somoza E, Soriguer R, Solà de la Torre J, Soyumert A, Šprem N, Stoyanov S, Smith GC, Sulce M, Torres RT, Trajçe A, Urbaitis G, Urbani N, Uguzashvili T, Vada R, Zanet S and Vicente J, 2023. Wild ungulate density data generated by camera trapping in 37 European areas: first output of the European Observatory of Wildlife (EOW). EFSA supporting publication 2023:EN-7892. 90 pp. doi:10.2903/sp.efsa.2023.EN-7892"
 1540,"Barja, I., & Rosellini, S. (2008). Does habitat type modify group size in roe deer and red deer under predation risk by Iberian wolves?. Canadian Journal of Zoology, 86(3), 170-176."
-1541,"Focardi et al. (2002). The use of distance sampling and mark-resight to estimate the local density of wildlife populations. Environmetrics 13: 177-186"
+1541,Focardi et al. (2002). The use of distance sampling and mark-resight to estimate the local density of wildlife populations. Environmetrics 13: 177-186
 1542,"Palmer, S. C. F., & Truscott, A. M. (2003). Seasonal habitat use and browsing by deer in Caledonian pinewoods. Forest ecology and management, 174(1-3), 149-166."
 1543,"Tufto, J., Andersen, R., & Linnell, J. (1996). Habitat use and ecological correlates of home range size in a small cervid: the roe deer. Journal of Animal Ecology, 715-724."
 1544,"Mattioli, L., Apollonio, M., Mazzarone, V., & Centofanti, E. (1995). Wolf food habits and wild ungulate availability in the Foreste Casentinesi National Park, Italy. Acta Theriologica, 40(4), 387-402."
 1545,"周绍春,梁卓,张子栋,金光耀 & 那春子.(2018).黑龙江老爷岭东北虎国家级自然保护区东北虎、东北豹猎物资源研究. 林业科技(06),4-6."
-1546,"Focardi et al. (2005). Distance sampling effectively monitored a declining population of Italian roe deer Capreolus capreolus italicus. Oryx Vol 39 No 4"
+1546,Focardi et al. (2005). Distance sampling effectively monitored a declining population of Italian roe deer Capreolus capreolus italicus. Oryx Vol 39 No 4
 1547,"Ferretti, F., Lazzeri, L., & Fattorini, N. (2023). A test of motion‐sensitive cameras to index ungulate densities: group size matters. The Journal of Wildlife Management, 87(3), e22356."
 1548,"Popović, Z., Lavadinović, V., Stepić, S., Beuković, D., Beuković, M., Vukadinović, M., & Polovinski-Horvatović, M. (2023). Management of roe deer population (Capreolus capreolus L.) in Serbia. Arquivo Brasileiro de Medicina Veterinária e Zootecnia, 75, 347-354."
 1549,"Marcon, A., Battocchio, D., Apollonio, M., & Grignolio, S. (2019). Assessing precision and requirements of three methods to estimate roe deer density. PloS one, 14(10), e0222349."
@@ -2035,11 +2035,11 @@
 2034,"Ferrari, S.F & Lopes, M.A. (1996) Primate populations in Eastern Amazonia. Adaptive radiations of Neotropical Primates. Norconk, M.A., Rosenberger, A.L. & Garber, P.A. Plenum Press, New York & London. pp53-68"
 2035,"Hue, T., Caubet, M., & Moura, A. C. D. A. (2017). Howlers and marmosets in Pacatuba: an overcrowded existence in a semi-deciduous Atlantic forest fragment?. Mammalia, 81(4), 339-348."
 2036,"Dvoskin, R., Juarez, C.P. & Fernandez-Duque, E. (2004). Population density of black howlers (Alouatta caraya) in the gallery forests of the Arginean Chaco: a preliminary assessment, Folia Primatologica, 75(2), 93-96."
-2037,"Henriques & Cavalcante (2004) Neotropical Primates 12 (2): 78-83"
+2037,Henriques & Cavalcante (2004) Neotropical Primates 12 (2): 78-83
 2038,"Rumiz, D. I. (1990). Alouatta caraya: population density and demography in northern Argentina. American Journal of Primatology, 21(4), 279-294."
-2039,"Pope (1968) Biology of the Howler Monkey (Alouatta caraya). Biblioteca Primatolgica 7: 13-20"
+2039,Pope (1968) Biology of the Howler Monkey (Alouatta caraya). Biblioteca Primatolgica 7: 13-20
 2040,"Freese et al. (1982) Patterns and determinants of monkey densities in Peru and Bolivia, with notes on distributions.  Int. J. Primatol. 3: 53-90"
-2041,"Bicca-Marques (1994) Padrao de utilazacao de ema ilha da mata por Alouatta caraya (Primates: Cebidae).  Rev. Bras. Biol. 54: 161-171"
+2041,Bicca-Marques (1994) Padrao de utilazacao de ema ilha da mata por Alouatta caraya (Primates: Cebidae).  Rev. Bras. Biol. 54: 161-171
 2042,"Kowalewski, M. I. N. M., & Zunino, G. E. (1999). Impact of deforestation on a population of Alouatta caraya in northern Argentina. Folia Primatologica, 70(3), 163-166."
 2043,"Chiarello, A. G. (1994). Diet of the brown howler monkey Alouatta fusca in a semi-deciduous forest fragment of southeastern Brazil. Primates, 35(1), 25-34."
 2044,"Martins, M. M. (2005). Density of primates in four semi-deciduous forest fragments of São Paulo, Brazil. Biodiversity & Conservation, 14, 2321-2329."
@@ -2054,10 +2054,10 @@
 2053,"Assumpcao, C. T. D. (1983). Ecological study of the primates of Southeastern Brazil, with a reappraisal of Cebus apella races. KB thesis scanning project 2015."
 2054,"Ingberman, B., Fusco-Costa, R., & de Araujo Monteiro-Filho, E. L. (2009). Population survey and demographic features of a coastal island population of Alouatta clamitans in Atlantic Forest, southeastern Brazil. International journal of primatology, 30(1), 1-14."
 2055,"Gonzalez-Solis, J.,  Mateos, E.,  Manosa, S.,  Ontanon, M.,  GonzalezMartin, M., Guix, J. C. (1996). Abundance estimates of primates in an Atlantic rainforest area of southeastern Brazil. Mammalia 60(3): 488-491"
-2056,"Neville M.K. (1972). Population structure of red howler monkeys  (Alouatta seniculus) in Trinidad and Venezuela. Fol Prim 17: 56-86"
+2056,Neville M.K. (1972). Population structure of red howler monkeys  (Alouatta seniculus) in Trinidad and Venezuela. Fol Prim 17: 56-86
 2057,"Guillotin, M.,  Dubost, G., Sabatier, D. (1994). Food Choice and Food Competition among the three Major Primate Species of French-Guiana. Journal of Zoology 233: 551-579"
 2058,"Estrada, A. (1982). Survey and census of howler monkeys (Alouatta palliata) in the rain forest of “Los Tuxtlas,” Veracruz, Mexico. American Journal of Primatology, 2(4), 363-372."
-2059,"Sorensen & Fedigan (2000) Distribution of three monkey species along a gradient of disturbance. Biol Cons 92: 227-240"
+2059,Sorensen & Fedigan (2000) Distribution of three monkey species along a gradient of disturbance. Biol Cons 92: 227-240
 2060,"Fishkin, A. S., & Sussman, R. W. (1987). Preliminary survey of the primates of the Zona Protectora and La Selva Biological Station, Northeast Costa Rica. Reconocimiento preliminar de los primates de la Zona Protectora y la Estación Biológica La Selva, noreste de Costa Rica. Primate Conservation., (8), 63-66."
 2061,"Cervera, L., Lizcano, D. J., Tirira, D. G., & Donati, G. (2015). Surveying Two Endangered Primate Species (Alouatta palliata aequatorialis and Cebus aequatorialis) in the Pacoche Marine and Coastal Wildlife Refuge, West Ecuador. International Journal of Primatology, 36(5), 933-947."
 2062,"Tomblin, D. C., & Cranford, J. A. (1994). Ecological niche differences between Alouatta palliata and Cebus capucinus comparing feeding modes, branch use, and diet. Primates, 35(3), 265-274."
@@ -2067,7 +2067,7 @@
 2066,"Clarke, M. R., Crockett, C. M., Zucker, E. L., & Zaldivar, M. (2002). Mantled howler population of Hacienda La Pacifica, Costa Rica, between 1991 and 1998: effects of deforestation. American Journal of Primatology, 56(3), 155-163."
 2067,"Fedigan, L. M., & Jack, K. (2001). Neotropical primates in a regenerating Costa Rican dry forest: a comparison of howler and capuchin population patterns.International Journal of Primatology, 22(5), 689-713."
 2068,"Chapman, C. A., & Balcomb, S. R. (1998). Population characteristics of howlers: ecological conditions or group history. International Journal of Primatology, 19(3), 385-403."
-2069,"Chivers (1969) On the daily behaviour and spacing of howling monkey groups. FP 10: 48-102"
+2069,Chivers (1969) On the daily behaviour and spacing of howling monkey groups. FP 10: 48-102
 2070,"Strier, K.B. (2000) From binding brotherhoods to short-term sovereignty: the dilema of male Cebidae. In Primate males: causes and consequences of variation in group composition. Ed. Kappeler, P.M. Cambridge university press. pp.72-83"
 2071,"Trejo-Macías, G., Estrada, A., & Mosqueda Cabrera, M. Á. (2007). Survey of helminth parasites in populations of Alouatta palliata mexicana and A. pigra in continuous and in fragmented habitat in southern Mexico. International Journal of Primatology, 28, 931-945."
 2072,"Serio-Silva and Rico-Gray (2003).  Howler monkeys (Alouatta palliata mexicana) as seed dispersers of stranglers figs in disturbed and preserved habitats in southern Veracruz, Mexico. In Primates in Fragments (ed L.K. Marsh), pp 267-281"
@@ -2153,7 +2153,7 @@
 2152,"Roncancio, N., Branch, J., Moreno-Mancilla, O. F., Blanco, M. I., Ospina, O., & Guzmán, L. M. (2020). Reducción en la densidad poblacional del titi gris (Saguinus leucopus) en el oriente de Caldas, Colombia. Neotropical Primates, 26(1), 56-63."
 2153,"Roncancio-D, N., Ospona-H, O., Suarez-R, L., Chica-F, L., Elizalde-G, A. M., Tirado, A., Guzmán, Colorado, J., Meneses-G. S., Vela-P., O., Patiño-E, P. C. (2023). Population-density Monitoring of the Silvery-brown Tamarin (Oedipomidas leucopus) in Eastern Caldas, Colombia: Third Sampling. Primate Conservation, (37)."
 2154,"Bonell Rojas, W. Y., Alvarez Rincon, M. A., & Roncancio Duque, N. J. (2018). Population density of Saguinus leucopus (Mammalia: Primates) and landscape characteristics in eastern Antioquia, Colombia. Therya, 9(1), 61-68."
-2155,"Thorington (1968). Observations on the tamarin Saguinus midas Folia Primatologica 9: 95-98"
+2155,Thorington (1968). Observations on the tamarin Saguinus midas Folia Primatologica 9: 95-98
 2156,"Garber et al (1993) Patterns of Range Use, Range Defense, and Intergroup Spacing in Moustached Tamarin Monkeys (Saguinus-Mystax).  Primates 34: 11-25"
 2157,"Neyman, P.F (1977) Aspects of the ecology and social organisation of free-ranging cotton-top tamarins (Saguinus oedipus) and the conservation status of the species. In The biology and conservation of the Callitrichidae. (Ed.) Kleiman, D.G. Smithsonian Institute Press, Washington, D.C."
 2158,"Freese, C.H. & Oppenheimer, J.R.(1981) The Capuchin Monkeys, Genus Cebus. In Ecology and behaviour of neotropical primates eds. Coimbra-Filho, A.F., Mittermeier, R.A. Academia Brasileira de Ciencias. pp.331-390"
@@ -2164,7 +2164,7 @@
 2163,"Ferrari, S. F., Chagas, R. R., & Souza‐Alves, J. P. (2010). Line transect surveying of arboreal monkeys: problems of group size and spread in a highly fragmented landscape. American Journal of Primatology, 72(12), 1100-1107."
 2164,"Mitani, J. C., Sanders, W. J., Lwanga, J. S., & Windfelder, T. L. (2001). Predatory behavior of crowned hawk-eagles (Stephanoaetus coronatus) in Kibale National Park, Uganda. Behavioral Ecology and Sociobiology, 49(2-3), 187-195."
 2165,"Thomas, S. C. (1991). Population densities and patterns of habitat use among anthropoid primates of the Ituri Forest, Zaire. Biotropica 23(1), 68-83."
-2166,"Struhsaker T.T. (1975) The Red Colobus Monkey.  Univ. Chicago Press."
+2166,Struhsaker T.T. (1975) The Red Colobus Monkey.  Univ. Chicago Press.
 2167,"Brugiere, D., Gautier, J. P., Moungazi, A., & Gautier-Hion, A. (2002). Primate diet and biomass in relation to vegetation composition and fruiting phenology in a rain forest in Gabon. International Journal of Primatology, 23(5), 999-1024."
 2168,"Homewood, K.M. and Rodgers, W.A. (1981) A previously undescribed mangabey from southern Tanzania. International Journal of Primatology 2:47-55"
 2169,"Bourliere, F. (1985) Primate Communities - Their Structure and Role in Tropical Ecosystems. International Journal of Primatology 6: 1-26"
@@ -2198,7 +2198,7 @@
 2197,"Twinomugisha, D., Basuta, G. I. and Chapman C. A. (2003). Status and Ecology of the Golden monkey (Cercopithecus mitis kandti) in Mgahinga National park, Uganda. Afr. J. Ecol. 41:47-55"
 2198,"Kiffner, C., Kioko, J., Butynski, T. M., de Jong, Y. A., & Zinner, D. (2022). Population dynamics of the Manyara monkey (Cercopithecus mitis manyaraensis) and vervet monkey (Chlorocebus pygerythrus) in Lake Manyara National Park, Tanzania. Primate Biology, 9(2), 33-43."
 2199,"Fashing, P.J. & Cords, M. (2000) Diurnal primate densities and biomass in the Kakamega Forest: an evaluation of census methods and a comparison with other forests. American Journal of Primatology, 50, 139-152."
-2200,"Araldi et al. (2014). Density Estimation of the Endangered Udzungwa Red Colobus (Procolobus gordonorum) and Other Arboreal Primates in the Udzungwa Mountains Using Systematic Distance Sampling. Int J Primatol 35:941–956"
+2200,Araldi et al. (2014). Density Estimation of the Endangered Udzungwa Red Colobus (Procolobus gordonorum) and Other Arboreal Primates in the Udzungwa Mountains Using Systematic Distance Sampling. Int J Primatol 35:941–956
 2201,"Butynski, T.M. (1990) Comparative ecology of blue monkeys (cercopithecus mitis) in high and low-density populations. Ecological Monographs 60: 1-26"
 2202,"Uloko, J. I., & Lameed, G. A. (2019). Preliminary Study of the Population Density of Mona Monkeys (Cercopithecus mona) in Omo Forest Reserve. Open Journal of Ecology, 9(10), 413."
 2203,"Olaleru, F., Omotosho, O. O., & Omoregie, Q. O. (2020). Population composition and density of Mona monkey in Lekki Concervation Centre, Lekki, Lagos, Nigeria. Journal of Research in Forestry, Wildlife and Environment, 12(3), 259-265."
@@ -2263,7 +2263,7 @@
 2262,"Kumara, H. N., & Singh, M. (2004). Distribution of primates and conservation of Macaca silenus in rainforests of the Western Ghats, Karnataka, India. Int. J. Primatol, 25, 1001-1018."
 2263,"Fooden, J. (1979) Taxonomy and evolution of the sinica group of Macaques: I. Species and subspecies accounts of Macaca sinica. Primates 20: 109-140"
 2264,"Mehlman, P.T. (1989) Comparative Density, Demography, and Ranging Behavior of Barbary Macaques (Macaca-Sylvanus) in Marginal and Prime Conifer Habitats. International Journal of Primatology 10: 269-292"
-2265,"Ciania (1996) Macaca sylvanus: the model works! Folia Primatologica 67: 71"
+2265,Ciania (1996) Macaca sylvanus: the model works! Folia Primatologica 67: 71
 2266,"Bernard, H., Abram, N. K., Kulanthavelu, M., Oram, F., & Matsuda, I. (2021). Population trends and conservation status of proboscis monkeys (Nasalis larvatus) in the face of habitat change in the Klias Peninsula, Sabah, Borneo, Malaysia. Raffles Bulletin of Zoology, 69, 176-187."
 2267,"Bennett, E.L., Sebastian, A.C. (1988) Social organisation and ecology of Proboscis Monkeys (Nasalis larvatus) in Mixed Coastal Forest in Saramak. International Journal of Primatology 9: 233-255"
 2268,"Boonratana, R. (2000) Ranging behaviour of proboscis monkeys (Nasalis larvatus) in the Lower Kinabatangan, Northern Borneo.  International Journal of Primatology, 21: 497-518."
@@ -2272,7 +2272,7 @@
 2271,"Harding, R.S.O. (1976) Ranging patterns of a troop of baboons (Papio anubis) in Kenya. Folia primatol 25: 143-185"
 2272,"Rowell, T. E. (1966). Forest living baboons in Uganda. Journal of Zoology,149(3), 344-364."
 2273,"Nagel, U. (1973) A comparison of Anubis baboons, Hamadryas baboons and their hybrids ata species border in Ethiopia. Folia Primatologica 19: 104-165"
-2274,"Dunbar R. I. M. (1988). Primate Social Systems. Cornstock Publishing Associates: Cornell University Press. New York"
+2274,Dunbar R. I. M. (1988). Primate Social Systems. Cornstock Publishing Associates: Cornell University Press. New York
 2275,"DeVore, I. & Hall (1965). Baboon ecology. In Primate Behavior: field studies of monkeys and apes.  DeVore, I, editor. Holt, Reinhart & Winston, New York"
 2276,"Samuels, A. and Altmann, J. (1991). Baboonsof the Amboseli basin: demographic stability and change. International Journal of Primatology 12:1-20"
 2277,"Hamilton, W.J., Buskirk, R.E. & Buskirk, W.H. (1976). Defense of space and resources by chacma (Papio ursinus) baboon troops in an African desert and swamp. Ecology 57: 1264-1272."
@@ -2363,7 +2363,7 @@
 2362,"Schein L (2008) Species diversity of the enigmatic nocturnal primates in the secondary Rhoko forest, Cross River State, Nigeria: preliminary findings on densities, abundance estimates, and methods comparisons using Distance. MSc thesis, Oxford Brookes University"
 2363,"Omifolaji, J. K., Ikyaagba, E. T., Alarape, A. A., Ojo, V. A., Modu, M., Lateef, L. F., Adeyemi, M.A., Ahmad, S. & Luan, X. Estimates of Demidoff's galago (Galagoides demidovii) density and abundance in a changing landscape in the Oban hills, Nigeria. Hystrix, the Italian Journal of Mammalogy, 31(2): 117-122"
 2364,"Weisenseel,K. Chapman, C. Chapman, J.L. (1993)  Nocturnal primates of Kibale Forest: effects of selective logging on prosimian densities. Primates 34(4): 445-450"
-2365,"Nash. L.T. and Harcourt C.S. (1986) Social organisation of galagos in Kenyan coastal forests: II. Galago garnettii. American Journal of Primatology 10:357-369"
+2365,Nash. L.T. and Harcourt C.S. (1986) Social organisation of galagos in Kenyan coastal forests: II. Galago garnettii. American Journal of Primatology 10:357-369
 2366,"Harcourt C.S. and Nash. L.T., (1986) Social organisation of galagos in Kenyan coastal forests: 1. Galago zanzibaricus. American Journal of Primatology 10:339-355"
 2367,"Harcourt, A. H.,  Fossey, D., Sabaterpi, J. (1981). Demography of Gorilla-Gorilla. Journal of Zoology 195: 215-233"
 2368,"Caillaud, D., Eckardt, W., Vecellio, V., Ndagijimana, F., Mucyo, J. P., Hirwa, J. P., & Stoinski, T. (2020). Violent encounters between social units hinder the growth of a high-density mountain gorilla population. Science Advances, 6(45), eaba0724."
@@ -2371,8 +2371,8 @@
 2370,"Yamagiwa, J., Mwanza, N., Spangenberg, A., Maruhashi, T., Yumoto, T., Fischer, A., Steinhauer-Burkart, B., Refisch, J., (1992) Population density and ranging pattern of chimpanzees in kahuzi-Biega national park, Zaire: a comparison with a sympatric population of gorillas. African study monographs, 13 (4): 217-230"
 2371,"Weber, A.W. & Vedder, A. (1983). Population dynamics of the Virunga gorillas:1959-1978. Biological Conservation 26:341-366"
 2372,"Hall, J.S. et al. (1998) Survey of Grauer's gorillas (Gorilla gorilla graueri) and eastern chimpanzees (Pan trodlodytes schweinfurthi) in the Kahuzi-Biega national park lowland sector and adjacent forest in eastern democratic Republic of Congo. International Journal of Primatology. 19:207-236"
-2373,"Murnyak (1981) Censusing gorillas. Biol Conserv 21: 163-176"
-2374,"Schaller (1963). The Mountain Gorilla. University of Chicago Press."
+2373,Murnyak (1981) Censusing gorillas. Biol Conserv 21: 163-176
+2374,Schaller (1963). The Mountain Gorilla. University of Chicago Press.
 2375,"Breuer, T., Breuer-Ndoundou Hockemba, M., & Strindberg, S. (2021). Factors influencing density and distribution of great ape nests in the absence of human activities. International Journal of Primatology, 42(4), 640-665."
 2376,"Sunderland-Groves, J. L., Maisels, F., & Ekinde, A. (2003). Surveys of the Cross River gorilla and chimpanzee populations in Takamanda Forest Reserve, Cameroon. Takamanda: the biodiversity of an African rainforest, 8, 129-140."
 2377,"Tutin C. E. G., Fernandez M. (1984). Nationwide Census of Gorilla (Gorilla-G-Gorilla) and Chimpanzee (Pan-T-Troglodytes) Populations in Gabon. American Journal of Primatology 6: 313-336"
@@ -2390,7 +2390,7 @@
 2389,"Bermejo, M. (1999) Status and conservation of primates in Odzala National Park, Republic of the Congo. Oryx 33: 323-331"
 2390,"Brugiere & Sakom (2001) Population density and nesting behaviour of lowland gorillas (Gorilla gorilla gorilla) in the Ngotto forest, Central African Republic. J. Zool. Lond. 255:251-259"
 2391,"Kano & Asato (1994). Huntng pressure on chimpanzees and gorillas in the Motaba river area, Northeastern Congo. Afrtican Study Monographs 15:143-162"
-2392,"White & Tutin (2001) Why gorillas and chimps respond differently to logging. in Weber et al African rainforest ecology and conservation"
+2392,White & Tutin (2001) Why gorillas and chimps respond differently to logging. in Weber et al African rainforest ecology and conservation
 2393,"Dupain J., Van Krunkelsven E., Van Elsacker L., Verheyen R.F. (2001). Iyema: A New Field Site for Bonobo (Pan paniscus) Research. Folia Primatologica 72: 352"
 2394,"Kano, T. (1984) Distribution of Pygmy Chimpanzees (pan paniscus) in the central Zaire basin. Folia Primatol 43: 36-52"
 2395,"Kano, T. (1982) the social group of pygmy chimpanzees (Pan paniscus) of Wamba. Primates 23 (2): 171-188"
@@ -2398,7 +2398,7 @@
 2397,"Pruetz, J. D., Marchant, L. F., Arno, J., & McGrew, W. C. (2002). Survey of savanna chimpanzees (Pan troglodytes verus) in southeastern Senegal. American Journal of Primatology: Official Journal of the American Society of Primatologists, 58(1), 35-43."
 2398,"Granjon, A. C., Rowney, C., Vigilant, L., & Langergraber, K. E. (2017). Evaluating genetic capture‐recapture using a chimpanzee population of known size. The Journal of Wildlife Management, 81(2), 279-288."
 2399,"Carvalho, J. S., Stewart, F. A., Marques, T. A., Bonnin, N., Pintea, L., Chitayat, A., ... & Piel, A. K. Spatio‐temporal changes in chimpanzee density and abundance in the Greater Mahale Ecosystem, Tanzania. Ecological Applications, e2715."
-2400,"Ihobe (1993). The diurnal primate fauna and population density of Tschego chimpanzees in southwestern Congo. Afr Study Monographs 16: 35"
+2400,Ihobe (1993). The diurnal primate fauna and population density of Tschego chimpanzees in southwestern Congo. Afr Study Monographs 16: 35
 2401,"Cappelle, N., Després‐Einspenner, M. L., Howe, E. J., Boesch, C., & Kühl, H. S. (2019). Validating camera trap distance sampling for chimpanzees. American Journal of Primatology, 81(3), e22962."
 2402,"Terry, M. (2010). Sierra Leone National Chimpanzee Census. Sierra Leone Chimpanzee Rehabilitation Programme Report."
 2403,"Hoppe-Dominik, B. (1991). Distribution and status of chimpanzees (Pan troglodytes verus) on the Ivory Coast. Primate Report 31:45"
@@ -2428,7 +2428,7 @@
 2427,"Garriga, R. M. (2012). Camera Trap Survey in the Western Area Peninsular Forest Reserve, Sierra Leone."
 2428,"Tweh, C. G., Kouakou, C. Y., Chira, R., Freeman, B., Githaiga, J. M., Kerwillain, S., Molokwu-Odozi, M., Varney, M., Junker, J. (2018). Nest counts reveal a stable chimpanzee population in Sapo National Park, Liberia. Primate Conservation, 32, 12."
 2429,"Wessling, E. G., Dieguez, P., Llana, M., Pacheco, L., Pruetz, J. D., & Kühl, H. S. (2020). Chimpanzee (Pan troglodytes verus) density and environmental gradients at their biogeographical range edge. International Journal of Primatology, 41(6), 822-848."
-2430,"Izawa (1970) Unit groups of chimpanzees in the nomadism in the savanna woodland. Primates 11: 1-46"
+2430,Izawa (1970) Unit groups of chimpanzees in the nomadism in the savanna woodland. Primates 11: 1-46
 2431,"Devos, C., Sanz, C., Morgan, D., Onononga, J. R., Laporte, N., & Huynen, M. C. (2008). Comparing ape densities and habitats in northern Congo: surveys of sympatric gorillas and chimpanzees in the Odzala and Ndoki regions. American Journal of Primatology: Official Journal of the American Society of Primatologists, 70(5), 439-451."
 2432,"Tagg, N., & Willie, J. (2013). The influence of transect use by local people and reuse of transects for repeated surveys on nesting in Western Lowland Gorillas (Gorilla gorilla gorilla) and Central Chimpanzees (Pan troglodytes troglodytes) in Southeast Cameroon. International Journal of Primatology, 34(3), 554-570."
 2433,"Granier, N., Hambuckers, A., Matsuzawa, T., & Huynen, M. C. (2014). Density estimates and nesting‐site selection in chimpanzees of the Nimba Mountains, Côte d'Ivoire, and Guinea. American Journal of Primatology, 76(11), 999-1010."
@@ -2478,7 +2478,7 @@
 2477,"Chivers, D. J. (1984) Feeding and ranging in gibbons: a summary.  In:The lesser apes - evolutionary and behavioural biology (ed H. Preuschoft et al.), pp.267-281. Edinburgh university Press, Edinburgh."
 2478,"MacKinnon, J. (1977) A comparative ecology of Asian apes. Primates 18: 747-772"
 2479,"Nijman (2004) Conservation of the Javan gibbon Hylobates moloch: population estimates, local extinctions, and conservation priorities. Raffles Bull. Zool. 52: 271-280"
-2480,"Nijman (2004) Raffles Bull. Zool. 52: 271-280"
+2480,Nijman (2004) Raffles Bull. Zool. 52: 271-280
 2481,"Nijman, V. J. (1995) Remarks on the occurence of gibbons in Central Java. Primate Conservation 16: 66-67"
 2482,"Kool, K. M. (1992) The status of endangered primates in the Gunung Jalimun reserve, Indonesia. Oryx 26: 29-33"
 2483,"Nijman, V., & Menken, S. B. (2005). Assessment of census techniques for estimating density and biomass of gibbons (Primates: Hylobatidae). The Raffles Bulletin of Zoology, 53(1), 201-211."
@@ -2491,7 +2491,7 @@
 2490,"Norikoshi, K. (1986) Socio-ecological study of Siamangs in Maninjau, West Sumatra. Kyoto University Overseas research report of studies on Asian Non-Human Primates. 5: 29-43"
 2491,"Murphy, A. J., Farris, Z. J., Karpanty, S., Ratelolahy, F., & Kelly, M. J. (2016). Estimating encounter rates and densities of three lemur species in northeastern Madagascar. International Journal of Primatology, 37(3), 371-389."
 2492,"Sawyer, R.M., Fenosoa, Z.S.E., Andrianarimisa, A., Donati, G. (2016). The effect of habitat disturbance on the abundance of nocturnal lemur species on the Masoala Peninsula, northeastern Madagascar. Primates, 58, 187-197."
-2493,"Glessner & Britt (2005) Population density and Home range size of Indri indri in a protected low altitute rain forest. International Journal of Primatology 26 (4); 855-872"
+2493,Glessner & Britt (2005) Population density and Home range size of Indri indri in a protected low altitute rain forest. International Journal of Primatology 26 (4); 855-872
 2494,"Rakotosamimanana, B., Ralaiarison, R. R., Ralisoamalala, R. C., Rasolofoharivelo, T. M., Raharimanantsoa, V., Randrianarison, R. M., Rakotondratsimba, J.G, Rasolofoson, D.R.W.,Rakotonirainy, E.O., Randriamboavonjy, T.M., Randriamboavonjy, T. M. (2004). Comment et pourquoi les lémuriens diurnes disparaissent peu à peu dans les forêts d’Ambato et de Moramanga (région de Moramanga) Madagascar. Lemur News, 9, 19-24."
 2495,"Vargas, A.; Jimenez, I.; Paloares, F.; Palacios, M. (2002). Distribution, status and conservation needs of the golden-crowned sifaka (Propithecus tattersalli). Biological Conservation 108: 325-334"
 2496,"Rasoarimanana, J. (2005). Suivie de lémuriens diurnes dans le Parc National de Andohahela. Lemur News, 10, 27-29."
@@ -2538,7 +2538,7 @@
 2537,"Sun, Y., Chen, Y., Díaz-Sacco, J. J., & Shi, K. (2021). Assessing population structure and body condition to inform conservation strategies for a small isolated Asian elephant (Elephas maximus) population in southwest China. Plos one, 16(3), e0248210."
 2538,"Sukmantoro, W., Suyitno, A., Mulyadi, M., Gunaryadi, D., Seno, A., Kusuma, A. I., & Darwis, D. (2020). Population, distribution, and habitat of Bornean Elephant in Tulin Onsoi, Nunukan District, Indonesia based on dung counts. Biodiversitas Journal of Biological Diversity, 22(1)."
 2539,"Blanc, J.J., Barnes, R.F.W., Craig, G. C., Dublin, H.T., Thouless, C.R., Douglas-Hamilton, I. and Hart, J.A. (2007). African Elephant Status Report 2007: an update from the African Elephan Database. Occasional Paper Series of the IUCN Species Survival Commission, No. 33. IUCN/SSC African Elephant Specialist Group. IUCN, Gland, Switzerland. vi + 276 pp."
-2540,"https://africanelephantdatabase.org/"
+2540,https://africanelephantdatabase.org/
 2541,"Eltringham, S. K. (1977). The numbers and distribution of elephant Loxodonta africana in the Rwenzori National Park and Chambura Game Reserve, Uganda. African Journal of Ecology, 15(1), 19-39."
 2542,"Buss, I. O., & Savidge, J. M. (1966). Change in population number and reproductive rate of elephants in Uganda. The Journal of Wildlife Management, 791-809."
 2543,"Field, C. R. (1971). Elephant ecology in the Queen Elizabeth National Park, Uganda. African Journal of Ecology, 9(1), 99-123."
@@ -2586,7 +2586,7 @@
 2585,"Castañeda, I., Pisanu, B., Díaz, M., Rézouki, C., Baudry, E., Chapuis, J. L., & Bonnaud, E. (2018). Minimising trapping effort without affecting population density estimations for small mammals. Mammalian Biology, 93, 144-152."
 2586,"Mermod, C. (1969). Ecologie et dynamique des populations de trois rongeurs sylvicoles. Mammalia, 33(1), 1-57."
 2587,"Andreassen, H. P., Johnsen, K., Joncour, B., Neby, M., & Odden, M. (2019). Seasonality shapes the amplitude of vole population dynamics rather than generalist predators. Oikos, 129(1), 117-123."
-2588,"Sozio G. (2014). Mechanisms of species persistence in fragmented landscapes: a demographic field study on four rodent species. PhD thesis. Università di roma “la Sapienza”"
+2588,Sozio G. (2014). Mechanisms of species persistence in fragmented landscapes: a demographic field study on four rodent species. PhD thesis. Università di roma “la Sapienza”
 2589,"Villette, P., Krebs, C. J., Jung, T. S., & Boonstra, R. (2015). Can camera trapping provide accurate estimates of small mammal (Myodes rutilus and Peromyscus maniculatus) density in the boreal forest?. Journal of Mammalogy, 97(1), 32-40."
 2590,"Novikov, E., & Moshkin, M. (1998). Sexual maturation, adrenocortical function and population density of red-backed vole, Clethrionomys rutilus (Pall.). Mammalia, 62(4), 529-540."
 2591,"Rogovin, K.,  Shenbrot, G., Surov, A. (1991). Analysis of Spatial-Organization of a Desert Rodent Community in Bolson De Mapimi, Mexico. Journal of Mammalogy 72(2): 347-359"
@@ -2692,7 +2692,7 @@
 2691,"Swihart, R. K. (1992). Home-range attributes and spatial structure of woodchuck populations. Journal of Mammalogy, 73(3), 604-618."
 2692,"Townsend, S. E. (2009). Estimating Siberian marmot (Marmota sibirica) densities in the Eastern Steppe of Mongolia. Ethology Ecology & Evolution, 21(3-4), 325-338."
 2693,"Viljoen, S. (1986). Use of Space in Southern African Tree Squirrels. Mammalia 50(3): 293-309"
-2694,"Jathanna et al. (2008). Measuring Indian giant squirrel (Ratufa indica) abundance in southern India using distance sampling. Current science 95(7): 885-889"
+2694,Jathanna et al. (2008). Measuring Indian giant squirrel (Ratufa indica) abundance in southern India using distance sampling. Current science 95(7): 885-889
 2695,"Gurjar, R. L., Kumbhar, A. S., Jena, J., Yogesh, J. K., Dave, C., Singh, R. P., & Mitra, A. (2013). Population density of Indian giant squirrel Ratufa indica centralis (Ryley, 1913) in Satpura National Park, Madhya Pradesh, India. Journal of Research in Biology, 3, 1086-1092."
 2696,"Baskaran, N., Venkatesan, S., Mani, J., Srivastava, S. K., & Desai, A. A. (2011). Some aspects of the ecology of the Indian Giant Squirrel Ratufa indica (Erxleben, 1777) in the tropical forests of Mudumalai Wildlife Sanctuary, southern India and their conservation implications. Journal of Threatened Taxa, 3(7), 1899-1908."
 2697,"Rathod, G., Bharucha, E., & Yardi, K. (2022). Population density and nesting behaviour of Indian Giant Squirrel Ratufa indica (Erxlebeln, 1777) in Bhimashankar Wildlife Sanctuary, Western Ghats of Maharashtra, India. Journal of Threatened Taxa, 14(9), 21786-21796."
@@ -2707,7 +2707,7 @@
 2706,"Wauters, L. A., & Dhondt, A. A. (1988). The use of red squirrel Sciurus vulgaris dreys to estimate population density. Journal of Zoology, 214(1), 179-187."
 2707,"Cagnin, M., Aloise, G., Fiore, F., Oriolo, V., & Wauters, L. A. (2000). Habitat use and population density of the red squirrel, Sciurus vulgaris meridionalis, in the Sila Grande mountain range (Calabria, South Italy). Italian Journal of Zoology, 67(1), 81-87."
 2708,"Moller, H. (1986). Red Squirrels (Sciurus-Vulgaris) Feeding in a Scots Pine Plantation in Scotland. Journal of Zoology 209: 61-83"
-2709,"Trombulak S. C. (1985). The Influence of Interspecific Competition on Home Range Size in Chipmunks (Eutamias). Journal of Mammalogy 66(2): 329-337"
+2709,Trombulak S. C. (1985). The Influence of Interspecific Competition on Home Range Size in Chipmunks (Eutamias). Journal of Mammalogy 66(2): 329-337
 2710,"Steele, M. A. (1999). Tamiasciurus douglasii. Mammalian Species 630: 1-8"
 2711,"Lane, J. et al. (2018). Phenological shifts in North American red squirrels: disentangling the roles of phenotypic plasticity and microevolution. Journal of evolutionary biology, 31(6), 810-821."
 2712,"Tamian, A., Viblanc, V. A., Dobson, F. S., & Saraux, C. (2024). Population density and vegetation resources influence demography in a hibernating herbivorous mammal. Oecologia, 205(3), 497-513."
@@ -2717,18 +2717,19 @@
 2716,"Nevo, E., Heth, G., & Beiles, A. (1982). Population structure and evolution in subterranean mole rats. Evolution, 1283-1289."
 2717,"Andreychev, A. V., & Lapshin, A. S. (2020). Density and distribution of the greater mole rat (Spalax microphthalmus) on the northern border of the area in a region of European Russia. Ecological Questions, 32(2), 1-17."
 2718,"Langham, N. P. E. (1982). The Ecology of the Common Tree Shrew, Tupaia-Glis in Peninsular Malaysia. Journal of Zoology 197: 323-344"
-2719,"Preen. A.. & Marsh. H. (1995). Response of dugongs to large-scale loss of seagrass from Hervey Bay. Queensland Australia. Wildlife Research. 22(4). 507-519."
+2719,Preen. A.. & Marsh. H. (1995). Response of dugongs to large-scale loss of seagrass from Hervey Bay. Queensland Australia. Wildlife Research. 22(4). 507-519.
 2720,"Yamato, C., Ichikawa, K., Kittiwattanawong, K., & Arai, N. (2024). Local Variation in Feeding Ground Utilization of Dugongs (Dugong dugon) Across Two Intertidal Seagrass Beds in Talibong Island, Thailand. Aquatic Mammals, 50(3)."
-2721,"Lanyon. J. M. (2003). Distribution and abundance of dugongs in Moreton Bay. Queensland. Australia. Wildlife Research. 30(4). 397-409."
-2722,"Marsh. H.. Harris. A. N. M.. & Lawler. I. R. (1997). The sustainability of the indigenous dugong fishery in Torres Strait. Australia/Papua New Guinea. Conservation Biology. 11(6). 1375-1386."
-2723,"Gales. N.. McCauley. R. D.. Lanyon. J.. & Holley. D. (2004). Change in abundance of dugongs in Shark Bay. Ningaloo and Exmouth Gulf. Western Australia: evidence for large-scale migration. Wildlife Research. 31(3). 283-290."
-2724,"Marsh. H.. Prince. R. I. T.. Saafeld. W. K.. & Shepherd. R. (1994). The distribution and abundance of the dugong in Shark Bay. Western Australia. Wildlife Research. 21(2). 149-161."
-2725,"Gales. N.. McCauley. R. D.. Lanyon. J.. & Holley. D. (2004). Change in abundance of dugongs in Shark Bay. Ningaloo and Exmouth Gulf. Western Australia: evidence for large-scale migration. Wildlife Research. 31(3). 283-290."
-2726,"Marsh. H.. & Lawler. I. R. (2002). Dugong distribution and abundance in the northern Great Barrier Reef Marine Park-November 2000."
-2727,"Bayliss. P.. & Freeland. W. J. (1989). Seasonal distribution and abundance of dugongs in the western-Gulf-of-Carpentaria. Wildlife Research. 16(2). 141-149."
-2728,"Anderson. P. K. (1998). Shark Bay dugongs (Dugong dugon) in summer. II: Foragers in a Halodule-dominated community."
-2729,"Preen. A. (2004). Distribution. abundance and conservation status of dugongs and dolphins in the southern and western Arabian Gulf. Biological Conservation. 118(2). 205-218."
-2730,"Marsh. H.. Harris. A. N. M.. & Lawler. I. R. (1997). The sustainability of the indigenous dugong fishery in Torres Strait. Australia/Papua New Guinea. Conservation Biology. 11(6). 1375-1386."
-2731,"Ruano. V. N.. Utreras. V.. & Zapata-Ríos. G. (2021). Occupancy and population density estimates of the Amazonian manatee in eastern Ecuador. Endangered Species Research. 44. 105-112."
-2732,"Puc-Carrasco. G.. Morales-Vela. B.. Olivera-Gómez. L. D.. & González-Solís. D. (2017). First field-based estimate of Antillean manatee abundance in the San Pedro River system suggests large errors in current estimates for Mexico. Ciencias marinas. 43(4). 285-299."
-2733,"Martin. J.. Edwards. H. H.. Fonnesbeck. C. J.. Koslovsky. S. M.. Harmak. C. W.. & Dane. T. M. (2015). Combining information for monitoring at large spatial scales: first statewide abundance estimate of the Florida manatee. Biological Conservation. 186. 44-51."
+2721,Lanyon. J. M. (2003). Distribution and abundance of dugongs in Moreton Bay. Queensland. Australia. Wildlife Research. 30(4). 397-409.
+2722,Marsh. H.. Harris. A. N. M.. & Lawler. I. R. (1997). The sustainability of the indigenous dugong fishery in Torres Strait. Australia/Papua New Guinea. Conservation Biology. 11(6). 1375-1386.
+2723,Gales. N.. McCauley. R. D.. Lanyon. J.. & Holley. D. (2004). Change in abundance of dugongs in Shark Bay. Ningaloo and Exmouth Gulf. Western Australia: evidence for large-scale migration. Wildlife Research. 31(3). 283-290.
+2724,Marsh. H.. Prince. R. I. T.. Saafeld. W. K.. & Shepherd. R. (1994). The distribution and abundance of the dugong in Shark Bay. Western Australia. Wildlife Research. 21(2). 149-161.
+2725,Gales. N.. McCauley. R. D.. Lanyon. J.. & Holley. D. (2004). Change in abundance of dugongs in Shark Bay. Ningaloo and Exmouth Gulf. Western Australia: evidence for large-scale migration. Wildlife Research. 31(3). 283-290.
+2726,Marsh. H.. & Lawler. I. R. (2002). Dugong distribution and abundance in the northern Great Barrier Reef Marine Park-November 2000.
+2727,Bayliss. P.. & Freeland. W. J. (1989). Seasonal distribution and abundance of dugongs in the western-Gulf-of-Carpentaria. Wildlife Research. 16(2). 141-149.
+2728,Anderson. P. K. (1998). Shark Bay dugongs (Dugong dugon) in summer. II: Foragers in a Halodule-dominated community.
+2729,Preen. A. (2004). Distribution. abundance and conservation status of dugongs and dolphins in the southern and western Arabian Gulf. Biological Conservation. 118(2). 205-218.
+2730,Marsh. H.. Harris. A. N. M.. & Lawler. I. R. (1997). The sustainability of the indigenous dugong fishery in Torres Strait. Australia/Papua New Guinea. Conservation Biology. 11(6). 1375-1386.
+2731,Ruano. V. N.. Utreras. V.. & Zapata-Ríos. G. (2021). Occupancy and population density estimates of the Amazonian manatee in eastern Ecuador. Endangered Species Research. 44. 105-112.
+2732,Puc-Carrasco. G.. Morales-Vela. B.. Olivera-Gómez. L. D.. & González-Solís. D. (2017). First field-based estimate of Antillean manatee abundance in the San Pedro River system suggests large errors in current estimates for Mexico. Ciencias marinas. 43(4). 285-299.
+2733,Martin. J.. Edwards. H. H.. Fonnesbeck. C. J.. Koslovsky. S. M.. Harmak. C. W.. & Dane. T. M. (2015). Combining information for monitoring at large spatial scales: first statewide abundance estimate of the Florida manatee. Biological Conservation. 186. 44-51.
+2734,"Zampetti, A., Mirante, D., Palencia, P., & Santini, L. (2024). Towards an automated protocol for wildlife density estimation using camera-traps. Methods in Ecology and Evolution, 15(12), 2276�2288. https://doi.org/10.1111/2041-210X.14450"
