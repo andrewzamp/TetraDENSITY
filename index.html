@@ -191,6 +191,16 @@
       display: flex;
       animation: filter-pop .2s ease;
     }
+    #filter-loading-queue {
+      display: none;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 20%, transparent);
+      color: var(--accent);
+      font-size: .74rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
     .filter-spinner {
       width: 16px; height: 16px; border-radius: 50%;
       border: 2.5px solid var(--border); border-top-color: var(--accent);
@@ -608,6 +618,7 @@
       <div id="filter-loading" aria-live="polite" aria-atomic="true">
         <span class="filter-spinner" aria-hidden="true"></span>
         <span id="filter-loading-text">Applying filters…</span>
+        <span id="filter-loading-queue" aria-hidden="true"></span>
       </div>
 
       <div class="record-count">
@@ -841,14 +852,23 @@ function setProgress(pct, msg) {
 }
 function setFilterLoading(isLoading, queuedCount = 0) {
   document.getElementById('filter-loading').classList.toggle('active', isLoading);
-  document.getElementById('filter-loading-text').textContent = queuedCount > 0
-    ? `Applying filters… (${queuedCount} queued)`
-    : 'Applying filters…';
+  document.getElementById('filter-loading-text').textContent = 'Applying filters…';
+  const queueEl = document.getElementById('filter-loading-queue');
+  if (queuedCount > 0) {
+    queueEl.textContent = `${queuedCount} queued`;
+    queueEl.style.display = 'inline-flex';
+  } else {
+    queueEl.style.display = 'none';
+    queueEl.textContent = '';
+  }
+}
+function getQueuedCountForDisplay(isRunning) {
+  return isRunning ? filterUpdateQueue.length : Math.max(filterUpdateQueue.length - 1, 0);
 }
 function runFilterUpdate(beforeApply) {
   filterUpdateQueue.push(beforeApply || null);
   if (isFilterUpdateRunning) {
-    setFilterLoading(true, filterUpdateQueue.length);
+    setFilterLoading(true, getQueuedCountForDisplay(true));
     return;
   }
   processNextFilterUpdate();
@@ -860,7 +880,7 @@ function processNextFilterUpdate() {
     return;
   }
   isFilterUpdateRunning = true;
-  setFilterLoading(true, Math.max(filterUpdateQueue.length - 1, 0));
+  setFilterLoading(true, getQueuedCountForDisplay(false));
   const beforeApply = filterUpdateQueue.shift();
   requestAnimationFrame(() => {
     setTimeout(() => {
