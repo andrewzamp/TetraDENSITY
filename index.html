@@ -241,6 +241,11 @@
       padding: 10px 14px; background: var(--bg3); border: 1px solid var(--border);
       border-radius: var(--radius); font-size: .82rem; line-height: 1.55; color: var(--text);
     }
+    .whos-ref-item a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     #sidebar-toggle {
       background: none; border: 1px solid var(--border); color: var(--muted);
       cursor: pointer; border-radius: 6px; padding: 4px 8px; font-size: 1rem; display: none;
@@ -960,6 +965,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script>
 /* ================================================================
@@ -1891,6 +1897,19 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+function renderReferenceMarkdown(text) {
+  if (typeof marked === 'undefined') return escHtml(text || '');
+  const safeText = escHtml(text || '');
+  const html = marked.parseInline(safeText, { gfm: true, breaks: false });
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = html;
+  wrapper.querySelectorAll('a').forEach(a => {
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+  });
+  return wrapper.innerHTML;
+}
+
 function renderPagination(totalRows, totalPages) {
   const t = state.table;
   const pg = document.getElementById('pagination');
@@ -2334,12 +2353,12 @@ function initHeaderButtons() {
       fetch('assets/TetraDENSITY_research.md')
         .then(r => r.text())
         .then(text => {
-          const refs = text.split('\n').map(l => l.trim()).filter(Boolean);
+          const refs = text.split(/\r?\n\r?\n+/).map(l => l.trim()).filter(Boolean);
           whosList.innerHTML = '';
           refs.forEach(ref => {
             const div = document.createElement('div');
             div.className = 'whos-ref-item';
-            div.textContent = ref;
+            div.innerHTML = renderReferenceMarkdown(ref);
             whosList.appendChild(div);
           });
         })
