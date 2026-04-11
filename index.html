@@ -179,15 +179,24 @@
     }
     #reset-btn:hover { border-color: var(--accent); color: var(--accent); }
     #filter-loading {
-      display: none; align-items: center; justify-content: center; gap: 8px;
-      color: var(--muted); font-size: .78rem; padding-top: 2px;
+      display: none; align-items: center; gap: 10px;
+      position: fixed; right: 16px; bottom: 16px; z-index: 1600;
+      color: var(--text); font-size: .82rem; font-weight: 600;
+      padding: 10px 14px; border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: color-mix(in srgb, var(--bg2) 88%, var(--accent) 12%);
+      box-shadow: 0 8px 28px rgba(0,0,0,.55);
     }
-    #filter-loading.active { display: flex; }
+    #filter-loading.active {
+      display: flex;
+      animation: filter-pop .2s ease;
+    }
     .filter-spinner {
-      width: 12px; height: 12px; border-radius: 50%;
-      border: 2px solid var(--border); border-top-color: var(--accent);
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2.5px solid var(--border); border-top-color: var(--accent);
       animation: filter-spin .8s linear infinite;
     }
+    @keyframes filter-pop { from { transform: scale(.96); opacity: .4; } to { transform: scale(1); opacity: 1; } }
     @keyframes filter-spin { to { transform: rotate(360deg); } }
     .record-count { text-align: center; color: var(--muted); font-size: .78rem; padding-top: 4px; }
     .record-count strong { color: var(--text); font-size: 1.1rem; display: block; }
@@ -549,10 +558,10 @@
       <div class="filter-group">
         <label>Class</label>
         <div class="class-checks">
-          <label class="check-label amphibia"><input type="checkbox" data-class="Amphibia" /><span class="check-box"></span>Amphibia</label>
-          <label class="check-label aves">    <input type="checkbox" data-class="Aves"     /><span class="check-box"></span>Aves</label>
+          <label class="check-label amphibia"><input type="checkbox" data-class="Amphibia" checked /><span class="check-box"></span>Amphibia</label>
+          <label class="check-label aves">    <input type="checkbox" data-class="Aves" checked /><span class="check-box"></span>Aves</label>
           <label class="check-label mammalia"><input type="checkbox" data-class="Mammalia" checked /><span class="check-box"></span>Mammalia</label>
-          <label class="check-label reptilia"><input type="checkbox" data-class="Reptilia" /><span class="check-box"></span>Reptilia</label>
+          <label class="check-label reptilia"><input type="checkbox" data-class="Reptilia" checked /><span class="check-box"></span>Reptilia</label>
         </div>
       </div>
 
@@ -598,7 +607,7 @@
       <button id="reset-btn">Reset all filters</button>
       <div id="filter-loading" aria-live="polite" aria-atomic="true">
         <span class="filter-spinner" aria-hidden="true"></span>
-        <span>Applying filters…</span>
+        <span id="filter-loading-text">Applying filters…</span>
       </div>
 
       <div class="record-count">
@@ -755,7 +764,7 @@ const state = {
   refTextMap:   new Map(),   // Ref_N → lowercase reference text, built once after refs load
   filters: {
     search:  '',
-    classes: new Set(['Mammalia']),
+    classes: new Set(['Amphibia', 'Aves', 'Mammalia', 'Reptilia']),
     order:   '',
     family:  '',
     country: '',
@@ -822,27 +831,47 @@ function safeParseFloat(v) { const n = parseFloat(v); return isNaN(n) ? null : n
 function debounce(fn, ms) {
   let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
-let filterRunToken = 0;
+const filterUpdateQueue = [];
+let isFilterUpdateRunning = false;
 
 // ── Loading helpers ──────────────────────────────────────────────────
 function setProgress(pct, msg) {
   document.getElementById('progress-fill').style.width = pct + '%';
   if (msg) document.getElementById('load-status').textContent = msg;
 }
-function setFilterLoading(isLoading) {
+function setFilterLoading(isLoading, queuedCount = 0) {
   document.getElementById('filter-loading').classList.toggle('active', isLoading);
+  document.getElementById('filter-loading-text').textContent = queuedCount > 0
+    ? `Applying filters… (${queuedCount} queued)`
+    : 'Applying filters…';
 }
 function runFilterUpdate(beforeApply) {
-  const token = ++filterRunToken;
-  setFilterLoading(true);
+  filterUpdateQueue.push(beforeApply || null);
+  if (isFilterUpdateRunning) {
+    setFilterLoading(true, filterUpdateQueue.length);
+    return;
+  }
+  processNextFilterUpdate();
+}
+function processNextFilterUpdate() {
+  if (!filterUpdateQueue.length) {
+    isFilterUpdateRunning = false;
+    setFilterLoading(false);
+    return;
+  }
+  isFilterUpdateRunning = true;
+  setFilterLoading(true, Math.max(filterUpdateQueue.length - 1, 0));
+  const beforeApply = filterUpdateQueue.shift();
   requestAnimationFrame(() => {
     setTimeout(() => {
-      if (token !== filterRunToken) return;
       try {
         if (beforeApply) beforeApply();
         applyFilters();
       } finally {
-        if (token === filterRunToken) setFilterLoading(false);
+        setTimeout(() => {
+          isFilterUpdateRunning = false;
+          processNextFilterUpdate();
+        }, 0);
       }
     }, 0);
   });
@@ -1767,11 +1796,6 @@ function bindEvents() {
   document.querySelectorAll('input[type=checkbox][data-class]').forEach(cb => {
     cb.addEventListener('change', () => {
       const cls = cb.dataset.class;
-      if (!cb.checked && state.filters.classes.size <= 1) {
-        // Prevent unchecking the last active class – revert the checkbox
-        cb.checked = true;
-        return;
-      }
       if (cb.checked) {
         state.filters.classes.add(cls);
       } else {
@@ -1889,7 +1913,7 @@ function bindEvents() {
   // Reset
   document.getElementById('reset-btn').addEventListener('click', () => {
     state.filters.search  = '';
-    state.filters.classes = new Set(['Mammalia']);
+    state.filters.classes = new Set(['Amphibia', 'Aves', 'Mammalia', 'Reptilia']);
     state.filters.order   = '';
     state.filters.family  = '';
     state.filters.country = '';
@@ -1899,7 +1923,7 @@ function bindEvents() {
     document.getElementById('f-method').value  = '';
     document.getElementById('table-search').value = '';
     document.querySelectorAll('input[type=checkbox][data-class]').forEach(cb => {
-      cb.checked = cb.dataset.class === 'Mammalia';
+      cb.checked = true;
     });
     updateHierarchicalDropdowns();
     // Reset year to full range
