@@ -1989,7 +1989,7 @@ function bindEvents() {
     const changedMax = updateYearFilterIfChanged('yearMax', nextMax);
     const hasChanges = changedMin || changedMax;
     if (hasChanges) runFilterUpdate();
-  }, 1000);
+  }, 2000);
   document.getElementById('f-year-min').addEventListener('input', applyYear);
   document.getElementById('f-year-max').addEventListener('input', applyYear);
 
