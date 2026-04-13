@@ -1307,14 +1307,14 @@ function buildFilterOptions() {
 
   if (years.length) {
     const mn = Math.min(...years), mx = Math.max(...years);
-    document.getElementById('f-year-min').value = mn;
-    document.getElementById('f-year-max').value = mx;
+    document.getElementById('f-year-min').value = '';
+    document.getElementById('f-year-max').value = '';
     document.getElementById('f-year-min').min = mn;
     document.getElementById('f-year-min').max = mx;
     document.getElementById('f-year-max').min = mn;
     document.getElementById('f-year-max').max = mx;
-    state.filters.yearMin = mn;
-    state.filters.yearMax = mx;
+    state.filters.yearMin = null;
+    state.filters.yearMax = null;
   }
 }
 
@@ -1414,8 +1414,12 @@ function rowMatchesStructuredFilters(r, includeNewEntries = false) {
   if (f.method && r.Method !== f.method) return false;
   // Year
   const y = parseInt(r.Year);
-  if (f.yearMin && !isNaN(y) && y < f.yearMin) return false;
-  if (f.yearMax && !isNaN(y) && y > f.yearMax) return false;
+  // If year filters are active, exclude rows with NA (NaN) and out-of-range years
+  if (f.yearMin || f.yearMax) {
+    if (isNaN(y)) return false; // Exclude NA values when any year filter is active
+    if (f.yearMin && y < f.yearMin) return false;
+    if (f.yearMax && y > f.yearMax) return false;
+  }
   return true;
 }
 
@@ -2379,13 +2383,13 @@ function bindEvents() {
       cb.checked = true;
     });
     updateHierarchicalDropdowns();
-    // Reset year to full range
+    // Reset year to not set
     const yminEl = document.getElementById('f-year-min');
     const ymaxEl = document.getElementById('f-year-max');
-    state.filters.yearMin = parseInt(yminEl.min) || null;
-    state.filters.yearMax = parseInt(ymaxEl.max) || null;
-    yminEl.value = yminEl.min;
-    ymaxEl.value = ymaxEl.max;
+    state.filters.yearMin = null;
+    state.filters.yearMax = null;
+    yminEl.value = '';
+    ymaxEl.value = '';
     runFilterUpdate();
   });
 }
