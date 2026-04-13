@@ -213,8 +213,8 @@ body:
       label: Native
       description: Whether the species is native to the site.
       options:
-        - TRUE
-        - FALSE
+        - "TRUE"
+        - "FALSE"
         - NA / unknown
     validations:
       required: false
