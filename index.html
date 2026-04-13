@@ -149,7 +149,8 @@
       display: flex; align-items: center; padding: 0 20px; gap: 16px; flex-shrink: 0;
       position: relative; z-index: 1300;
     }
-    header .brand { font-weight: 800; font-size: 1.35rem; color: var(--accent); letter-spacing: -.5px; white-space: nowrap; }
+    header .brand { display: flex; align-items: center; white-space: nowrap; }
+    header .brand img { height: 52px; width: auto; display: block; }
     header .tagline { color: var(--muted); font-size: .93rem; flex: 1; }
     header .gh-link {
       color: var(--text); text-decoration: none; font-size: .8rem;
@@ -699,7 +700,7 @@
 <div id="app">
   <header>
     <button id="sidebar-toggle" title="Toggle filters">☰</button>
-    <div class="brand">TetraDENSITY 2.0</div>
+    <div class="brand"><img id="brand-logo" data-logo-base="assets/TetraDENSITY_logo" alt="TetraDENSITY" /></div>
     <div class="tagline">Global Database of Tetrapod Population Density Estimates</div>
     <button id="header-actions-toggle" class="gh-link hdr-info-btn" aria-label="Open info menu" aria-expanded="false">i</button>
     <div id="header-actions">
@@ -1057,6 +1058,31 @@ function fmt(n) {
   if (n === null || n === undefined) return '–';
   if (typeof n === 'number') return n.toLocaleString();
   return n;
+}
+
+function initBrandLogo() {
+  const logo = document.getElementById('brand-logo');
+  if (!logo) return;
+
+  const basePath = logo.dataset.logoBase || 'assets/TetraDENSITY_logo';
+  const formats = ['jpeg', 'jpg', 'png', 'webp', 'svg', 'avif'];
+  let idx = 0;
+
+  const setLogoSrc = i => {
+    logo.src = `${basePath}.${formats[i]}`;
+  };
+
+  const tryNextFormat = () => {
+    idx += 1;
+    if (idx >= formats.length) {
+      logo.removeEventListener('error', tryNextFormat);
+      return;
+    }
+    setLogoSrc(idx);
+  };
+
+  logo.addEventListener('error', tryNextFormat);
+  setLogoSrc(idx);
 }
 function safeParseFloat(v) { const n = parseFloat(v); return isNaN(n) ? null : n; }
 function isNewEntryRow(r) {
@@ -2454,6 +2480,7 @@ function initHeaderButtons() {
 }
 
 initHeaderButtons();
+initBrandLogo();
 
 // ── Start ──────────────────────────────────────────────────────────
 loadData();
