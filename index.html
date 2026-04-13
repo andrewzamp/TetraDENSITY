@@ -977,6 +977,7 @@ const state = {
   allRows:      [],
   refRows:      [],
   filteredRows: [],
+  refLookupMap: new Map(),   // Ref_N → full reference string
   refTextMap:   new Map(),   // Ref_N → lowercase reference text, built once after refs load
   filters: {
     search:  '',
@@ -1051,6 +1052,10 @@ function safeParseFloat(v) { const n = parseFloat(v); return isNaN(n) ? null : n
 function isNewEntryRow(r) {
   return String((r && r.New_Entry) || '').trim().toUpperCase() === 'TRUE';
 }
+function getReferenceString(refN) {
+  const key = String(refN || '').trim();
+  return key ? (state.refLookupMap.get(key) || '') : '';
+}
 function debounce(fn, ms) {
   let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
@@ -1120,9 +1125,14 @@ function loadData() {
     complete(result) {
       console.log('References loaded:', result.data.length, 'rows');
       state.refRows = result.data;
+      state.refLookupMap.clear();
       // Build reference text lookup once for fast author/title search in applyFilters()
       for (const ref of state.refRows) {
-        if (ref.Ref_N) state.refTextMap.set(ref.Ref_N, (ref.Reference || '').toLowerCase());
+        if (ref.Ref_N) {
+          const refKey = String(ref.Ref_N).trim();
+          state.refLookupMap.set(refKey, ref.Reference || '');
+          state.refTextMap.set(refKey, (ref.Reference || '').toLowerCase());
+        }
       }
       renderRefs();
     },
@@ -1498,6 +1508,7 @@ function updateMap() {
 function showMapInfoPanel(r, latlng) {
   closeMapInfoPanel();
   const isNewEntry = isNewEntryRow(r);
+  const reference = isNewEntry ? getReferenceString(r.Ref_N) : '';
 
   const species = r.Species_COL || 'Unknown';
   const taxon   = [r.Class, r.Order, r.Family].filter(Boolean).join(' · ');
@@ -1538,6 +1549,13 @@ function showMapInfoPanel(r, latlng) {
           </div>
         `).join('')}
       </div>
+
+      ${isNewEntry && reference
+        ? `<div style="margin-top:10px;padding:8px 10px;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:.78rem;line-height:1.4">
+             <div style="color:var(--muted);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px">Reference</div>
+             <div style="word-break:break-word;white-space:normal">${escHtml(reference)}</div>
+           </div>`
+        : ''}
 
       ${isNewEntry
         ? `<div style="margin-top:10px;padding:8px 10px;border-radius:var(--radius);border:1px solid var(--accent2);background:color-mix(in srgb, var(--bg3) 86%, var(--accent2) 14%);color:var(--text);font-size:.78rem;line-height:1.4">
