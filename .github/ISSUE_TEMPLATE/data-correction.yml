@@ -32,7 +32,7 @@ body:
   - type: input
     id: reference_id
     attributes:
-      label: Reference ID / Ref_N (if known)
+      label: Ref_N (See "Table/References" in app or CSV)
       placeholder: e.g., 1254
     validations:
       required: false
@@ -46,19 +46,10 @@ body:
       required: false
 
   - type: textarea
-    id: record_context
-    attributes:
-      label: Record context
-      description: Share enough context to locate the exact row(s) in app/CSV.
-      placeholder: Mention class/order/family/year/method or any unique combination.
-    validations:
-      required: true
-
-  - type: textarea
     id: current_value
     attributes:
       label: Current value in database
-      placeholder: Which field/value is currently wrong?
+      placeholder: Which field/value is currently wrong? Describe the error and where it appears in the database (e.g., "Coordinates for Ref_N 1254 are flipped, and the record falls in the sea").
     validations:
       required: true
 
@@ -78,11 +69,3 @@ body:
       placeholder: DOI/link + exact supporting excerpt or dataset reference.
     validations:
       required: true
-
-  - type: textarea
-    id: extra_notes
-    attributes:
-      label: Additional notes
-      placeholder: Any caveats, unit conversions, or related records.
-    validations:
-      required: false
