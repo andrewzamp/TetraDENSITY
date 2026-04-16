@@ -831,7 +831,25 @@
          </ul>
         </div>
       </div>
-      <a class="gh-link" href="https://github.com/andrewzamp/TetraDENSITY" target="_blank" rel="noopener">Learn more</a>
+      <div class="hdr-btn-wrap">
+        <button class="gh-link" id="btn-learn-more-about-us">Learn more about us</button>
+        <div class="hdr-dropdown" id="drop-learn-more-about-us">
+          <strong>WHO WE ARE</strong>
+          <ul style="margin:.5rem 0 0;padding-left:1.1rem;">
+            <li style="margin:.35rem 0;">
+              <a href="https://ecaslab.com/people/" target="_blank" rel="noopener">Luca Santini</a>: creator and mantainer of TetraDENSITY
+            </li>
+            <li style="margin:.35rem 0;">
+              <a href="https://andrewzamp.github.io/" target="_blank" rel="noopener">Andrea Zampetti</a>: collaborator, and developer of web-app
+            </li>
+          </ul>
+          <div style="margin-top:.5rem;line-height:1.45;">
+            Learn more about us <a href="https://ecaslab.com/" target="_blank" rel="noopener">our website</a>, 
+            and on the official
+            <a href="https://github.com/andrewzamp/TetraDENSITY" target="_blank" rel="noopener">GitHub page</a>!
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   <div id="sidebar-overlay" aria-hidden="true"></div>
@@ -2507,6 +2525,7 @@ function initHeaderButtons() {
     'btn-what':  'drop-what',
     'btn-cite':  'drop-cite',
     'btn-report-error': 'drop-report-error',
+    'btn-learn-more-about-us': 'drop-learn-more-about-us',
   };
   const headerActionsMenu = document.getElementById('header-actions');
   const headerActionsMenuToggle = document.getElementById('header-actions-toggle');
