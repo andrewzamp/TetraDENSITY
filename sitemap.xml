@@ -7,13 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://andrewzamp.github.io/TetraDENSITY/data/TetraDENSITY_v2.3_Database.csv</loc>
+    <loc>https://andrewzamp.github.io/TetraDENSITY/data/TetraDENSITY_v2.4_Database.csv</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://andrewzamp.github.io/TetraDENSITY/data/TetraDENSITY_v2.3_References.csv</loc>
+    <loc>https://andrewzamp.github.io/TetraDENSITY/data/TetraDENSITY_v2.4_References.csv</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
